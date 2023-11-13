@@ -18,6 +18,7 @@ dependencies:
     - python-graphviz
     - lightgbm
     - altair=5.1.2
+    - altair_viewer
     - vl-convert-python  # For saving altair charts as static images
     - vegafusion  # For working with charts > 5,000 graphical objects
     - vegafusion-python-embed  # Same as the previous one
@@ -30,3 +31,4 @@ dependencies:
         - mglearn
         - graphviz
         - psutil>=5.7.2
+        - ucimlrepo
