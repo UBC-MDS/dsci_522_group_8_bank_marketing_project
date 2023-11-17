@@ -22,6 +22,7 @@ NOTE: you may not edit an .md file under main. To prevent this from accidentally
 ### Coding Style
 * Every member is expected to write a clear, concise, yet descriptive commit message. The message should explain what problem it is solving, or object it is creating/modifying.
 * All new code must adhere to the PEP 8 style guide. Here's more: https://peps.python.org/pep-0008/
+* Consistency is important! Members are expected to ensure homegeneity of style, formatting, and naming conventions.
   
 These guidelines commit messages very well: https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
 
