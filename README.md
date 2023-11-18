@@ -30,7 +30,21 @@ The report can be found at [`bank_analysis.ipynb`](bank_analysis.ipynb)
 
 ### Usage
 
-To replicate this analysis: 1. Clone this repository (`git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project`) 2. Install all required dependencies and activate the project virtual environemnt 3. Access datasets, scripts, and reports by running `make all` in the CLI from the root directory of this project.
+To replicate this analysis: 
+Clone this repository: 
+```
+git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
+```
+Install all required dependencies and activate the project virtual environemnt by running the command from the root directory:
+```
+conda env create --file environment.yml
+```
+To run the analysis, run the following from the root of this repository:
+```
+conda activate bank_marketing_analyis
+jupyter lab 
+```
+Open `bank_analysis.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
 
 ### Dependencies
 
