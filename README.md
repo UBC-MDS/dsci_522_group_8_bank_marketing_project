@@ -20,7 +20,7 @@ XXXXXXXXXXXXXXXXXX
 
 ### Report
 
-The report can be found at XXXXXXXXXXXXXXXXXX
+The report can be found at [`bank_analysis.ipynb`](bank_analysis.ipynb)
 
 ### Suggested Improvements
 
