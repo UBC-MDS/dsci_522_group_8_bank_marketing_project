@@ -14,9 +14,6 @@ The exploratory data analysis (EDA) employs visualizations to unravel the intric
 
 The report's discoveries are important for banks to grasp and forecast how customers make decisions about term deposits. Understanding this helps fine-tune marketing strategies for future campaigns. We view these insights as a starting point for further research, potentially employing advanced models and more data to explore patterns and other factors that influence customer choices.
 
-### Key Insights
-
-XXXXXXXXXXXXXXXXXX
 
 ### Report
 
