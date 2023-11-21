@@ -1,4 +1,4 @@
-# Install the course conda environment with the following command:
+# Reference: UBC MDS DSCI_573
 # conda env create -f environment.yaml
 
 name: 'bank_marketing_analysis'
@@ -19,11 +19,11 @@ dependencies:
     - lightgbm
     - altair=5.1.2
     - altair_viewer
-    - vl-convert-python  # For saving altair charts as static images
-    - vegafusion=1.4.3  # For working with charts > 5,000 graphical objects
-    - vegafusion-python-embed  # Same as the previous one
-    - vegafusion-jupyter=1.4.3  # For working with charts > 100,000 graphical objects
-    - vega_datasets  # Example data    
+    - vl-convert-python  
+    - vegafusion=1.4.3  
+    - vegafusion-python-embed  
+    - vegafusion-jupyter=1.4.3  
+    - vega_datasets     
     - jinja2
     - pip>=23.2.1    
     - pip:
