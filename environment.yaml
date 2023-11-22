@@ -1,5 +1,5 @@
 # Reference: UBC MDS DSCI_573
-# conda env create -f environment.yaml
+# run this command: conda env create -f environment.yaml
 
 name: 'bank_marketing_analysis'
 channels:
