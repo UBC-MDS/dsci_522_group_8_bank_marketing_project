@@ -20,8 +20,21 @@ def preprocess_data(train_df, test_df, numerical_features, categorical_features,
     - y_train (pd.Series): Training labels.
     - X_test (pd.DataFrame): Testing set after spliting.
     - y_test (pd.Series): Testing labels.
+    - preprocessor (ColumnTransformer): The fitted column transformer for future transformations.
     """
-
+    
+    # Data type validation
+    if not isinstance(train_df, pd.DataFrame) or not isinstance(test_df, pd.DataFrame):
+        raise TypeError("train_df and test_df must be pandas DataFrames")
+    if not isinstance(numerical_features, list):
+        raise TypeError("numerical_features must be a list of strings")
+    if not isinstance(categorical_features, list):
+        raise TypeError("categorical_features must be a list of strings")
+    if not isinstance(drop_features, list):
+        raise TypeError("drop_features must be a list of strings")
+    if not isinstance(target, str):
+        raise TypeError("target must be a string")
+    
     # Create the column transformer
     preprocessor = make_column_transformer(    
         (StandardScaler(), numerical_features),  # scaling on numeric features   
@@ -37,7 +50,7 @@ def preprocess_data(train_df, test_df, numerical_features, categorical_features,
 
     # This line nicely formats the feature names from `preprocessor.get_feature_names_out()` so that we can more easily use them below
     preprocessor.verbose_feature_names_out = False
-
+    
     # Create a dataframe with the transformed features and column names
     ct = preprocessor.fit(X_train)
 
@@ -54,5 +67,5 @@ def preprocess_data(train_df, test_df, numerical_features, categorical_features,
 
     # Now create the DataFrame with the dense data
     X_train_enc = pd.DataFrame(preprocessor.transform(X_train), index=X_train.index, columns=new_columns)
-    
-    return  X_train_enc, X_train, y_train, X_test, y_test
+
+    return  X_train_enc, X_train, y_train, X_test, y_test, preprocessor
