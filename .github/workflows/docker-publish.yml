@@ -34,7 +34,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: cchang5/dsci522-dockerfile-practice
+          images: cchang5/dsci_522_group_8_bank_marketing
           tags: |
             type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
       
