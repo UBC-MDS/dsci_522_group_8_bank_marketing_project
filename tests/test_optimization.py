@@ -1,6 +1,7 @@
 import sys
 import os 
 import pytest 
+import pandas as pd
 import numpy as np
 from sklearn.pipeline import make_pipeline 
 from sklearn.svm import SVC 
@@ -13,13 +14,13 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.optimization import optimization 
 
 # create test data 
-test_data = {
+test_data = pd.DataFrame({
         "age": np.random.randint(18, 65, size=100),
         "balance": np.random.randint(0, 10000, size=100),
         "education": np.random.choice(["High School", "Bachelor's", "Master's"], size=100),
         "default": np.random.choice([0, 1], size=100),
         "target": np.random.choice([0, 1], size=100)
-    }
+    })
 
 X_train = test_data.drop(columns=["target"])
 y_train = test_data["target"]
