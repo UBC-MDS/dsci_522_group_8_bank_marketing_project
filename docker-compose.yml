@@ -1,6 +1,6 @@
 services:
   book-env:
-    image: test06
+    image: test07
     ports:
       - "8888:8888"
     volumes:
