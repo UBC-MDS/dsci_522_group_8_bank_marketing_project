@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from time import time
 
-def scoring_metrics(model, X_train, y_train,X_test,y_test):
+def scoring_metrics(model, X_train, y_train,X_test,y_test, pos_label):
     """
     Calculate various classification metrics and timing for a Support Vector Classifier (SVC) model.
 
@@ -45,14 +45,14 @@ def scoring_metrics(model, X_train, y_train,X_test,y_test):
     train_accuracy = accuracy_score(y_train, y_pred_train)
     test_accuracy = accuracy_score(y_test, y_pred_test)
 
-    train_precision = precision_score(y_train, y_pred_train)
-    test_precision = precision_score(y_test, y_pred_test)
+    train_precision = precision_score(y_train, y_pred_train, pos_label=pos_label)
+    test_precision = precision_score(y_test, y_pred_test, pos_label=pos_label)
 
-    train_recall = recall_score(y_train, y_pred_train)
-    test_recall = recall_score(y_test, y_pred_test)
+    train_recall = recall_score(y_train, y_pred_train, pos_label=pos_label)
+    test_recall = recall_score(y_test, y_pred_test, pos_label=pos_label)
 
-    train_f1 = f1_score(y_train, y_pred_train)
-    test_f1 = f1_score(y_test, y_pred_test)
+    train_f1 = f1_score(y_train, y_pred_train, pos_label=pos_label)
+    test_f1 = f1_score(y_test, y_pred_test, pos_label=pos_label)
 
     metrics = {
         'train_accuracy': train_accuracy,
