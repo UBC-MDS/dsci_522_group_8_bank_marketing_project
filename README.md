@@ -33,10 +33,14 @@ To replicate this analysis: Clone this repository:
 git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
 ```
 
-Install all required dependencies and activate the project virtual environemnt by running the command from the root directory:
+Pull the image by running this command from the root od the repository:
+```
+docker pull cchang5/dsci_522_group_8_bank_marketing:699fefa
+```
 
-```         
-conda env create --file environment.yml
+After building the image successfully, run this command to run the container:
+```
+docker compose up -d
 ```
 
 To run the analysis, run the following from the root of this repository:
@@ -46,7 +50,7 @@ conda activate bank_marketing_analyis
 jupyter lab 
 ```
 
-Open `bank_analysis.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
+Open `notebooks/bank_analysis.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
 
 ### Dependencies
 
