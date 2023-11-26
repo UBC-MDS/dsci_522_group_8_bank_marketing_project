@@ -17,7 +17,7 @@ The report's discoveries are important for banks to grasp and forecast how custo
 
 ### Report
 
-The report can be found at [`bank_analysis.ipynb`](bank_analysis.ipynb)
+The report can be found at [`bank_analysis.pdf`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/blob/main/notebooks/bank_analysis.pdf)
 
 ### Suggested Improvements
 
