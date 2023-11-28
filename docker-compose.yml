@@ -2,7 +2,7 @@ services:
   book-env:
     image: cchang5/dsci_522_group_8_bank_marketing:301bad5
     ports:
-      - "8888:8888"
+      - "8889:8888"
     volumes:
       - .:/home/jovyan/work
     deploy:
