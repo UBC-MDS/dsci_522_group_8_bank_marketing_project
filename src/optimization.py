@@ -25,7 +25,7 @@ def optimization(svc_pipeline, X_train, y_train):
     if not isinstance(X_train, pd.DataFrame) or not isinstance(y_train, pd.Series):
         raise TypeError("X_train and y_train must be pandas DataFrames")
     if not isinstance(svc_pipeline, Pipeline) or not isinstance(svc_pipeline.named_steps.get('svc'), SVC):
-        raise ValueError("svc_pipeline must be a pipeline with A SVC model")
+        raise ValueError("svc_pipeline must be a pipeline with a SVC model")
     if len(X_train) != len(y_train): 
         raise ValueError("X_train and y_train must contain same amount of rows")
     
