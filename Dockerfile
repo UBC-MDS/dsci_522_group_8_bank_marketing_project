@@ -11,4 +11,6 @@ RUN conda install -y pandas=2.1.3 \
     numpy=1.26.0 \
     pytest=7.4.3 \
     requests=2.31.0 \
-    responses=0.24.1
+    responses=0.24.1 \
+    click=8.1.7 \
+    vl-convert-python=1.1.0 
