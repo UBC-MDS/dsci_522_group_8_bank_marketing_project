@@ -1,0 +1,17 @@
+# Sphinx Project Configuration
+title: "Bank Marketing Analysis"
+author: "Group 8: Runtian Li, Rafe Chang, Sid Grover, Anu Banga"
+date: "2023-11-30"
+
+# Sphinx Configuration Options
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+
+# Execution Options
+execute:
+  execute_notebooks: force
+
+# Bibliography Files
+bibtex_bibfiles:
+  - references.bib
