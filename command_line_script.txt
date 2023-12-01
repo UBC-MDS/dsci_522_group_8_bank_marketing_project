@@ -16,7 +16,7 @@ python scripts/train_test_split.py \
    --seed=522
 
 # Perform exploratory data analysis (EDA) on the given df
-python EDA.py \
+python scripts/EDA.py \
    --data-frame = "data/raw/bank/bank-full.csv" \
    --plot-to = "results/figures"
 
