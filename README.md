@@ -4,6 +4,12 @@ Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
 
 This repository contains the data, code, and analysis for the project "Uncovering Key Predictors of and Making Predictions about Term Deposit Subscriptions". The classification goal is to predict if the client will subscribe a term deposit (variable y).
 
+![Python](https://img.shields.io/badge/lanaguge-Python-red.svg)
+![codesize](https://img.shields.io/github/languages/code-size/UBC-MDS/dsci_522_group_8_bank_marketing_project)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/UBC-MDS/dsci_522_group_8_bank_marketing_project?include_prereleases)
+![GitHub](https://img.shields.io/github/license/UBC-MDS/dsci_522_group_8_bank_marketing_project)
+![contributors](https://img.shields.io/github/contributors/UBC-MDS/dsci_522_group_8_bank_marketing_project)
+
 ### About
 
 The data set [Bank Marketing](https://archive.ics.uci.edu/dataset/222/bank+marketing) was created by Sérgio Moro and Paulo Rita at the University Institute of Lisbon, and Paulo Cortez at the University of Minhom. It is sourced from the UCI Machine Learning Repository. Each row in this data set is an observation related to direct marketing campaigns (phone calls) of a Portuguese banking institution.
