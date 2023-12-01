@@ -10,7 +10,7 @@ from IPython.display import display
 
 @click.command()
 @click.option('--data-frame', type=str, help="path to df")
-@click.option('--plot-to', type=str, help="path to dir with eda plots)
+@click.option('--plot-to', type=str, help="path to dir with eda plots")
 
 def main(dataframe, plot_to):
 
@@ -28,7 +28,7 @@ def main(dataframe, plot_to):
 
     #DEFINE COLUMN TYPES
     numeric_cols = data.select_dtypes(include=['int64', 'float64']).columns.to_list()
-categorical_cols = ["job", "marital", "education", "default", "housing", "loan", "poutcome"]
+    categorical_cols = ["job", "marital", "education", "default", "housing", "loan", "poutcome"]
     numerical_cols = numeric_cols
     
     print("DataFrame Information:")
@@ -80,5 +80,11 @@ categorical_cols = ["job", "marital", "education", "default", "housing", "loan",
             .repeat(numeric_cols, columns=2)
         )
     #SAVE PLOTS AS .PNG
-    categorical_plot.save(os.path.join(plot_to, "categorical_dist_by_feat.png"))
-    numerical_plot.save(os.path.join(plot_to, "numerical_dist_by_feat.png"))
+    categorical_plot.save(os.path.join(plot_to, "categorical_dist_by_feat.png", format='png'))
+    numerical_plot.save(os.path.join(plot_to, "numerical_dist_by_feat.png", format='png'))
+
+    numerical_data = data[numerical_cols]
+    
+    correlation_matrix = numerical_data.corr(method="spearman")
+    styled_correlation_matrix = correlation_matrix.style.background_gradient()
+    styled_correlation_matrix.save(os.path.join(plot_to, "corr_matx.png", format='png'))
