@@ -1,0 +1,16 @@
+# Download the data from zip url
+python download_data.py \
+   --url="https://archive.ics.uci.edu/static/public/222/bank+marketing.zip" \
+   --write_to="data/raw"
+
+# Unzip the file and subtract the files into folder data/raw/bank
+python scripts/unzip.py \
+   --path_to_zip_file="data/raw/bank.zip" \
+   --directory_to_extract_to="data/raw/bank"
+
+# split data into train and test sets and save them to csv file
+python scripts/train_test_split.py \
+   --raw-data=data/raw/bank/bank-full.csv \
+   --data-to=data/processed \
+   --preprocessor-to=results/models \
+   --seed=522
