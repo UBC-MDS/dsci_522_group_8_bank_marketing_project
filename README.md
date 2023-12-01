@@ -1,9 +1,9 @@
-# :bank: Bank Term Deposit Subscription Predictor
+# Bank Term Deposit Subscription Predictor
 
 **Authors:** Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
 
 This repository contains the data, code, and analysis for the project "Uncovering Key Predictors of and Making Predictions about Term Deposit Subscriptions". The classification goal is to predict if the client will subscribe a term deposit (variable y).
-
+:bank:
 ![Python](https://img.shields.io/badge/lanaguge-Python-red.svg)
 ![codesize](https://img.shields.io/github/languages/code-size/UBC-MDS/dsci_522_group_8_bank_marketing_project)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/UBC-MDS/dsci_522_group_8_bank_marketing_project?include_prereleases)
