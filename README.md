@@ -1,6 +1,6 @@
 # :bank: Bank Term Deposit Subscription Predictor
 
-:pencil2: ** Authors: ** Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
+# :pencil2: Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
 
 This repository contains the data, code, and analysis for the project "Uncovering Key Predictors of and Making Predictions about Term Deposit Subscriptions". The classification goal is to predict if the client will subscribe a term deposit (variable y).
 
