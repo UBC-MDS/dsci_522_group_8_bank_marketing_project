@@ -40,7 +40,7 @@ docker pull cchang5/dsci_522_group_8_bank_marketing:ee13699
 
 After building the image successfully, run this command to run the container:
 ```
-docker compose up -d
+docker compose up
 ```
 
 To run the analysis, run the following from the root of this repository:
