@@ -1,4 +1,4 @@
-# Bank Term Deposit Subscription Predictor
+# :bank: Bank Term Deposit Subscription Predictor
 
 **Authors:** Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
 
