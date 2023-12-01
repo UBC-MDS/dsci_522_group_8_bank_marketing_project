@@ -1,0 +1,7 @@
+python download_data.py \
+   --url="https://archive.ics.uci.edu/static/public/222/bank+marketing.zip" \
+   --write_to="data/raw"
+
+python scripts/unzip.py \
+   --path_to_zip_file="data/raw/bank.zip" \
+   --directory_to_extract_to="data/raw/bank"
