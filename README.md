@@ -1,8 +1,14 @@
-# Bank Term Deposit Subscription Predictor
+# :bank: Bank Term Deposit Subscription Predictor
 
-Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
+### Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
 
 This repository contains the data, code, and analysis for the project "Uncovering Key Predictors of and Making Predictions about Term Deposit Subscriptions". The classification goal is to predict if the client will subscribe a term deposit (variable y).
+
+![Python](https://img.shields.io/badge/lanaguge-Python-red.svg)
+![codesize](https://img.shields.io/github/languages/code-size/UBC-MDS/dsci_522_group_8_bank_marketing_project)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/UBC-MDS/dsci_522_group_8_bank_marketing_project?include_prereleases)
+![GitHub](https://img.shields.io/github/license/UBC-MDS/dsci_522_group_8_bank_marketing_project)
+![contributors](https://img.shields.io/github/contributors/UBC-MDS/dsci_522_group_8_bank_marketing_project)
 
 ### About
 
@@ -15,7 +21,7 @@ The exploratory data analysis (EDA) employs visualizations to unravel the intric
 The report's discoveries are important for banks to grasp and forecast how customers make decisions about term deposits. Understanding this helps fine-tune marketing strategies for future campaigns. We view these insights as a starting point for further research, potentially employing advanced models and more data to explore patterns and other factors that influence customer choices.
 
 
-### Report
+### :ledger: Report
 
 The report can be found at [`bank_analysis.pdf`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/blob/main/notebooks/bank_analysis.pdf)
 
