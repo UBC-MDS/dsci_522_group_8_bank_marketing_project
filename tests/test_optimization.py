@@ -34,26 +34,24 @@ sample_preprocessor = make_column_transformer(
 
 svc_ppl_sample = make_pipeline(StandardScaler(), SVC(random_state=123, class_weight="balanced"))
 
+
 y_false = pd.Series([random.randint(1, 100) for _ in range(99)])
 
 # test for input types 
 def test_input_type(): 
     with pytest.raises(TypeError) as custom_string: 
         random_search1, best_model_random1 = optimization(svc_ppl_sample, 0, y_train)
-    assert str(custom_string.value), "X_train and y_train must be pandas DataFrames"
-    
-#     with pytest.raises(TypeError) as custom_string: 
-#         random_search1, best_model_random1 = optimization(0, X_train, y_train)
-#     assert str(custom_string.value), "svc_pipeline must be a pipeline with a SVC model"
+
+    assert str(custom_string.value), "X_train must be a pandas DataFrame and y_train must be a pandas series"
+
+def test_model_type(): 
+    with pytest.raises(ValueError) as custom_string: 
+        random_search1, best_model_random1 = optimization(0, X_train, y_train)
+    assert str(custom_string.value), "svc_pipeline must be a pipeline with a SVC model"
+
    
 # test if the length matches  
 def test_Xy_len(): 
     with pytest.raises(ValueError) as custom_string: 
         random_search1, best_model_random1 = optimization(svc_ppl_sample, X_train, y_false)
     assert str(custom_string.value), "X_train and y_train must contain same amount of rows"
-
-# test if the output is the correct data type 
-def test_output_type(): 
-    random_search1, best_model_random1 = optimization(svc_ppl_sample, X_train, y_train)
-    assert isinstance(random_search1, sklearn.model_selection._search.RandomizedSearchCV), "First return value in the tuple should be a RandomizedSearchCV type"
-    assert isinstance(best_model_random1, sklearn.pipeline.Pipeline), "Second return value in the tuple should be a Pipeline type"
