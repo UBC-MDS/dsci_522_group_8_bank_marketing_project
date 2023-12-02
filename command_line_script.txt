@@ -20,7 +20,7 @@ python scripts/EDA.py \
    --plot-to = "results/figures"
 
 # split train_df and test_df into features and target and create preprocessor
-python src/preprocessor.py \
+python scripts/preprocessor.py \
    --raw_train=data/split/train_df.csv \
    --raw_test=data/split/test_df.csv \
    --data_to=data/processed \
