@@ -82,7 +82,7 @@ def main (x_train, y_train, preprocessor, pipeline_to, results_to, seed):
     cross_val_results_df = pd.concat(
         cross_val_results, axis="columns"
     )
-    cross_val_results_df.to_csv(os.path.join(results_to, "model_selection_scores.csv"), index =True)
+    cross_val_results_df.to_csv(os.path.join(results_to, "model_selection_scores.csv"), index=True)
 
     # Save the entire pipeline object using pickle
     with open(os.path.join(pipeline_to, "model_pipeline.pickle"), 'wb') as file:
