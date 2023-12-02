@@ -1,18 +1,17 @@
 # Download the data from zip url
 python download_data.py \
-   --url="https://archive.ics.uci.edu/static/public/222/bank+marketing.zip" \
-   --write_to="data/raw"
+   --url='https://archive.ics.uci.edu/static/public/222/bank+marketing.zip' \
+   --write_to='data/raw'
 
 # Unzip the file and subtract the files into folder data/raw/bank
 python scripts/unzip.py \
-   --path_to_zip_file="data/raw/bank.zip" \
-   --directory_to_extract_to="data/raw/bank"
+   --path_to_zip_file='data/raw/bank.zip' \
+   --directory_to_extract_to='data/raw/bank'
 
 # split data into train and test sets and save them to csv file
 python scripts/train_test_split.py \
-   --raw-data=data/raw/bank/bank-full.csv \
-   --data-to=data/processed \
-   --preprocessor-to=results/models \
+   --raw-data='data/raw/bank/bank-full.csv' \
+   --data-to='data/processed' \
    --seed=522
 
 # Perform exploratory data analysis (EDA) on the given df
@@ -22,8 +21,8 @@ python scripts/EDA.py \
 
 # split train_df and test_df into features and target and create preprocessor
 python src/preprocessor.py \
-   --raw_train=data/raw/bank/bank-full.csv \
-   --data-to=data/processed \
-   --preprocessor-to=results/models \
-   --seed=522
+   --raw_train=data/split/train_df.csv \
+   --raw_test=data/split/test_df.csv \
+   --data_to=data/processed \
+   --preprocessor_to=results/models
 
