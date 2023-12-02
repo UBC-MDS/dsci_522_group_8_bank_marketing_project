@@ -1,6 +1,5 @@
 ## EDA Plotting Functions
 import altair as alt
-import altair_viewer
 import pandas as pd
 from IPython.display import display
 
