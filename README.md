@@ -1,8 +1,11 @@
 # :bank: Bank Term Deposit Subscription Predictor
 
 ### Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
+*GitHub Pages: https://ubc-mds.github.io/dsci_522_group_8_bank_marketing_project/bank_analysis.html*
+
 
 This repository contains the data, code, and analysis for the project "Uncovering Key Predictors of and Making Predictions about Term Deposit Subscriptions". The classification goal is to predict if the client will subscribe a term deposit (variable y).
+
 
 ![Python](https://img.shields.io/badge/lanaguge-Python-red.svg)
 ![codesize](https://img.shields.io/github/languages/code-size/UBC-MDS/dsci_522_group_8_bank_marketing_project)
@@ -48,15 +51,54 @@ After building the image successfully, run this command to run the container:
 ```
 docker compose up
 ```
+Copy paste the url starts with `http://127.0.0.1:8888/lab?token=` to your browser to open the jupyter lab. 
 
-To run the analysis, run the following from the root of this repository:
+To run the analysis, enter the following commands in the terminal in the project root:
 
 ```         
-conda activate bank_marketing_analyis
-jupyter lab 
+# Download the data from zip url
+python download_data.py \
+   --url='https://archive.ics.uci.edu/static/public/222/bank+marketing.zip' \
+   --write_to='data/raw'
+
+# Unzip the file and subtract the files into folder data/raw/bank
+python scripts/unzip.py \
+   --path_to_zip_file='data/raw/bank.zip' \
+   --directory_to_extract_to='data/raw/bank'
+
+# split data into train and test sets and save them to csv file
+python scripts/train_test_split.py \
+   --raw-data='data/raw/bank/bank-full.csv' \
+   --data-to='data/processed' \
+   --seed=522
+
+# Perform exploratory data analysis (EDA) on the given df
+python scripts/EDA.py \
+   --data-frame = "data/raw/bank/bank-full.csv" \
+   --plot-to = "results/figures"
+
+# split train_df and test_df into features and target and create preprocessor
+python scripts/preprocessor.py \
+   --raw_train=data/split/train_df.csv \
+   --raw_test=data/split/test_df.csv \
+   --data_to=data/processed \
+   --preprocessor_to=results/models
+
+# select from 5 candidate models to examine their train and test scores
+python scripts/model_selection.py \
+     --x_train=data/processed/X_train.csv \
+     --y_train=data/processed/y_train.csv  \
+     --preprocessor=results/models/preprocessor.pickle \
+      --pipeline-to=results/models \
+      --results_to=results/metrics/model_scoring \
+      --seed=522
 ```
 
-Open `notebooks/bank_analysis.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells...".
+#### Clean up
+
+To shut down the container and clean up the resources, 
+type `Cntrl` + `C` in the terminal
+where you launched the container, and then type `docker compose rm`
 
 ### Dependencies
 
