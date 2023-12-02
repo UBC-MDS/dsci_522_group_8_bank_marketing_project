@@ -26,3 +26,11 @@ python scripts/preprocessor.py \
    --data_to=data/processed \
    --preprocessor_to=results/models
 
+# examine 5 candidate models by calculating score metrics
+python scripts/model_selection.py \
+    --x_train=data/processed/X_train.csv \
+    --y_train=data/processed/y_train.csv  \
+    --preprocessor=results/models/preprocessor.pickle \
+    --pipeline-to=results/models \
+    --results_to=results/metrics/model_scoring \
+    --seed=522
