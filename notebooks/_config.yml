@@ -2,6 +2,7 @@
 title: "Bank Marketing Analysis"
 author: "Group 8: Runtian Li, Rafe Chang, Sid Grover, Anu Banga"
 date: "2023-11-30"
+theme: jekyll-theme-minimal
 
 # Sphinx Configuration Options
 sphinx:
