@@ -315,6 +315,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#center-methods-center"><center>Methods </center></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#center-results-and-discussion-center"><center>Results and Discussion </center></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
@@ -346,44 +347,7 @@ document.write(`
   <section id="center-bank-marketing-analysis-center">
 <h1><center> Bank Marketing Analysis </center><a class="headerlink" href="#center-bank-marketing-analysis-center" title="Permalink to this heading">#</a></h1>
 <center>by Runtian Li, Rafe Chang, Sid Grover, Anu Banga </center><p><strong>Repo Link:</strong> <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_8.git">UBC-MDS/dsci_522_group_8.git</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import necessary Packages</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statistics</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s2">&quot;vegafusion&quot;</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;code/.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Machine Learning</span>
-<span class="kn">import</span> <span class="nn">IPython</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-
-<span class="c1"># from plotting_functions import *</span>
-<span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <span class="n">DummyClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">RandomizedSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">make_pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span><span class="p">,</span> <span class="n">make_column_transformer</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">PrecisionRecallDisplay</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
-
-
-<span class="c1"># %matplotlib inline</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 </section>
 <section id="center-summary-center">
@@ -504,24 +468,31 @@ document.write(`
 <p>The classification goal is to predict if the client will subscribe (yes/no) a term deposit (variable y).</p>
 </section>
 </section>
+<section id="center-methods-center">
+<h1><center>Methods </center><a class="headerlink" href="#center-methods-center" title="Permalink to this heading">#</a></h1>
+<p>TBD</p>
+</section>
 <section id="center-results-and-discussion-center">
 <h1><center>Results and Discussion </center><a class="headerlink" href="#center-results-and-discussion-center" title="Permalink to this heading">#</a></h1>
 <section id="exploratory-data-analysis">
 <h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
-
-<span class="c1"># Import the uniques function from the src folder</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">src.uniques</span> <span class="kn">import</span> <span class="n">get_uniques</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/bank-full.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;target&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-
 <span class="n">get_uniques</span><span class="p">(</span><span class="n">df</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">src.uniques</span> <span class="kn">import</span> <span class="n">get_uniques</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_uniques</span><span class="p">(</span><span class="n">df</span><span class="p">);</span>
+
+<span class="ne">NameError</span>: name &#39;sys&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -535,15 +506,6 @@ document.write(`
                                 <span class="n">spearman_correlation_matrix</span><span class="p">,</span> 
                                 <span class="n">text_EDA</span>
                              <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-<span class="n">categorical_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;marital&quot;</span><span class="p">,</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;housing&quot;</span><span class="p">,</span> <span class="s2">&quot;loan&quot;</span><span class="p">,</span> <span class="s2">&quot;poutcome&quot;</span><span class="p">]</span>
-<span class="n">numerical_cols</span> <span class="o">=</span> <span class="n">numeric_cols</span>
 </pre></div>
 </div>
 </div>
@@ -1012,182 +974,182 @@ memory usage: 5.0+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_13ab6_row0_col0, #T_13ab6_row1_col1, #T_13ab6_row2_col2, #T_13ab6_row3_col3, #T_13ab6_row4_col4, #T_13ab6_row5_col5, #T_13ab6_row6_col6 {
+#T_92fb8_row0_col0, #T_92fb8_row1_col1, #T_92fb8_row2_col2, #T_92fb8_row3_col3, #T_92fb8_row4_col4, #T_92fb8_row5_col5, #T_92fb8_row6_col6 {
   background-color: #023858;
   color: #f1f1f1;
 }
-#T_13ab6_row0_col1, #T_13ab6_row5_col3 {
+#T_92fb8_row0_col1, #T_92fb8_row5_col3 {
   background-color: #ede7f2;
   color: #000000;
 }
-#T_13ab6_row0_col2 {
+#T_92fb8_row0_col2 {
   background-color: #f4edf6;
   color: #000000;
 }
-#T_13ab6_row0_col3, #T_13ab6_row4_col0 {
+#T_92fb8_row0_col3, #T_92fb8_row4_col0 {
   background-color: #f5eef6;
   color: #000000;
 }
-#T_13ab6_row0_col4, #T_13ab6_row1_col3 {
+#T_92fb8_row0_col4, #T_92fb8_row1_col3 {
   background-color: #eae6f1;
   color: #000000;
 }
-#T_13ab6_row0_col5, #T_13ab6_row0_col6, #T_13ab6_row1_col2 {
+#T_92fb8_row0_col5, #T_92fb8_row0_col6, #T_92fb8_row1_col2 {
   background-color: #f2ecf5;
   color: #000000;
 }
-#T_13ab6_row1_col0, #T_13ab6_row3_col5, #T_13ab6_row3_col6, #T_13ab6_row6_col3 {
+#T_92fb8_row1_col0, #T_92fb8_row3_col5, #T_92fb8_row3_col6, #T_92fb8_row6_col3 {
   background-color: #ece7f2;
   color: #000000;
 }
-#T_13ab6_row1_col4, #T_13ab6_row3_col1 {
+#T_92fb8_row1_col4, #T_92fb8_row3_col1 {
   background-color: #f4eef6;
   color: #000000;
 }
-#T_13ab6_row1_col5 {
+#T_92fb8_row1_col5 {
   background-color: #e4e1ef;
   color: #000000;
 }
-#T_13ab6_row1_col6 {
+#T_92fb8_row1_col6 {
   background-color: #e2dfee;
   color: #000000;
 }
-#T_13ab6_row2_col0 {
+#T_92fb8_row2_col0 {
   background-color: #fbf4f9;
   color: #000000;
 }
-#T_13ab6_row2_col1 {
+#T_92fb8_row2_col1 {
   background-color: #faf3f9;
   color: #000000;
 }
-#T_13ab6_row2_col3 {
+#T_92fb8_row2_col3 {
   background-color: #f8f1f8;
   color: #000000;
 }
-#T_13ab6_row2_col4 {
+#T_92fb8_row2_col4 {
   background-color: #d6d6e9;
   color: #000000;
 }
-#T_13ab6_row2_col5, #T_13ab6_row2_col6, #T_13ab6_row5_col0 {
+#T_92fb8_row2_col5, #T_92fb8_row2_col6, #T_92fb8_row5_col0 {
   background-color: #fdf5fa;
   color: #000000;
 }
-#T_13ab6_row3_col0, #T_13ab6_row3_col4, #T_13ab6_row4_col1, #T_13ab6_row4_col3, #T_13ab6_row4_col5, #T_13ab6_row4_col6, #T_13ab6_row5_col2, #T_13ab6_row5_col4, #T_13ab6_row6_col4 {
+#T_92fb8_row3_col0, #T_92fb8_row3_col4, #T_92fb8_row4_col1, #T_92fb8_row4_col3, #T_92fb8_row4_col5, #T_92fb8_row4_col6, #T_92fb8_row5_col2, #T_92fb8_row5_col4, #T_92fb8_row6_col4 {
   background-color: #fff7fb;
   color: #000000;
 }
-#T_13ab6_row3_col2 {
+#T_92fb8_row3_col2 {
   background-color: #fbf3f9;
   color: #000000;
 }
-#T_13ab6_row4_col2 {
+#T_92fb8_row4_col2 {
   background-color: #d9d8ea;
   color: #000000;
 }
-#T_13ab6_row5_col1 {
+#T_92fb8_row5_col1 {
   background-color: #f1ebf4;
   color: #000000;
 }
-#T_13ab6_row5_col6, #T_13ab6_row6_col5 {
+#T_92fb8_row5_col6, #T_92fb8_row6_col5 {
   background-color: #023b5d;
   color: #f1f1f1;
 }
-#T_13ab6_row6_col0 {
+#T_92fb8_row6_col0 {
   background-color: #fcf4fa;
   color: #000000;
 }
-#T_13ab6_row6_col1 {
+#T_92fb8_row6_col1 {
   background-color: #efe9f3;
   color: #000000;
 }
-#T_13ab6_row6_col2 {
+#T_92fb8_row6_col2 {
   background-color: #fef6fb;
   color: #000000;
 }
 </style>
-<table id="T_13ab6">
+<table id="T_92fb8">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_13ab6_level0_col0" class="col_heading level0 col0" >age</th>
-      <th id="T_13ab6_level0_col1" class="col_heading level0 col1" >balance</th>
-      <th id="T_13ab6_level0_col2" class="col_heading level0 col2" >day</th>
-      <th id="T_13ab6_level0_col3" class="col_heading level0 col3" >duration</th>
-      <th id="T_13ab6_level0_col4" class="col_heading level0 col4" >campaign</th>
-      <th id="T_13ab6_level0_col5" class="col_heading level0 col5" >pdays</th>
-      <th id="T_13ab6_level0_col6" class="col_heading level0 col6" >previous</th>
+      <th id="T_92fb8_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_92fb8_level0_col1" class="col_heading level0 col1" >balance</th>
+      <th id="T_92fb8_level0_col2" class="col_heading level0 col2" >day</th>
+      <th id="T_92fb8_level0_col3" class="col_heading level0 col3" >duration</th>
+      <th id="T_92fb8_level0_col4" class="col_heading level0 col4" >campaign</th>
+      <th id="T_92fb8_level0_col5" class="col_heading level0 col5" >pdays</th>
+      <th id="T_92fb8_level0_col6" class="col_heading level0 col6" >previous</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_13ab6_level0_row0" class="row_heading level0 row0" >age</th>
-      <td id="T_13ab6_row0_col0" class="data row0 col0" >1.000000</td>
-      <td id="T_13ab6_row0_col1" class="data row0 col1" >0.096380</td>
-      <td id="T_13ab6_row0_col2" class="data row0 col2" >-0.008948</td>
-      <td id="T_13ab6_row0_col3" class="data row0 col3" >-0.033257</td>
-      <td id="T_13ab6_row0_col4" class="data row0 col4" >0.037136</td>
-      <td id="T_13ab6_row0_col5" class="data row0 col5" >-0.017468</td>
-      <td id="T_13ab6_row0_col6" class="data row0 col6" >-0.011900</td>
+      <th id="T_92fb8_level0_row0" class="row_heading level0 row0" >age</th>
+      <td id="T_92fb8_row0_col0" class="data row0 col0" >1.000000</td>
+      <td id="T_92fb8_row0_col1" class="data row0 col1" >0.096380</td>
+      <td id="T_92fb8_row0_col2" class="data row0 col2" >-0.008948</td>
+      <td id="T_92fb8_row0_col3" class="data row0 col3" >-0.033257</td>
+      <td id="T_92fb8_row0_col4" class="data row0 col4" >0.037136</td>
+      <td id="T_92fb8_row0_col5" class="data row0 col5" >-0.017468</td>
+      <td id="T_92fb8_row0_col6" class="data row0 col6" >-0.011900</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row1" class="row_heading level0 row1" >balance</th>
-      <td id="T_13ab6_row1_col0" class="data row1 col0" >0.096380</td>
-      <td id="T_13ab6_row1_col1" class="data row1 col1" >1.000000</td>
-      <td id="T_13ab6_row1_col2" class="data row1 col2" >0.001329</td>
-      <td id="T_13ab6_row1_col3" class="data row1 col3" >0.042651</td>
-      <td id="T_13ab6_row1_col4" class="data row1 col4" >-0.030959</td>
-      <td id="T_13ab6_row1_col5" class="data row1 col5" >0.069676</td>
-      <td id="T_13ab6_row1_col6" class="data row1 col6" >0.079536</td>
+      <th id="T_92fb8_level0_row1" class="row_heading level0 row1" >balance</th>
+      <td id="T_92fb8_row1_col0" class="data row1 col0" >0.096380</td>
+      <td id="T_92fb8_row1_col1" class="data row1 col1" >1.000000</td>
+      <td id="T_92fb8_row1_col2" class="data row1 col2" >0.001329</td>
+      <td id="T_92fb8_row1_col3" class="data row1 col3" >0.042651</td>
+      <td id="T_92fb8_row1_col4" class="data row1 col4" >-0.030959</td>
+      <td id="T_92fb8_row1_col5" class="data row1 col5" >0.069676</td>
+      <td id="T_92fb8_row1_col6" class="data row1 col6" >0.079536</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row2" class="row_heading level0 row2" >day</th>
-      <td id="T_13ab6_row2_col0" class="data row2 col0" >-0.008948</td>
-      <td id="T_13ab6_row2_col1" class="data row2 col1" >0.001329</td>
-      <td id="T_13ab6_row2_col2" class="data row2 col2" >1.000000</td>
-      <td id="T_13ab6_row2_col3" class="data row2 col3" >-0.058142</td>
-      <td id="T_13ab6_row2_col4" class="data row2 col4" >0.139581</td>
-      <td id="T_13ab6_row2_col5" class="data row2 col5" >-0.092226</td>
-      <td id="T_13ab6_row2_col6" class="data row2 col6" >-0.087780</td>
+      <th id="T_92fb8_level0_row2" class="row_heading level0 row2" >day</th>
+      <td id="T_92fb8_row2_col0" class="data row2 col0" >-0.008948</td>
+      <td id="T_92fb8_row2_col1" class="data row2 col1" >0.001329</td>
+      <td id="T_92fb8_row2_col2" class="data row2 col2" >1.000000</td>
+      <td id="T_92fb8_row2_col3" class="data row2 col3" >-0.058142</td>
+      <td id="T_92fb8_row2_col4" class="data row2 col4" >0.139581</td>
+      <td id="T_92fb8_row2_col5" class="data row2 col5" >-0.092226</td>
+      <td id="T_92fb8_row2_col6" class="data row2 col6" >-0.087780</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row3" class="row_heading level0 row3" >duration</th>
-      <td id="T_13ab6_row3_col0" class="data row3 col0" >-0.033257</td>
-      <td id="T_13ab6_row3_col1" class="data row3 col1" >0.042651</td>
-      <td id="T_13ab6_row3_col2" class="data row3 col2" >-0.058142</td>
-      <td id="T_13ab6_row3_col3" class="data row3 col3" >1.000000</td>
-      <td id="T_13ab6_row3_col4" class="data row3 col4" >-0.107962</td>
-      <td id="T_13ab6_row3_col5" class="data row3 col5" >0.028698</td>
-      <td id="T_13ab6_row3_col6" class="data row3 col6" >0.031175</td>
+      <th id="T_92fb8_level0_row3" class="row_heading level0 row3" >duration</th>
+      <td id="T_92fb8_row3_col0" class="data row3 col0" >-0.033257</td>
+      <td id="T_92fb8_row3_col1" class="data row3 col1" >0.042651</td>
+      <td id="T_92fb8_row3_col2" class="data row3 col2" >-0.058142</td>
+      <td id="T_92fb8_row3_col3" class="data row3 col3" >1.000000</td>
+      <td id="T_92fb8_row3_col4" class="data row3 col4" >-0.107962</td>
+      <td id="T_92fb8_row3_col5" class="data row3 col5" >0.028698</td>
+      <td id="T_92fb8_row3_col6" class="data row3 col6" >0.031175</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row4" class="row_heading level0 row4" >campaign</th>
-      <td id="T_13ab6_row4_col0" class="data row4 col0" >0.037136</td>
-      <td id="T_13ab6_row4_col1" class="data row4 col1" >-0.030959</td>
-      <td id="T_13ab6_row4_col2" class="data row4 col2" >0.139581</td>
-      <td id="T_13ab6_row4_col3" class="data row4 col3" >-0.107962</td>
-      <td id="T_13ab6_row4_col4" class="data row4 col4" >1.000000</td>
-      <td id="T_13ab6_row4_col5" class="data row4 col5" >-0.112284</td>
-      <td id="T_13ab6_row4_col6" class="data row4 col6" >-0.108448</td>
+      <th id="T_92fb8_level0_row4" class="row_heading level0 row4" >campaign</th>
+      <td id="T_92fb8_row4_col0" class="data row4 col0" >0.037136</td>
+      <td id="T_92fb8_row4_col1" class="data row4 col1" >-0.030959</td>
+      <td id="T_92fb8_row4_col2" class="data row4 col2" >0.139581</td>
+      <td id="T_92fb8_row4_col3" class="data row4 col3" >-0.107962</td>
+      <td id="T_92fb8_row4_col4" class="data row4 col4" >1.000000</td>
+      <td id="T_92fb8_row4_col5" class="data row4 col5" >-0.112284</td>
+      <td id="T_92fb8_row4_col6" class="data row4 col6" >-0.108448</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row5" class="row_heading level0 row5" >pdays</th>
-      <td id="T_13ab6_row5_col0" class="data row5 col0" >-0.017468</td>
-      <td id="T_13ab6_row5_col1" class="data row5 col1" >0.069676</td>
-      <td id="T_13ab6_row5_col2" class="data row5 col2" >-0.092226</td>
-      <td id="T_13ab6_row5_col3" class="data row5 col3" >0.028698</td>
-      <td id="T_13ab6_row5_col4" class="data row5 col4" >-0.112284</td>
-      <td id="T_13ab6_row5_col5" class="data row5 col5" >1.000000</td>
-      <td id="T_13ab6_row5_col6" class="data row5 col6" >0.985645</td>
+      <th id="T_92fb8_level0_row5" class="row_heading level0 row5" >pdays</th>
+      <td id="T_92fb8_row5_col0" class="data row5 col0" >-0.017468</td>
+      <td id="T_92fb8_row5_col1" class="data row5 col1" >0.069676</td>
+      <td id="T_92fb8_row5_col2" class="data row5 col2" >-0.092226</td>
+      <td id="T_92fb8_row5_col3" class="data row5 col3" >0.028698</td>
+      <td id="T_92fb8_row5_col4" class="data row5 col4" >-0.112284</td>
+      <td id="T_92fb8_row5_col5" class="data row5 col5" >1.000000</td>
+      <td id="T_92fb8_row5_col6" class="data row5 col6" >0.985645</td>
     </tr>
     <tr>
-      <th id="T_13ab6_level0_row6" class="row_heading level0 row6" >previous</th>
-      <td id="T_13ab6_row6_col0" class="data row6 col0" >-0.011900</td>
-      <td id="T_13ab6_row6_col1" class="data row6 col1" >0.079536</td>
-      <td id="T_13ab6_row6_col2" class="data row6 col2" >-0.087780</td>
-      <td id="T_13ab6_row6_col3" class="data row6 col3" >0.031175</td>
-      <td id="T_13ab6_row6_col4" class="data row6 col4" >-0.108448</td>
-      <td id="T_13ab6_row6_col5" class="data row6 col5" >0.985645</td>
-      <td id="T_13ab6_row6_col6" class="data row6 col6" >1.000000</td>
+      <th id="T_92fb8_level0_row6" class="row_heading level0 row6" >previous</th>
+      <td id="T_92fb8_row6_col0" class="data row6 col0" >-0.011900</td>
+      <td id="T_92fb8_row6_col1" class="data row6 col1" >0.079536</td>
+      <td id="T_92fb8_row6_col2" class="data row6 col2" >-0.087780</td>
+      <td id="T_92fb8_row6_col3" class="data row6 col3" >0.031175</td>
+      <td id="T_92fb8_row6_col4" class="data row6 col4" >-0.108448</td>
+      <td id="T_92fb8_row6_col5" class="data row6 col5" >0.985645</td>
+      <td id="T_92fb8_row6_col6" class="data row6 col6" >1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -1200,217 +1162,153 @@ memory usage: 5.0+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:563,</span> in <span class="ni">Distribution.from_name</span><span class="nt">(cls, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">563</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">discover</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<div class="output text_html">
+<style>
+  #altair-viz-bcccc16e73c947a1925ed54d578ee003.vega-embed {
+    width: 100%;
+    display: flex;
+  }
 
-<span class="ne">StopIteration</span>: 
+  #altair-viz-bcccc16e73c947a1925ed54d578ee003.vega-embed details,
+  #altair-viz-bcccc16e73c947a1925ed54d578ee003.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-bcccc16e73c947a1925ed54d578ee003"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-bcccc16e73c947a1925ed54d578ee003") {
+      outputDiv = document.getElementById("altair-viz-bcccc16e73c947a1925ed54d578ee003");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
 
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
 
-<span class="ne">PackageNotFoundError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_importers.py:9,</span> in <span class="ni">import_vegafusion</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">version</span> <span class="o">=</span> <span class="n">importlib_version</span><span class="p">(</span><span class="s2">&quot;vegafusion&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">if</span> <span class="n">Version</span><span class="p">(</span><span class="n">version</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Version</span><span class="p">(</span><span class="n">min_version</span><span class="p">):</span>
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
 
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:1008,</span> in <span class="ni">version</span><span class="nt">(distribution_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Get the version string for the named package.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1003</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="sd"> :param distribution_name: The name of the distribution package to query.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="sd"> :return: The version string for the package as defined in the package&#39;s</span>
-<span class="g g-Whitespace">   </span><span class="mi">1006</span><span class="sd">     &quot;Version&quot; metadata key.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1007</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1008</span> <span class="k">return</span> <span class="n">distribution</span><span class="p">(</span><span class="n">distribution_name</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
 
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:981,</span> in <span class="ni">distribution</span><span class="nt">(distribution_name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Get the ``Distribution`` instance for the named package.</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span><span class="sd"> :param distribution_name: The name of the distribution package as a string.</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span><span class="sd"> :return: A ``Distribution`` instance (or subclass thereof).</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">981</span> <span class="k">return</span> <span class="n">Distribution</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">distribution_name</span><span class="p">)</span>
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"$schema": "https://vega.github.io/schema/vega/v5.json", "data": [{"name": "source_0"}, {"name": "data_1", "values": [{"__count": 9458, "job": "management"}, {"__count": 7597, "job": "technician"}, {"__count": 1487, "job": "entrepreneur"}, {"__count": 9732, "job": "blue-collar"}, {"__count": 288, "job": "unknown"}, {"__count": 2264, "job": "retired"}, {"__count": 5171, "job": "admin."}, {"__count": 4154, "job": "services"}, {"__count": 1579, "job": "self-employed"}, {"__count": 1303, "job": "unemployed"}, {"__count": 1240, "job": "housemaid"}, {"__count": 938, "job": "student"}]}, {"name": "data_2", "values": [{"__count": 27214, "marital": "married"}, {"__count": 12790, "marital": "single"}, {"__count": 5207, "marital": "divorced"}]}, {"name": "data_3", "values": [{"__count": 13301, "education": "tertiary"}, {"__count": 23202, "education": "secondary"}, {"__count": 1857, "education": "unknown"}, {"__count": 6851, "education": "primary"}]}, {"name": "data_4", "values": [{"__count": 44396, "default": "no"}, {"__count": 815, "default": "yes"}]}, {"name": "data_5", "values": [{"__count": 25130, "housing": "yes"}, {"__count": 20081, "housing": "no"}]}, {"name": "data_6", "values": [{"__count": 37967, "loan": "no"}, {"__count": 7244, "loan": "yes"}]}, {"name": "data_7", "values": [{"__count": 36959, "poutcome": "unknown"}, {"__count": 4901, "poutcome": "failure"}, {"__count": 1840, "poutcome": "other"}, {"__count": 1511, "poutcome": "success"}]}, {"name": "data_1_child__job_x_domain___count", "values": [{"min": 288, "max": 9732}]}, {"name": "source_0_child__job_y_domain_job", "values": [{"job": "management", "sort_field": 9458}, {"job": "technician", "sort_field": 7597}, {"job": "entrepreneur", "sort_field": 1487}, {"job": "blue-collar", "sort_field": 9732}, {"job": "unknown", "sort_field": 288}, {"job": "retired", "sort_field": 2264}, {"job": "admin.", "sort_field": 5171}, {"job": "services", "sort_field": 4154}, {"job": "self-employed", "sort_field": 1579}, {"job": "unemployed", "sort_field": 1303}, {"job": "housemaid", "sort_field": 1240}, {"job": "student", "sort_field": 938}]}, {"name": "data_2_child__marital_x_domain___count", "values": [{"min": 5207, "max": 27214}]}, {"name": "source_0_child__marital_y_domain_marital", "values": [{"marital": "married", "sort_field": 27214}, {"marital": "single", "sort_field": 12790}, {"marital": "divorced", "sort_field": 5207}]}, {"name": "data_3_child__education_x_domain___count", "values": [{"min": 1857, "max": 23202}]}, {"name": "source_0_child__education_y_domain_education", "values": [{"education": "tertiary", "sort_field": 13301}, {"education": "secondary", "sort_field": 23202}, {"education": "unknown", "sort_field": 1857}, {"education": "primary", "sort_field": 6851}]}, {"name": "data_4_child__default_x_domain___count", "values": [{"min": 815, "max": 44396}]}, {"name": "source_0_child__default_y_domain_default", "values": [{"default": "no", "sort_field": 44396}, {"default": "yes", "sort_field": 815}]}, {"name": "data_5_child__housing_x_domain___count", "values": [{"min": 20081, "max": 25130}]}, {"name": "source_0_child__housing_y_domain_housing", "values": [{"housing": "yes", "sort_field": 25130}, {"housing": "no", "sort_field": 20081}]}, {"name": "data_6_child__loan_x_domain___count", "values": [{"min": 7244, "max": 37967}]}, {"name": "source_0_child__loan_y_domain_loan", "values": [{"loan": "no", "sort_field": 37967}, {"loan": "yes", "sort_field": 7244}]}, {"name": "data_7_child__poutcome_x_domain___count", "values": [{"min": 1511, "max": 36959}]}, {"name": "source_0_child__poutcome_y_domain_poutcome", "values": [{"poutcome": "unknown", "sort_field": 36959}, {"poutcome": "failure", "sort_field": 4901}, {"poutcome": "other", "sort_field": 1840}, {"poutcome": "success", "sort_field": 1511}]}], "signals": [{"name": "childWidth", "value": 300}, {"name": "child__job_y_step", "value": 20}, {"name": "child__job_height", "update": "bandspace(domain('child__job_y').length, 0.1, 0.05) * child__job_y_step"}, {"name": "child__marital_y_step", "value": 20}, {"name": "child__marital_height", "update": "bandspace(domain('child__marital_y').length, 0.1, 0.05) * child__marital_y_step"}, {"name": "child__education_y_step", "value": 20}, {"name": "child__education_height", "update": "bandspace(domain('child__education_y').length, 0.1, 0.05) * child__education_y_step"}, {"name": "child__default_y_step", "value": 20}, {"name": "child__default_height", "update": "bandspace(domain('child__default_y').length, 0.1, 0.05) * child__default_y_step"}, {"name": "child__housing_y_step", "value": 20}, {"name": "child__housing_height", "update": "bandspace(domain('child__housing_y').length, 0.1, 0.05) * child__housing_y_step"}, {"name": "child__loan_y_step", "value": 20}, {"name": "child__loan_height", "update": "bandspace(domain('child__loan_y').length, 0.1, 0.05) * child__loan_y_step"}, {"name": "child__poutcome_y_step", "value": 20}, {"name": "child__poutcome_height", "update": "bandspace(domain('child__poutcome_y').length, 0.1, 0.05) * child__poutcome_y_step"}], "marks": [{"type": "group", "name": "child__job_group", "encode": {"update": {"height": {"signal": "child__job_height"}, "width": {"signal": "childWidth"}}}, "marks": [{"type": "rect", "name": "child__job_marks", "from": {"data": "data_1"}, "encode": {"update": {"x": {"field": "__count", "scale": "child__job_x"}, "fill": {"value": "#4c78a8"}, "ariaRoleDescription": {"value": "bar"}, "opacity": {"value": 0.9}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; job: \" + (isValid(datum[\"job\"]) ? datum[\"job\"] : \"\"+datum[\"job\"])"}, "x2": {"value": 0, "scale": "child__job_x"}, "y": {"field": "job", "scale": "child__job_y"}, "height": {"signal": "max(0.25, bandwidth('child__job_y'))"}}}, "style": ["bar"]}], "axes": [{"scale": "child__job_x", "aria": false, "zindex": 0, "tickCount": {"signal": "ceil(childWidth/40)"}, "labels": false, "grid": true, "domain": false, "orient": "bottom", "gridScale": "child__job_y", "minExtent": 0, "ticks": false, "maxExtent": 0}, {"scale": "child__job_x", "orient": "bottom", "title": "Count", "labelFlush": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "labelOverlap": true, "zindex": 0, "grid": false}, {"scale": "child__job_y", "grid": false, "orient": "left", "zindex": 0, "title": "job"}], "style": "cell"}, {"type": "group", "name": "child__marital_group", "encode": {"update": {"height": {"signal": "child__marital_height"}, "width": {"signal": "childWidth"}}}, "marks": [{"type": "rect", "name": "child__marital_marks", "from": {"data": "data_2"}, "encode": {"update": {"x2": {"value": 0, "scale": "child__marital_x"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; marital: \" + (isValid(datum[\"marital\"]) ? datum[\"marital\"] : \"\"+datum[\"marital\"])"}, "ariaRoleDescription": {"value": "bar"}, "x": {"field": "__count", "scale": "child__marital_x"}, "height": {"signal": "max(0.25, bandwidth('child__marital_y'))"}, "opacity": {"value": 0.9}, "y": {"field": "marital", "scale": "child__marital_y"}, "fill": {"value": "#4c78a8"}}}, "style": ["bar"]}], "axes": [{"scale": "child__marital_x", "orient": "bottom", "aria": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "domain": false, "zindex": 0, "grid": true, "ticks": false, "maxExtent": 0, "labels": false, "gridScale": "child__marital_y", "minExtent": 0}, {"scale": "child__marital_x", "title": "Count", "orient": "bottom", "labelOverlap": true, "labelFlush": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "grid": false}, {"scale": "child__marital_y", "zindex": 0, "title": "marital", "grid": false, "orient": "left"}], "style": "cell"}, {"type": "group", "name": "child__education_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "child__education_height"}}}, "marks": [{"type": "rect", "name": "child__education_marks", "from": {"data": "data_3"}, "encode": {"update": {"fill": {"value": "#4c78a8"}, "y": {"field": "education", "scale": "child__education_y"}, "height": {"signal": "max(0.25, bandwidth('child__education_y'))"}, "opacity": {"value": 0.9}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; education: \" + (isValid(datum[\"education\"]) ? datum[\"education\"] : \"\"+datum[\"education\"])"}, "x": {"field": "__count", "scale": "child__education_x"}, "x2": {"value": 0, "scale": "child__education_x"}, "ariaRoleDescription": {"value": "bar"}}}, "style": ["bar"]}], "axes": [{"scale": "child__education_x", "aria": false, "minExtent": 0, "gridScale": "child__education_y", "orient": "bottom", "labels": false, "maxExtent": 0, "ticks": false, "grid": true, "zindex": 0, "tickCount": {"signal": "ceil(childWidth/40)"}, "domain": false}, {"scale": "child__education_x", "labelFlush": true, "grid": false, "title": "Count", "labelOverlap": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "orient": "bottom"}, {"scale": "child__education_y", "grid": false, "title": "education", "zindex": 0, "orient": "left"}], "style": "cell"}, {"type": "group", "name": "child__default_group", "encode": {"update": {"height": {"signal": "child__default_height"}, "width": {"signal": "childWidth"}}}, "marks": [{"type": "rect", "name": "child__default_marks", "from": {"data": "data_4"}, "encode": {"update": {"fill": {"value": "#4c78a8"}, "ariaRoleDescription": {"value": "bar"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; default: \" + (isValid(datum[\"default\"]) ? datum[\"default\"] : \"\"+datum[\"default\"])"}, "x2": {"value": 0, "scale": "child__default_x"}, "y": {"field": "default", "scale": "child__default_y"}, "x": {"field": "__count", "scale": "child__default_x"}, "opacity": {"value": 0.9}, "height": {"signal": "max(0.25, bandwidth('child__default_y'))"}}}, "style": ["bar"]}], "axes": [{"scale": "child__default_x", "gridScale": "child__default_y", "grid": true, "orient": "bottom", "tickCount": {"signal": "ceil(childWidth/40)"}, "maxExtent": 0, "ticks": false, "labels": false, "domain": false, "aria": false, "minExtent": 0, "zindex": 0}, {"scale": "child__default_x", "labelFlush": true, "labelOverlap": true, "zindex": 0, "tickCount": {"signal": "ceil(childWidth/40)"}, "orient": "bottom", "grid": false, "title": "Count"}, {"scale": "child__default_y", "orient": "left", "grid": false, "zindex": 0, "title": "default"}], "style": "cell"}, {"type": "group", "name": "child__housing_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "child__housing_height"}}}, "marks": [{"type": "rect", "name": "child__housing_marks", "from": {"data": "data_5"}, "encode": {"update": {"fill": {"value": "#4c78a8"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; housing: \" + (isValid(datum[\"housing\"]) ? datum[\"housing\"] : \"\"+datum[\"housing\"])"}, "x": {"field": "__count", "scale": "child__housing_x"}, "opacity": {"value": 0.9}, "ariaRoleDescription": {"value": "bar"}, "height": {"signal": "max(0.25, bandwidth('child__housing_y'))"}, "x2": {"value": 0, "scale": "child__housing_x"}, "y": {"field": "housing", "scale": "child__housing_y"}}}, "style": ["bar"]}], "axes": [{"scale": "child__housing_x", "minExtent": 0, "tickCount": {"signal": "ceil(childWidth/40)"}, "labels": false, "grid": true, "aria": false, "maxExtent": 0, "domain": false, "gridScale": "child__housing_y", "ticks": false, "zindex": 0, "orient": "bottom"}, {"scale": "child__housing_x", "zindex": 0, "labelOverlap": true, "grid": false, "orient": "bottom", "title": "Count", "labelFlush": true, "tickCount": {"signal": "ceil(childWidth/40)"}}, {"scale": "child__housing_y", "zindex": 0, "grid": false, "orient": "left", "title": "housing"}], "style": "cell"}, {"type": "group", "name": "child__loan_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "child__loan_height"}}}, "marks": [{"type": "rect", "name": "child__loan_marks", "from": {"data": "data_6"}, "encode": {"update": {"fill": {"value": "#4c78a8"}, "height": {"signal": "max(0.25, bandwidth('child__loan_y'))"}, "x": {"field": "__count", "scale": "child__loan_x"}, "x2": {"value": 0, "scale": "child__loan_x"}, "y": {"field": "loan", "scale": "child__loan_y"}, "ariaRoleDescription": {"value": "bar"}, "opacity": {"value": 0.9}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; loan: \" + (isValid(datum[\"loan\"]) ? datum[\"loan\"] : \"\"+datum[\"loan\"])"}}}, "style": ["bar"]}], "axes": [{"scale": "child__loan_x", "ticks": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "minExtent": 0, "orient": "bottom", "gridScale": "child__loan_y", "labels": false, "grid": true, "zindex": 0, "domain": false, "aria": false, "maxExtent": 0}, {"scale": "child__loan_x", "labelOverlap": true, "labelFlush": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "grid": false, "title": "Count", "orient": "bottom", "zindex": 0}, {"scale": "child__loan_y", "title": "loan", "grid": false, "orient": "left", "zindex": 0}], "style": "cell"}, {"type": "group", "name": "child__poutcome_group", "encode": {"update": {"height": {"signal": "child__poutcome_height"}, "width": {"signal": "childWidth"}}}, "marks": [{"type": "rect", "name": "child__poutcome_marks", "from": {"data": "data_7"}, "encode": {"update": {"x2": {"value": 0, "scale": "child__poutcome_x"}, "ariaRoleDescription": {"value": "bar"}, "fill": {"value": "#4c78a8"}, "y": {"field": "poutcome", "scale": "child__poutcome_y"}, "x": {"field": "__count", "scale": "child__poutcome_x"}, "opacity": {"value": 0.9}, "height": {"signal": "max(0.25, bandwidth('child__poutcome_y'))"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; poutcome: \" + (isValid(datum[\"poutcome\"]) ? datum[\"poutcome\"] : \"\"+datum[\"poutcome\"])"}}}, "style": ["bar"]}], "axes": [{"scale": "child__poutcome_x", "tickCount": {"signal": "ceil(childWidth/40)"}, "ticks": false, "zindex": 0, "labels": false, "gridScale": "child__poutcome_y", "minExtent": 0, "maxExtent": 0, "domain": false, "grid": true, "orient": "bottom", "aria": false}, {"scale": "child__poutcome_x", "labelFlush": true, "title": "Count", "labelOverlap": true, "zindex": 0, "grid": false, "orient": "bottom", "tickCount": {"signal": "ceil(childWidth/40)"}}, {"scale": "child__poutcome_y", "zindex": 0, "grid": false, "title": "poutcome", "orient": "left"}], "style": "cell"}], "scales": [{"name": "child__job_x", "type": "linear", "domain": [{"signal": "(data(\"data_1_child__job_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_1_child__job_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__job_y", "type": "band", "domain": {"data": "source_0_child__job_y_domain_job", "field": "job", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__job_y_step"}}, "paddingOuter": 0.05, "paddingInner": 0.1}, {"name": "child__marital_x", "type": "linear", "domain": [{"signal": "(data(\"data_2_child__marital_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_2_child__marital_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__marital_y", "type": "band", "domain": {"data": "source_0_child__marital_y_domain_marital", "field": "marital", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__marital_y_step"}}, "paddingOuter": 0.05, "paddingInner": 0.1}, {"name": "child__education_x", "type": "linear", "domain": [{"signal": "(data(\"data_3_child__education_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_3_child__education_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__education_y", "type": "band", "domain": {"data": "source_0_child__education_y_domain_education", "field": "education", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__education_y_step"}}, "paddingInner": 0.1, "paddingOuter": 0.05}, {"name": "child__default_x", "type": "linear", "domain": [{"signal": "(data(\"data_4_child__default_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_4_child__default_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__default_y", "type": "band", "domain": {"data": "source_0_child__default_y_domain_default", "field": "default", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__default_y_step"}}, "paddingOuter": 0.05, "paddingInner": 0.1}, {"name": "child__housing_x", "type": "linear", "domain": [{"signal": "(data(\"data_5_child__housing_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_5_child__housing_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__housing_y", "type": "band", "domain": {"data": "source_0_child__housing_y_domain_housing", "field": "housing", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__housing_y_step"}}, "paddingOuter": 0.05, "paddingInner": 0.1}, {"name": "child__loan_x", "type": "linear", "domain": [{"signal": "(data(\"data_6_child__loan_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_6_child__loan_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__loan_y", "type": "band", "domain": {"data": "source_0_child__loan_y_domain_loan", "field": "loan", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__loan_y_step"}}, "paddingInner": 0.1, "paddingOuter": 0.05}, {"name": "child__poutcome_x", "type": "linear", "domain": [{"signal": "(data(\"data_7_child__poutcome_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_7_child__poutcome_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__poutcome_y", "type": "band", "domain": {"data": "source_0_child__poutcome_y_domain_poutcome", "field": "poutcome", "sort": {"op": "max", "field": "sort_field", "order": "descending"}}, "range": {"step": {"signal": "child__poutcome_y_step"}}, "paddingOuter": 0.05, "paddingInner": 0.1}], "padding": 5, "layout": {"padding": 20, "columns": 2, "bounds": "full", "align": "all"}, "background": "white"}, {"mode": "vega"});
+</script></div><div class="output text_html">
+<style>
+  #altair-viz-bc9a89c24a8348f59746ed7d8827573a.vega-embed {
+    width: 100%;
+    display: flex;
+  }
 
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:565,</span> in <span class="ni">Distribution.from_name</span><span class="nt">(cls, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">565</span>     <span class="k">raise</span> <span class="n">PackageNotFoundError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+  #altair-viz-bc9a89c24a8348f59746ed7d8827573a.vega-embed details,
+  #altair-viz-bc9a89c24a8348f59746ed7d8827573a.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-bc9a89c24a8348f59746ed7d8827573a"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-bc9a89c24a8348f59746ed7d8827573a") {
+      outputDiv = document.getElementById("altair-viz-bc9a89c24a8348f59746ed7d8827573a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
 
-<span class="ne">PackageNotFoundError</span>: No package metadata was found for vegafusion
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
 
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
 
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/IPython/core/formatters.py:974,</span> in <span class="ni">MimeBundleFormatter.__call__</span><span class="nt">(self, obj, include, exclude)</span>
-<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">974</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="k">else</span><span class="p">:</span>
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
 
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/vegalite/v5/api.py:2315,</span> in <span class="ni">TopLevelMixin._repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2313</span>     <span class="k">return</span> <span class="p">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2314</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2315</span>     <span class="k">return</span> <span class="n">renderers</span><span class="o">.</span><span class="n">get</span><span class="p">()(</span><span class="n">dct</span><span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/display.py:213,</span> in <span class="ni">HTMLRenderer.__call__</span><span class="nt">(self, spec, **metadata)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">213</span> <span class="k">return</span> <span class="n">spec_to_mimebundle</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">spec</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">output_div</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_div</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/mimebundle.py:56,</span> in <span class="ni">spec_to_mimebundle</span><span class="nt">(spec, format, mode, vega_version, vegaembed_version, vegalite_version, engine, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mode must be &#39;vega-lite&#39;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">if</span> <span class="n">using_vegafusion</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">spec</span> <span class="o">=</span> <span class="n">compile_with_vegafusion</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;vega&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">if</span> <span class="nb">format</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="s2">&quot;svg&quot;</span><span class="p">,</span> <span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;vega&quot;</span><span class="p">]:</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_vegafusion_data.py:149,</span> in <span class="ni">compile_with_vegafusion</span><span class="nt">(vegalite_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="c1"># Local import to avoid circular ImportError</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">vegalite_compilers</span><span class="p">,</span> <span class="n">data_transformers</span>
-<span class="ne">--&gt; </span><span class="mi">149</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">import_vegafusion</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span> <span class="c1"># Compile Vega-Lite spec to Vega</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="n">compiler</span> <span class="o">=</span> <span class="n">vegalite_compilers</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_importers.py:19,</span> in <span class="ni">import_vegafusion</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">return</span> <span class="n">vf</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">19</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="s1">&#39;The &quot;vegafusion&quot; data transformer and chart.transformed_data feature requires</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="sa">f</span><span class="s2">&quot;version </span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s2"> or greater of the &#39;vegafusion-python-embed&#39; and &#39;vegafusion&#39; packages.</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="s2">&quot;These can be installed with pip using:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="sa">f</span><span class="s1">&#39;    pip install &quot;vegafusion[embed]&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot;</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>         <span class="s2">&quot;Or with conda using:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="sa">f</span><span class="s1">&#39;    conda install -c conda-forge &quot;vegafusion-python-embed&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot; &#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="sa">f</span><span class="s1">&#39;&quot;vegafusion&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="sa">f</span><span class="s2">&quot;ImportError: </span><span class="si">{</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-
-<span class="ne">ImportError</span>: The &quot;vegafusion&quot; data transformer and chart.transformed_data feature requires
-<span class="n">version</span> <span class="mf">1.4.0</span> <span class="ow">or</span> <span class="n">greater</span> <span class="n">of</span> <span class="n">the</span> <span class="s1">&#39;vegafusion-python-embed&#39;</span> <span class="ow">and</span> <span class="s1">&#39;vegafusion&#39;</span> <span class="n">packages</span><span class="o">.</span>
-<span class="n">These</span> <span class="n">can</span> <span class="n">be</span> <span class="n">installed</span> <span class="k">with</span> <span class="n">pip</span> <span class="n">using</span><span class="p">:</span>
-    <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;vegafusion[embed]&gt;=1.4.0&quot;</span>
-<span class="n">Or</span> <span class="k">with</span> <span class="n">conda</span> <span class="n">using</span><span class="p">:</span>
-    <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="s2">&quot;vegafusion-python-embed&gt;=1.4.0&quot;</span> <span class="s2">&quot;vegafusion&gt;=1.4.0&quot;</span>
-
-<span class="ne">ImportError</span>: vegafusion
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alt.RepeatChart(...)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:563,</span> in <span class="ni">Distribution.from_name</span><span class="nt">(cls, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">563</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">discover</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-
-<span class="ne">StopIteration</span>: 
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">PackageNotFoundError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_importers.py:9,</span> in <span class="ni">import_vegafusion</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">version</span> <span class="o">=</span> <span class="n">importlib_version</span><span class="p">(</span><span class="s2">&quot;vegafusion&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">if</span> <span class="n">Version</span><span class="p">(</span><span class="n">version</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Version</span><span class="p">(</span><span class="n">min_version</span><span class="p">):</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:1008,</span> in <span class="ni">version</span><span class="nt">(distribution_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Get the version string for the named package.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1003</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="sd"> :param distribution_name: The name of the distribution package to query.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="sd"> :return: The version string for the package as defined in the package&#39;s</span>
-<span class="g g-Whitespace">   </span><span class="mi">1006</span><span class="sd">     &quot;Version&quot; metadata key.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1007</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1008</span> <span class="k">return</span> <span class="n">distribution</span><span class="p">(</span><span class="n">distribution_name</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:981,</span> in <span class="ni">distribution</span><span class="nt">(distribution_name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Get the ``Distribution`` instance for the named package.</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span><span class="sd"> :param distribution_name: The name of the distribution package as a string.</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span><span class="sd"> :return: A ``Distribution`` instance (or subclass thereof).</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">981</span> <span class="k">return</span> <span class="n">Distribution</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">distribution_name</span><span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/importlib/metadata/__init__.py:565,</span> in <span class="ni">Distribution.from_name</span><span class="nt">(cls, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">565</span>     <span class="k">raise</span> <span class="n">PackageNotFoundError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-
-<span class="ne">PackageNotFoundError</span>: No package metadata was found for vegafusion
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/IPython/core/formatters.py:974,</span> in <span class="ni">MimeBundleFormatter.__call__</span><span class="nt">(self, obj, include, exclude)</span>
-<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">974</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/vegalite/v5/api.py:2315,</span> in <span class="ni">TopLevelMixin._repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2313</span>     <span class="k">return</span> <span class="p">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2314</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2315</span>     <span class="k">return</span> <span class="n">renderers</span><span class="o">.</span><span class="n">get</span><span class="p">()(</span><span class="n">dct</span><span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/display.py:213,</span> in <span class="ni">HTMLRenderer.__call__</span><span class="nt">(self, spec, **metadata)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">213</span> <span class="k">return</span> <span class="n">spec_to_mimebundle</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">spec</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">output_div</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_div</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/mimebundle.py:56,</span> in <span class="ni">spec_to_mimebundle</span><span class="nt">(spec, format, mode, vega_version, vegaembed_version, vegalite_version, engine, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;mode must be &#39;vega-lite&#39;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">if</span> <span class="n">using_vegafusion</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">spec</span> <span class="o">=</span> <span class="n">compile_with_vegafusion</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;vega&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">if</span> <span class="nb">format</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="s2">&quot;svg&quot;</span><span class="p">,</span> <span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;vega&quot;</span><span class="p">]:</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_vegafusion_data.py:149,</span> in <span class="ni">compile_with_vegafusion</span><span class="nt">(vegalite_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="c1"># Local import to avoid circular ImportError</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="kn">from</span> <span class="nn">altair</span> <span class="kn">import</span> <span class="n">vegalite_compilers</span><span class="p">,</span> <span class="n">data_transformers</span>
-<span class="ne">--&gt; </span><span class="mi">149</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">import_vegafusion</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span> <span class="c1"># Compile Vega-Lite spec to Vega</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="n">compiler</span> <span class="o">=</span> <span class="n">vegalite_compilers</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-<span class="nn">File /opt/conda/lib/python3.11/site-packages/altair/utils/_importers.py:19,</span> in <span class="ni">import_vegafusion</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">return</span> <span class="n">vf</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">19</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="s1">&#39;The &quot;vegafusion&quot; data transformer and chart.transformed_data feature requires</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="sa">f</span><span class="s2">&quot;version </span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s2"> or greater of the &#39;vegafusion-python-embed&#39; and &#39;vegafusion&#39; packages.</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="s2">&quot;These can be installed with pip using:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="sa">f</span><span class="s1">&#39;    pip install &quot;vegafusion[embed]&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot;</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>         <span class="s2">&quot;Or with conda using:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="sa">f</span><span class="s1">&#39;    conda install -c conda-forge &quot;vegafusion-python-embed&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot; &#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="sa">f</span><span class="s1">&#39;&quot;vegafusion&gt;=</span><span class="si">{</span><span class="n">min_version</span><span class="si">}</span><span class="s1">&quot;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="sa">f</span><span class="s2">&quot;ImportError: </span><span class="si">{</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-
-<span class="ne">ImportError</span>: The &quot;vegafusion&quot; data transformer and chart.transformed_data feature requires
-<span class="n">version</span> <span class="mf">1.4.0</span> <span class="ow">or</span> <span class="n">greater</span> <span class="n">of</span> <span class="n">the</span> <span class="s1">&#39;vegafusion-python-embed&#39;</span> <span class="ow">and</span> <span class="s1">&#39;vegafusion&#39;</span> <span class="n">packages</span><span class="o">.</span>
-<span class="n">These</span> <span class="n">can</span> <span class="n">be</span> <span class="n">installed</span> <span class="k">with</span> <span class="n">pip</span> <span class="n">using</span><span class="p">:</span>
-    <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;vegafusion[embed]&gt;=1.4.0&quot;</span>
-<span class="n">Or</span> <span class="k">with</span> <span class="n">conda</span> <span class="n">using</span><span class="p">:</span>
-    <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="s2">&quot;vegafusion-python-embed&gt;=1.4.0&quot;</span> <span class="s2">&quot;vegafusion&gt;=1.4.0&quot;</span>
-
-<span class="ne">ImportError</span>: vegafusion
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alt.RepeatChart(...)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(None, None)
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"$schema": "https://vega.github.io/schema/vega/v5.json", "data": [{"name": "source_0"}, {"name": "data_0", "values": [{"__count": 45148, "bin_maxbins_25_previous": 0.0, "bin_maxbins_25_previous_end": 20.0}, {"__count": 57, "bin_maxbins_25_previous": 20.0, "bin_maxbins_25_previous_end": 40.0}, {"__count": 5, "bin_maxbins_25_previous": 40.0, "bin_maxbins_25_previous_end": 60.0}, {"__count": 1, "bin_maxbins_25_previous": 260.0, "bin_maxbins_25_previous_end": 280.0}]}, {"name": "data_1", "values": [{"__count": 3922, "bin_maxbins_25_age": 55.0, "bin_maxbins_25_age_end": 60.0}, {"__count": 6185, "bin_maxbins_25_age": 40.0, "bin_maxbins_25_age_end": 45.0}, {"__count": 9740, "bin_maxbins_25_age": 30.0, "bin_maxbins_25_age_end": 35.0}, {"__count": 5470, "bin_maxbins_25_age": 45.0, "bin_maxbins_25_age_end": 50.0}, {"__count": 8349, "bin_maxbins_25_age": 35.0, "bin_maxbins_25_age_end": 40.0}, {"__count": 4464, "bin_maxbins_25_age": 25.0, "bin_maxbins_25_age_end": 30.0}, {"__count": 4488, "bin_maxbins_25_age": 50.0, "bin_maxbins_25_age_end": 55.0}, {"__count": 974, "bin_maxbins_25_age": 60.0, "bin_maxbins_25_age_end": 65.0}, {"__count": 762, "bin_maxbins_25_age": 20.0, "bin_maxbins_25_age_end": 25.0}, {"__count": 256, "bin_maxbins_25_age": 65.0, "bin_maxbins_25_age_end": 70.0}, {"__count": 98, "bin_maxbins_25_age": 80.0, "bin_maxbins_25_age_end": 85.0}, {"__count": 170, "bin_maxbins_25_age": 75.0, "bin_maxbins_25_age_end": 80.0}, {"__count": 254, "bin_maxbins_25_age": 70.0, "bin_maxbins_25_age_end": 75.0}, {"__count": 47, "bin_maxbins_25_age": 15.0, "bin_maxbins_25_age_end": 20.0}, {"__count": 23, "bin_maxbins_25_age": 85.0, "bin_maxbins_25_age_end": 90.0}, {"__count": 9, "bin_maxbins_25_age": 90.0, "bin_maxbins_25_age_end": 95.0}]}, {"name": "data_2", "values": [{"__count": 38598, "bin_maxbins_25_balance": 0.0, "bin_maxbins_25_balance_end": 5000.0}, {"__count": 3764, "bin_maxbins_25_balance": -5000.0, "bin_maxbins_25_balance_end": 0.0}, {"__count": 478, "bin_maxbins_25_balance": 10000.0, "bin_maxbins_25_balance_end": 15000.0}, {"__count": 2018, "bin_maxbins_25_balance": 5000.0, "bin_maxbins_25_balance_end": 10000.0}, {"__count": 96, "bin_maxbins_25_balance": 20000.0, "bin_maxbins_25_balance_end": 25000.0}, {"__count": 3, "bin_maxbins_25_balance": 45000.0, "bin_maxbins_25_balance_end": 50000.0}, {"__count": 5, "bin_maxbins_25_balance": 55000.0, "bin_maxbins_25_balance_end": 60000.0}, {"__count": 158, "bin_maxbins_25_balance": 15000.0, "bin_maxbins_25_balance_end": 20000.0}, {"__count": 45, "bin_maxbins_25_balance": 25000.0, "bin_maxbins_25_balance_end": 30000.0}, {"__count": 13, "bin_maxbins_25_balance": 35000.0, "bin_maxbins_25_balance_end": 40000.0}, {"__count": 11, "bin_maxbins_25_balance": 30000.0, "bin_maxbins_25_balance_end": 35000.0}, {"__count": 5, "bin_maxbins_25_balance": 50000.0, "bin_maxbins_25_balance_end": 55000.0}, {"__count": 2, "bin_maxbins_25_balance": -10000.0, "bin_maxbins_25_balance_end": -5000.0}, {"__count": 7, "bin_maxbins_25_balance": 40000.0, "bin_maxbins_25_balance_end": 45000.0}, {"__count": 1, "bin_maxbins_25_balance": 60000.0, "bin_maxbins_25_balance_end": 65000.0}, {"__count": 2, "bin_maxbins_25_balance": 65000.0, "bin_maxbins_25_balance_end": 70000.0}, {"__count": 1, "bin_maxbins_25_balance": 95000.0, "bin_maxbins_25_balance_end": 100000.0}, {"__count": 1, "bin_maxbins_25_balance": 100000.0, "bin_maxbins_25_balance_end": 105000.0}, {"__count": 1, "bin_maxbins_25_balance": 70000.0, "bin_maxbins_25_balance_end": 75000.0}, {"__count": 2, "bin_maxbins_25_balance": 80000.0, "bin_maxbins_25_balance_end": 85000.0}]}, {"name": "data_3", "values": [{"__count": 3355, "bin_maxbins_25_day": 4.0, "bin_maxbins_25_day_end": 6.0}, {"__count": 3749, "bin_maxbins_25_day": 6.0, "bin_maxbins_25_day_end": 8.0}, {"__count": 3403, "bin_maxbins_25_day": 8.0, "bin_maxbins_25_day_end": 10.0}, {"__count": 3188, "bin_maxbins_25_day": 12.0, "bin_maxbins_25_day_end": 14.0}, {"__count": 3551, "bin_maxbins_25_day": 14.0, "bin_maxbins_25_day_end": 16.0}, {"__count": 3354, "bin_maxbins_25_day": 16.0, "bin_maxbins_25_day_end": 18.0}, {"__count": 4065, "bin_maxbins_25_day": 18.0, "bin_maxbins_25_day_end": 20.0}, {"__count": 4778, "bin_maxbins_25_day": 20.0, "bin_maxbins_25_day_end": 22.0}, {"__count": 1844, "bin_maxbins_25_day": 22.0, "bin_maxbins_25_day_end": 24.0}, {"__count": 2156, "bin_maxbins_25_day": 26.0, "bin_maxbins_25_day_end": 28.0}, {"__count": 3575, "bin_maxbins_25_day": 28.0, "bin_maxbins_25_day_end": 30.0}, {"__count": 2209, "bin_maxbins_25_day": 30.0, "bin_maxbins_25_day_end": 32.0}, {"__count": 2372, "bin_maxbins_25_day": 2.0, "bin_maxbins_25_day_end": 4.0}, {"__count": 2003, "bin_maxbins_25_day": 10.0, "bin_maxbins_25_day_end": 12.0}, {"__count": 1287, "bin_maxbins_25_day": 24.0, "bin_maxbins_25_day_end": 26.0}, {"__count": 322, "bin_maxbins_25_day": 0.0, "bin_maxbins_25_day_end": 2.0}]}, {"name": "data_4", "values": [{"__count": 12559, "bin_maxbins_25_duration": 200.0, "bin_maxbins_25_duration_end": 400.0}, {"__count": 24752, "bin_maxbins_25_duration": 0.0, "bin_maxbins_25_duration_end": 200.0}, {"__count": 4098, "bin_maxbins_25_duration": 400.0, "bin_maxbins_25_duration_end": 600.0}, {"__count": 58, "bin_maxbins_25_duration": 1600.0, "bin_maxbins_25_duration_end": 1800.0}, {"__count": 151, "bin_maxbins_25_duration": 1400.0, "bin_maxbins_25_duration_end": 1600.0}, {"__count": 1864, "bin_maxbins_25_duration": 600.0, "bin_maxbins_25_duration_end": 800.0}, {"__count": 875, "bin_maxbins_25_duration": 800.0, "bin_maxbins_25_duration_end": 1000.0}, {"__count": 500, "bin_maxbins_25_duration": 1000.0, "bin_maxbins_25_duration_end": 1200.0}, {"__count": 247, "bin_maxbins_25_duration": 1200.0, "bin_maxbins_25_duration_end": 1400.0}, {"__count": 20, "bin_maxbins_25_duration": 2000.0, "bin_maxbins_25_duration_end": 2200.0}, {"__count": 48, "bin_maxbins_25_duration": 1800.0, "bin_maxbins_25_duration_end": 2000.0}, {"__count": 7, "bin_maxbins_25_duration": 2400.0, "bin_maxbins_25_duration_end": 2600.0}, {"__count": 4, "bin_maxbins_25_duration": 3200.0, "bin_maxbins_25_duration_end": 3400.0}, {"__count": 10, "bin_maxbins_25_duration": 2200.0, "bin_maxbins_25_duration_end": 2400.0}, {"__count": 6, "bin_maxbins_25_duration": 3000.0, "bin_maxbins_25_duration_end": 3200.0}, {"__count": 7, "bin_maxbins_25_duration": 2600.0, "bin_maxbins_25_duration_end": 2800.0}, {"__count": 1, "bin_maxbins_25_duration": 3800.0, "bin_maxbins_25_duration_end": 4000.0}, {"__count": 1, "bin_maxbins_25_duration": 3400.0, "bin_maxbins_25_duration_end": 3600.0}, {"__count": 1, "bin_maxbins_25_duration": 4800.0, "bin_maxbins_25_duration_end": 5000.0}, {"__count": 1, "bin_maxbins_25_duration": 2800.0, "bin_maxbins_25_duration_end": 3000.0}, {"__count": 1, "bin_maxbins_25_duration": 3600.0, "bin_maxbins_25_duration_end": 3800.0}]}, {"name": "data_5", "values": [{"__count": 39092, "bin_maxbins_25_campaign": 0.0, "bin_maxbins_25_campaign_end": 5.0}, {"__count": 4657, "bin_maxbins_25_campaign": 5.0, "bin_maxbins_25_campaign_end": 10.0}, {"__count": 848, "bin_maxbins_25_campaign": 10.0, "bin_maxbins_25_campaign_end": 15.0}, {"__count": 327, "bin_maxbins_25_campaign": 15.0, "bin_maxbins_25_campaign_end": 20.0}, {"__count": 143, "bin_maxbins_25_campaign": 20.0, "bin_maxbins_25_campaign_end": 25.0}, {"__count": 40, "bin_maxbins_25_campaign": 30.0, "bin_maxbins_25_campaign_end": 35.0}, {"__count": 77, "bin_maxbins_25_campaign": 25.0, "bin_maxbins_25_campaign_end": 30.0}, {"__count": 6, "bin_maxbins_25_campaign": 40.0, "bin_maxbins_25_campaign_end": 45.0}, {"__count": 3, "bin_maxbins_25_campaign": 50.0, "bin_maxbins_25_campaign_end": 55.0}, {"__count": 1, "bin_maxbins_25_campaign": 60.0, "bin_maxbins_25_campaign_end": 65.0}, {"__count": 2, "bin_maxbins_25_campaign": 55.0, "bin_maxbins_25_campaign_end": 60.0}, {"__count": 14, "bin_maxbins_25_campaign": 35.0, "bin_maxbins_25_campaign_end": 40.0}, {"__count": 1, "bin_maxbins_25_campaign": 45.0, "bin_maxbins_25_campaign_end": 50.0}]}, {"name": "data_6", "values": [{"__count": 36954, "bin_maxbins_25_pdays": -50.0, "bin_maxbins_25_pdays_end": 0.0}, {"__count": 1983, "bin_maxbins_25_pdays": 150.0, "bin_maxbins_25_pdays_end": 200.0}, {"__count": 1157, "bin_maxbins_25_pdays": 50.0, "bin_maxbins_25_pdays_end": 100.0}, {"__count": 896, "bin_maxbins_25_pdays": 100.0, "bin_maxbins_25_pdays_end": 150.0}, {"__count": 250, "bin_maxbins_25_pdays": 0.0, "bin_maxbins_25_pdays_end": 50.0}, {"__count": 976, "bin_maxbins_25_pdays": 250.0, "bin_maxbins_25_pdays_end": 300.0}, {"__count": 498, "bin_maxbins_25_pdays": 200.0, "bin_maxbins_25_pdays_end": 250.0}, {"__count": 1163, "bin_maxbins_25_pdays": 300.0, "bin_maxbins_25_pdays_end": 350.0}, {"__count": 1100, "bin_maxbins_25_pdays": 350.0, "bin_maxbins_25_pdays_end": 400.0}, {"__count": 61, "bin_maxbins_25_pdays": 400.0, "bin_maxbins_25_pdays_end": 450.0}, {"__count": 66, "bin_maxbins_25_pdays": 450.0, "bin_maxbins_25_pdays_end": 500.0}, {"__count": 33, "bin_maxbins_25_pdays": 500.0, "bin_maxbins_25_pdays_end": 550.0}, {"__count": 22, "bin_maxbins_25_pdays": 550.0, "bin_maxbins_25_pdays_end": 600.0}, {"__count": 6, "bin_maxbins_25_pdays": 600.0, "bin_maxbins_25_pdays_end": 650.0}, {"__count": 13, "bin_maxbins_25_pdays": 650.0, "bin_maxbins_25_pdays_end": 700.0}, {"__count": 17, "bin_maxbins_25_pdays": 750.0, "bin_maxbins_25_pdays_end": 800.0}, {"__count": 5, "bin_maxbins_25_pdays": 700.0, "bin_maxbins_25_pdays_end": 750.0}, {"__count": 8, "bin_maxbins_25_pdays": 800.0, "bin_maxbins_25_pdays_end": 850.0}, {"__count": 3, "bin_maxbins_25_pdays": 850.0, "bin_maxbins_25_pdays_end": 900.0}]}, {"name": "data_1_child__age_x_domain___count", "values": [{"min": 9, "max": 9740}]}, {"name": "data_2_child__balance_x_domain___count", "values": [{"min": 1, "max": 38598}]}, {"name": "data_3_child__day_x_domain___count", "values": [{"min": 322, "max": 4778}]}, {"name": "data_4_child__duration_x_domain___count", "values": [{"min": 1, "max": 24752}]}, {"name": "data_5_child__campaign_x_domain___count", "values": [{"min": 1, "max": 39092}]}, {"name": "data_6_child__pdays_x_domain___count", "values": [{"min": 3, "max": 36954}]}, {"name": "data_0_child__previous_x_domain___count", "values": [{"min": 1, "max": 45148}]}], "signals": [{"name": "child__day_bin_maxbins_25_day_bins", "value": {"fields": ["day"], "fname": "bin_day", "start": 0.0, "step": 2.0, "stop": 32.0}}, {"name": "child__balance_bin_maxbins_25_balance_bins", "value": {"fields": ["balance"], "fname": "bin_balance", "start": -10000.0, "step": 5000.0, "stop": 105000.0}}, {"name": "child__campaign_bin_maxbins_25_campaign_bins", "value": {"fields": ["campaign"], "fname": "bin_campaign", "start": 0.0, "step": 5.0, "stop": 65.0}}, {"name": "child__pdays_bin_maxbins_25_pdays_bins", "value": {"fields": ["pdays"], "fname": "bin_pdays", "start": -50.0, "step": 50.0, "stop": 900.0}}, {"name": "child__age_bin_maxbins_25_age_bins", "value": {"fields": ["age"], "fname": "bin_age", "start": 15.0, "step": 5.0, "stop": 95.0}}, {"name": "child__previous_bin_maxbins_25_previous_bins", "value": {"fields": ["previous"], "fname": "bin_previous", "start": 0.0, "step": 20.0, "stop": 280.0}}, {"name": "child__duration_bin_maxbins_25_duration_bins", "value": {"fields": ["duration"], "fname": "bin_duration", "start": 0.0, "step": 200.0, "stop": 5000.0}}, {"name": "childWidth", "value": 300}, {"name": "childHeight", "value": 300}], "marks": [{"type": "group", "name": "child__age_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__age_marks", "from": {"data": "data_1"}, "encode": {"update": {"y2": {"field": "bin_maxbins_25_age", "scale": "child__age_y", "offset": {"signal": "0.5 + (abs(scale(\"child__age_y\", datum[\"bin_maxbins_25_age_end\"]) - scale(\"child__age_y\", datum[\"bin_maxbins_25_age\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__age_y\", datum[\"bin_maxbins_25_age_end\"]) - scale(\"child__age_y\", datum[\"bin_maxbins_25_age\"])))) : -0.5)"}}, "ariaRoleDescription": {"value": "bar"}, "y": {"field": "bin_maxbins_25_age_end", "scale": "child__age_y", "offset": {"signal": "0.5 + (abs(scale(\"child__age_y\", datum[\"bin_maxbins_25_age_end\"]) - scale(\"child__age_y\", datum[\"bin_maxbins_25_age\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__age_y\", datum[\"bin_maxbins_25_age_end\"]) - scale(\"child__age_y\", datum[\"bin_maxbins_25_age\"])))) : 0.5)"}}, "x2": {"value": 0, "scale": "child__age_x"}, "x": {"field": "__count", "scale": "child__age_x"}, "fill": {"value": "#4c78a8"}, "opacity": {"value": 0.9}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; age (binned): \" + (!isValid(datum[\"bin_maxbins_25_age\"]) || !isFinite(+datum[\"bin_maxbins_25_age\"]) ? \"null\" : format(datum[\"bin_maxbins_25_age\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_age_end\"], \"\"))"}}}, "style": ["bar"]}], "axes": [{"scale": "child__age_x", "domain": false, "ticks": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "labels": false, "maxExtent": 0, "grid": true, "minExtent": 0, "zindex": 0, "orient": "bottom", "aria": false, "gridScale": "child__age_y"}, {"scale": "child__age_x", "tickCount": {"signal": "ceil(childWidth/40)"}, "grid": false, "title": "Count", "labelFlush": true, "labelOverlap": true, "orient": "bottom", "zindex": 0}, {"scale": "child__age_y", "labelOverlap": true, "tickCount": {"signal": "ceil(childHeight/10)"}, "orient": "left", "zindex": 0, "title": "age (binned)", "grid": false}], "style": "cell"}, {"type": "group", "name": "child__balance_group", "encode": {"update": {"height": {"signal": "childHeight"}, "width": {"signal": "childWidth"}}}, "marks": [{"type": "rect", "name": "child__balance_marks", "from": {"data": "data_2"}, "encode": {"update": {"y2": {"field": "bin_maxbins_25_balance", "scale": "child__balance_y", "offset": {"signal": "0.5 + (abs(scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance_end\"]) - scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance_end\"]) - scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance\"])))) : -0.5)"}}, "fill": {"value": "#4c78a8"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; balance (binned): \" + (!isValid(datum[\"bin_maxbins_25_balance\"]) || !isFinite(+datum[\"bin_maxbins_25_balance\"]) ? \"null\" : format(datum[\"bin_maxbins_25_balance\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_balance_end\"], \"\"))"}, "x": {"field": "__count", "scale": "child__balance_x"}, "x2": {"value": 0, "scale": "child__balance_x"}, "ariaRoleDescription": {"value": "bar"}, "y": {"field": "bin_maxbins_25_balance_end", "scale": "child__balance_y", "offset": {"signal": "0.5 + (abs(scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance_end\"]) - scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance_end\"]) - scale(\"child__balance_y\", datum[\"bin_maxbins_25_balance\"])))) : 0.5)"}}, "opacity": {"value": 0.9}}}, "style": ["bar"]}], "axes": [{"scale": "child__balance_x", "grid": true, "gridScale": "child__balance_y", "maxExtent": 0, "ticks": false, "domain": false, "minExtent": 0, "aria": false, "orient": "bottom", "labels": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0}, {"scale": "child__balance_x", "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "title": "Count", "grid": false, "labelFlush": true, "orient": "bottom", "labelOverlap": true}, {"scale": "child__balance_y", "grid": false, "labelOverlap": true, "tickCount": {"signal": "ceil(childHeight/10)"}, "zindex": 0, "orient": "left", "title": "balance (binned)"}], "style": "cell"}, {"type": "group", "name": "child__day_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__day_marks", "from": {"data": "data_3"}, "encode": {"update": {"y2": {"field": "bin_maxbins_25_day", "scale": "child__day_y", "offset": {"signal": "0.5 + (abs(scale(\"child__day_y\", datum[\"bin_maxbins_25_day_end\"]) - scale(\"child__day_y\", datum[\"bin_maxbins_25_day\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__day_y\", datum[\"bin_maxbins_25_day_end\"]) - scale(\"child__day_y\", datum[\"bin_maxbins_25_day\"])))) : -0.5)"}}, "opacity": {"value": 0.9}, "fill": {"value": "#4c78a8"}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; day (binned): \" + (!isValid(datum[\"bin_maxbins_25_day\"]) || !isFinite(+datum[\"bin_maxbins_25_day\"]) ? \"null\" : format(datum[\"bin_maxbins_25_day\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_day_end\"], \"\"))"}, "x": {"field": "__count", "scale": "child__day_x"}, "ariaRoleDescription": {"value": "bar"}, "x2": {"value": 0, "scale": "child__day_x"}, "y": {"field": "bin_maxbins_25_day_end", "scale": "child__day_y", "offset": {"signal": "0.5 + (abs(scale(\"child__day_y\", datum[\"bin_maxbins_25_day_end\"]) - scale(\"child__day_y\", datum[\"bin_maxbins_25_day\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__day_y\", datum[\"bin_maxbins_25_day_end\"]) - scale(\"child__day_y\", datum[\"bin_maxbins_25_day\"])))) : 0.5)"}}}}, "style": ["bar"]}], "axes": [{"scale": "child__day_x", "gridScale": "child__day_y", "grid": true, "aria": false, "orient": "bottom", "tickCount": {"signal": "ceil(childWidth/40)"}, "maxExtent": 0, "minExtent": 0, "ticks": false, "labels": false, "zindex": 0, "domain": false}, {"scale": "child__day_x", "title": "Count", "orient": "bottom", "labelOverlap": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "grid": false, "labelFlush": true}, {"scale": "child__day_y", "tickCount": {"signal": "ceil(childHeight/10)"}, "orient": "left", "grid": false, "zindex": 0, "labelOverlap": true, "title": "day (binned)"}], "style": "cell"}, {"type": "group", "name": "child__duration_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__duration_marks", "from": {"data": "data_4"}, "encode": {"update": {"y": {"field": "bin_maxbins_25_duration_end", "scale": "child__duration_y", "offset": {"signal": "0.5 + (abs(scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration_end\"]) - scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration_end\"]) - scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration\"])))) : 0.5)"}}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; duration (binned): \" + (!isValid(datum[\"bin_maxbins_25_duration\"]) || !isFinite(+datum[\"bin_maxbins_25_duration\"]) ? \"null\" : format(datum[\"bin_maxbins_25_duration\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_duration_end\"], \"\"))"}, "fill": {"value": "#4c78a8"}, "ariaRoleDescription": {"value": "bar"}, "x2": {"value": 0, "scale": "child__duration_x"}, "opacity": {"value": 0.9}, "x": {"field": "__count", "scale": "child__duration_x"}, "y2": {"field": "bin_maxbins_25_duration", "scale": "child__duration_y", "offset": {"signal": "0.5 + (abs(scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration_end\"]) - scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration_end\"]) - scale(\"child__duration_y\", datum[\"bin_maxbins_25_duration\"])))) : -0.5)"}}}}, "style": ["bar"]}], "axes": [{"scale": "child__duration_x", "grid": true, "orient": "bottom", "aria": false, "domain": false, "maxExtent": 0, "ticks": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "gridScale": "child__duration_y", "minExtent": 0, "labels": false, "zindex": 0}, {"scale": "child__duration_x", "grid": false, "labelFlush": true, "labelOverlap": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "title": "Count", "orient": "bottom"}, {"scale": "child__duration_y", "orient": "left", "title": "duration (binned)", "labelOverlap": true, "grid": false, "tickCount": {"signal": "ceil(childHeight/10)"}, "zindex": 0}], "style": "cell"}, {"type": "group", "name": "child__campaign_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__campaign_marks", "from": {"data": "data_5"}, "encode": {"update": {"y": {"field": "bin_maxbins_25_campaign_end", "scale": "child__campaign_y", "offset": {"signal": "0.5 + (abs(scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign_end\"]) - scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign_end\"]) - scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign\"])))) : 0.5)"}}, "x2": {"value": 0, "scale": "child__campaign_x"}, "y2": {"field": "bin_maxbins_25_campaign", "scale": "child__campaign_y", "offset": {"signal": "0.5 + (abs(scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign_end\"]) - scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign_end\"]) - scale(\"child__campaign_y\", datum[\"bin_maxbins_25_campaign\"])))) : -0.5)"}}, "opacity": {"value": 0.9}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; campaign (binned): \" + (!isValid(datum[\"bin_maxbins_25_campaign\"]) || !isFinite(+datum[\"bin_maxbins_25_campaign\"]) ? \"null\" : format(datum[\"bin_maxbins_25_campaign\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_campaign_end\"], \"\"))"}, "ariaRoleDescription": {"value": "bar"}, "x": {"field": "__count", "scale": "child__campaign_x"}, "fill": {"value": "#4c78a8"}}}, "style": ["bar"]}], "axes": [{"scale": "child__campaign_x", "tickCount": {"signal": "ceil(childWidth/40)"}, "labels": false, "grid": true, "domain": false, "maxExtent": 0, "minExtent": 0, "gridScale": "child__campaign_y", "ticks": false, "aria": false, "orient": "bottom", "zindex": 0}, {"scale": "child__campaign_x", "grid": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "labelFlush": true, "orient": "bottom", "title": "Count", "labelOverlap": true}, {"scale": "child__campaign_y", "zindex": 0, "labelOverlap": true, "tickCount": {"signal": "ceil(childHeight/10)"}, "orient": "left", "title": "campaign (binned)", "grid": false}], "style": "cell"}, {"type": "group", "name": "child__pdays_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__pdays_marks", "from": {"data": "data_6"}, "encode": {"update": {"description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; pdays (binned): \" + (!isValid(datum[\"bin_maxbins_25_pdays\"]) || !isFinite(+datum[\"bin_maxbins_25_pdays\"]) ? \"null\" : format(datum[\"bin_maxbins_25_pdays\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_pdays_end\"], \"\"))"}, "y2": {"field": "bin_maxbins_25_pdays", "scale": "child__pdays_y", "offset": {"signal": "0.5 + (abs(scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays_end\"]) - scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays_end\"]) - scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays\"])))) : -0.5)"}}, "fill": {"value": "#4c78a8"}, "y": {"field": "bin_maxbins_25_pdays_end", "scale": "child__pdays_y", "offset": {"signal": "0.5 + (abs(scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays_end\"]) - scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays_end\"]) - scale(\"child__pdays_y\", datum[\"bin_maxbins_25_pdays\"])))) : 0.5)"}}, "x": {"field": "__count", "scale": "child__pdays_x"}, "opacity": {"value": 0.9}, "ariaRoleDescription": {"value": "bar"}, "x2": {"value": 0, "scale": "child__pdays_x"}}}, "style": ["bar"]}], "axes": [{"scale": "child__pdays_x", "aria": false, "ticks": false, "minExtent": 0, "gridScale": "child__pdays_y", "orient": "bottom", "tickCount": {"signal": "ceil(childWidth/40)"}, "domain": false, "labels": false, "grid": true, "maxExtent": 0, "zindex": 0}, {"scale": "child__pdays_x", "labelOverlap": true, "zindex": 0, "grid": false, "tickCount": {"signal": "ceil(childWidth/40)"}, "title": "Count", "orient": "bottom", "labelFlush": true}, {"scale": "child__pdays_y", "tickCount": {"signal": "ceil(childHeight/10)"}, "title": "pdays (binned)", "zindex": 0, "orient": "left", "grid": false, "labelOverlap": true}], "style": "cell"}, {"type": "group", "name": "child__previous_group", "encode": {"update": {"width": {"signal": "childWidth"}, "height": {"signal": "childHeight"}}}, "marks": [{"type": "rect", "name": "child__previous_marks", "from": {"data": "data_0"}, "encode": {"update": {"y2": {"field": "bin_maxbins_25_previous", "scale": "child__previous_y", "offset": {"signal": "0.5 + (abs(scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous_end\"]) - scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous\"])) < 0.25 ? 0.5 * (0.25 - (abs(scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous_end\"]) - scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous\"])))) : -0.5)"}}, "x2": {"value": 0, "scale": "child__previous_x"}, "y": {"field": "bin_maxbins_25_previous_end", "scale": "child__previous_y", "offset": {"signal": "0.5 + (abs(scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous_end\"]) - scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous\"])) < 0.25 ? -0.5 * (0.25 - (abs(scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous_end\"]) - scale(\"child__previous_y\", datum[\"bin_maxbins_25_previous\"])))) : 0.5)"}}, "description": {"signal": "\"Count: \" + (format(datum[\"__count\"], \"\")) + \"; previous (binned): \" + (!isValid(datum[\"bin_maxbins_25_previous\"]) || !isFinite(+datum[\"bin_maxbins_25_previous\"]) ? \"null\" : format(datum[\"bin_maxbins_25_previous\"], \"\") + \" \u2013 \" + format(datum[\"bin_maxbins_25_previous_end\"], \"\"))"}, "ariaRoleDescription": {"value": "bar"}, "fill": {"value": "#4c78a8"}, "opacity": {"value": 0.9}, "x": {"field": "__count", "scale": "child__previous_x"}}}, "style": ["bar"]}], "axes": [{"scale": "child__previous_x", "ticks": false, "grid": true, "maxExtent": 0, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0, "aria": false, "minExtent": 0, "gridScale": "child__previous_y", "domain": false, "labels": false, "orient": "bottom"}, {"scale": "child__previous_x", "grid": false, "title": "Count", "orient": "bottom", "labelFlush": true, "labelOverlap": true, "tickCount": {"signal": "ceil(childWidth/40)"}, "zindex": 0}, {"scale": "child__previous_y", "tickCount": {"signal": "ceil(childHeight/10)"}, "orient": "left", "labelOverlap": true, "grid": false, "zindex": 0, "title": "previous (binned)"}], "style": "cell"}], "scales": [{"name": "child__age_x", "type": "linear", "domain": [{"signal": "(data(\"data_1_child__age_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_1_child__age_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__age_y", "type": "linear", "domain": {"signal": "[child__age_bin_maxbins_25_age_bins.start, child__age_bin_maxbins_25_age_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__age_bin_maxbins_25_age_bins"}, "zero": false}, {"name": "child__balance_x", "type": "linear", "domain": [{"signal": "(data(\"data_2_child__balance_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_2_child__balance_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__balance_y", "type": "linear", "domain": {"signal": "[child__balance_bin_maxbins_25_balance_bins.start, child__balance_bin_maxbins_25_balance_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__balance_bin_maxbins_25_balance_bins"}, "zero": false}, {"name": "child__day_x", "type": "linear", "domain": [{"signal": "(data(\"data_3_child__day_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_3_child__day_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__day_y", "type": "linear", "domain": {"signal": "[child__day_bin_maxbins_25_day_bins.start, child__day_bin_maxbins_25_day_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__day_bin_maxbins_25_day_bins"}, "zero": false}, {"name": "child__duration_x", "type": "linear", "domain": [{"signal": "(data(\"data_4_child__duration_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_4_child__duration_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__duration_y", "type": "linear", "domain": {"signal": "[child__duration_bin_maxbins_25_duration_bins.start, child__duration_bin_maxbins_25_duration_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__duration_bin_maxbins_25_duration_bins"}, "zero": false}, {"name": "child__campaign_x", "type": "linear", "domain": [{"signal": "(data(\"data_5_child__campaign_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_5_child__campaign_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__campaign_y", "type": "linear", "domain": {"signal": "[child__campaign_bin_maxbins_25_campaign_bins.start, child__campaign_bin_maxbins_25_campaign_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__campaign_bin_maxbins_25_campaign_bins"}, "zero": false}, {"name": "child__pdays_x", "type": "linear", "domain": [{"signal": "(data(\"data_6_child__pdays_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_6_child__pdays_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "zero": true, "nice": true}, {"name": "child__pdays_y", "type": "linear", "domain": {"signal": "[child__pdays_bin_maxbins_25_pdays_bins.start, child__pdays_bin_maxbins_25_pdays_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__pdays_bin_maxbins_25_pdays_bins"}, "zero": false}, {"name": "child__previous_x", "type": "linear", "domain": [{"signal": "(data(\"data_0_child__previous_x_domain___count\")[0] || {}).min"}, {"signal": "(data(\"data_0_child__previous_x_domain___count\")[0] || {}).max"}], "range": [0, {"signal": "childWidth"}], "nice": true, "zero": true}, {"name": "child__previous_y", "type": "linear", "domain": {"signal": "[child__previous_bin_maxbins_25_previous_bins.start, child__previous_bin_maxbins_25_previous_bins.stop]"}, "range": [{"signal": "childHeight"}, 0], "bins": {"signal": "child__previous_bin_maxbins_25_previous_bins"}, "zero": false}], "background": "white", "padding": 5, "layout": {"padding": 20, "columns": 2, "bounds": "full", "align": "all"}}, {"mode": "vega"});
+</script></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(None, None)
 </pre></div>
 </div>
 </div>
 </div>
+<figure class="align-default" id="numerical-features-distribution">
+<a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of all the numerical features after feature selection</span><a class="headerlink" href="#numerical-features-distribution" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="categorical-features-distribution">
+<a class="reference internal image-reference" href="_images/categorical_dist_by_feat.png"><img alt="_images/categorical_dist_by_feat.png" src="_images/categorical_dist_by_feat.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Distribution of all the categorical features after feature selection</span><a class="headerlink" href="#categorical-features-distribution" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="preprocessing">
 <h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h2>
@@ -1423,19 +1321,6 @@ memory usage: 5.0+ MB
 </ul>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_looking_columns</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numeric_looking_columns</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;age&#39;, &#39;balance&#39;, &#39;day&#39;, &#39;duration&#39;, &#39;campaign&#39;, &#39;pdays&#39;, &#39;previous&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists of feature names</span>
 <span class="n">numerical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;balance&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;campaign&quot;</span><span class="p">,</span> <span class="s2">&quot;pdays&quot;</span><span class="p">,</span> <span class="s2">&quot;previous&quot;</span><span class="p">]</span>
 <span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;marital&quot;</span><span class="p">,</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;housing&quot;</span><span class="p">,</span> <span class="s2">&quot;loan&quot;</span><span class="p">,</span> <span class="s2">&quot;poutcome&quot;</span><span class="p">]</span>
@@ -1446,201 +1331,10 @@ memory usage: 5.0+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the count_classes function from the src folder</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">src.preprocessor</span> <span class="kn">import</span> <span class="n">preprocess_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the transformed X_train</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import the count_classes function from the src folder</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">src.preprocessor</span> <span class="kn">import</span> <span class="n">preprocess_data</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;src.preprocessor&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the funciton preprocess_data </span>
-<span class="n">X_train_enc</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">preprocessor</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span>
-    <span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">,</span> <span class="n">numerical_features</span><span class="p">,</span> <span class="n">categorical_features</span><span class="p">,</span> <span class="n">drop_features</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
-<span class="n">X_train_enc</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>balance</th>
-      <th>duration</th>
-      <th>campaign</th>
-      <th>pdays</th>
-      <th>previous</th>
-      <th>job_admin.</th>
-      <th>job_blue-collar</th>
-      <th>job_entrepreneur</th>
-      <th>job_housemaid</th>
-      <th>...</th>
-      <th>education_secondary</th>
-      <th>education_tertiary</th>
-      <th>education_unknown</th>
-      <th>default_yes</th>
-      <th>housing_yes</th>
-      <th>loan_yes</th>
-      <th>poutcome_failure</th>
-      <th>poutcome_other</th>
-      <th>poutcome_success</th>
-      <th>poutcome_unknown</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>28686</th>
-      <td>-1.125848</td>
-      <td>-0.525607</td>
-      <td>-0.250585</td>
-      <td>-0.568295</td>
-      <td>-0.411533</td>
-      <td>-0.245565</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>9304</th>
-      <td>1.136220</td>
-      <td>-0.457253</td>
-      <td>0.100475</td>
-      <td>-0.245219</td>
-      <td>-0.411533</td>
-      <td>-0.245565</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>41425</th>
-      <td>1.324725</td>
-      <td>0.405335</td>
-      <td>0.266360</td>
-      <td>-0.245219</td>
-      <td>0.537396</td>
-      <td>0.600341</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>44803</th>
-      <td>-1.031595</td>
-      <td>-0.457253</td>
-      <td>-0.173429</td>
-      <td>-0.245219</td>
-      <td>-0.411533</td>
-      <td>-0.245565</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>5878</th>
-      <td>-1.031595</td>
-      <td>-0.280868</td>
-      <td>-0.586213</td>
-      <td>0.077857</td>
-      <td>-0.411533</td>
-      <td>-0.245565</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 32 columns</p>
-</div></div></div>
 </div>
 </section>
 <section id="model-selection">
@@ -2812,6 +2506,7 @@ Model Interpretability: Improving the model’s interpretability to better under
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#center-methods-center"><center>Methods </center></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#center-results-and-discussion-center"><center>Results and Discussion </center></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
