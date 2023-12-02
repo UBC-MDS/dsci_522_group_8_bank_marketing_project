@@ -3,14 +3,15 @@ import os
 import pickle 
 import pandas as pd 
 import altair as alt 
+import matplotlib.pyplot as plt 
 
 from sklearn.model_selection import RandomizedSearchCV, train_test_split
-from scipy.stats import uniform
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.svm import SVC
 from sklearn.compose import make_column_transformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.metrics import recall_score 
+from scipy.stats import uniform
 
 
 def optimization(svc_pipeline, X_train, y_train): 
@@ -18,7 +19,6 @@ def optimization(svc_pipeline, X_train, y_train):
     Hyperparameter optimization for pipeline that contains a SVC model. 
    
     """
-
     if not isinstance(X_train, pd.DataFrame) or not isinstance(y_train, pd.Series):
         raise TypeError("X_train must be a pandas DataFrame and y_train must be a pandas series")
     if not isinstance(svc_pipeline, Pipeline) or not isinstance(svc_pipeline.named_steps.get('svc'), SVC):
@@ -40,14 +40,22 @@ def optimization(svc_pipeline, X_train, y_train):
 
 @click.command()
 @click.option('--df', type=str, help="path to df")
-@click.option('--numerical_features', type=str, help="path to dir with eda plots")
-@click.option('--categorical_features', type=str, help="path to dir with eda plots")
-@click.option('--drop_features', type=str, help="path to dir with eda plots")
-@click.option('--X_test', type=str, help="path to dir with eda plots")
-@click.option('--y_test', type=str, help="path to dir with eda plots")
+@click.option('--x_test', type=str, help="path to x_test")
+@click.option('--y_test', type=str, help="path to y_test")
+@click.option('--results_to', type=str, help="path to direct where the result will be written to")
+@click.option('--plot_to', type=str, help="path to direct where the plot will be written to")
 
+def main(df, x_test, y_test, results_to, plot_to): 
 
-def main(df, numerical_features, categorical_features, drop_features, X_test, y_test): 
+    numerical_features=["age", "balance", "duration", "campaign", "pdays", "previous"] 
+    categorical_features=["job", "marital", "education", "default", "housing", "loan", "poutcome"] 
+    drop_features=["contact", "day", "month"] 
+
+    df = pd.read_csv(df, delimiter=";")
+    df.rename(columns={"y": "target"}, inplace=True)
+    x_test = pd.read_csv(x_test)
+    y_test = pd.read_csv(y_test)
+
     # Creating a sample of 10000 observations
     sample_data = df.sample(n=10000, random_state=123)
     train_df_sampled, test_df_sampled = train_test_split(sample_data, test_size=0.2, random_state=123)
@@ -64,36 +72,30 @@ def main(df, numerical_features, categorical_features, drop_features, X_test, y_
         ("drop", drop_features),
     )
 
-    # X_train_sampled_enc = pd.DataFrame(sample_preprocessor.fit_transform(X_train_sampled), index=X_train_sampled.index, columns=new_columns)
-
     svc_bal_sample = make_pipeline(sample_preprocessor, SVC(random_state=123, class_weight="balanced"))
 
+    print("test")
+    
     random_search, best_model_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
 
-    # pd.DataFrame(random_search.cv_results_)[
-    #     [
-    #         "mean_test_score",
-    #         "param_svc__gamma",
-    #         "param_svc__C",
-    #         "mean_fit_time",
-    #         "rank_test_score",
-    #     ]
-    # ].set_index("rank_test_score").sort_index().T
+    print("test")
 
     # show accuracy 
-    accuracy_random = best_model_random.score(X_test, y_test)
-    print("Accuracy on Test Set:", accuracy_random)
+    accuracy_random = best_model_random.score(x_test, y_test)
+    # print("Accuracy on Test Set:", accuracy_random)
 
     # show recall 
-    predictions = best_model_random.predict(X_test)
+    predictions = best_model_random.predict(x_test)
     recall = recall_score(y_test, predictions, pos_label='yes')
-    print("Recall on Test Set:", recall)
+    # print("Recall on Test Set:", recall)
 
-
+    model_scores = pd.DataFrame({'Accuracy': [accuracy_random], 'Recall': [recall]}) 
+    model_scores.to_csv(os.path.join(results_to, "results/model_scores.csv")) 
+    
     # visualize the c and gamma 
-
     results = pd.DataFrame(random_search.cv_results_)
-    scatter = alt.Chart(results).mark_circle().encode(
+    # scatter = 
+    alt.Chart(results).mark_circle().encode(
         x='param_svc__C:Q',
         y='param_svc__gamma:Q',
         color=alt.Color('mean_test_score:Q', 
@@ -106,7 +108,9 @@ def main(df, numerical_features, categorical_features, drop_features, X_test, y_
     )
 
     # show the visual 
-    scatter
+    # scatter
+    plt.gcf().savefig(os.path.join(plot_to, "results/optimization_plot.png"))
+
 
 if __name__ == '__main__':
     main()
