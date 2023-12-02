@@ -1,6 +1,6 @@
 services:
   book-env:
-    image: cchang5/dsci_522_group_8_bank_marketing:ee13699
+    image: cchang5/dsci_522_group_8_bank_marketing:58fe205
     ports:
       - "8889:8888"
     volumes:
