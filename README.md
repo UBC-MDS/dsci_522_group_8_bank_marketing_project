@@ -1,6 +1,6 @@
 # :bank: Bank Term Deposit Subscription Predictor
 
-### Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover Contributors: N/A
+### Authors: Anu Banga, Rafe Chang, Runtian Li, Sid Grover 
 *GitHub Pages: https://ubc-mds.github.io/dsci_522_group_8_bank_marketing_project/bank_analysis.html*
 
 
