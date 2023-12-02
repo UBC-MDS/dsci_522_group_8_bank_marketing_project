@@ -73,24 +73,18 @@ def main(df, x_test, y_test, results_to, plot_to):
     )
 
     svc_bal_sample = make_pipeline(sample_preprocessor, SVC(random_state=123, class_weight="balanced"))
-
-    print("test")
     
     random_search, best_model_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
 
-    print("test")
-
     # show accuracy 
     accuracy_random = best_model_random.score(x_test, y_test)
-    # print("Accuracy on Test Set:", accuracy_random)
 
     # show recall 
     predictions = best_model_random.predict(x_test)
     recall = recall_score(y_test, predictions, pos_label='yes')
-    # print("Recall on Test Set:", recall)
 
     model_scores = pd.DataFrame({'Accuracy': [accuracy_random], 'Recall': [recall]}) 
-    model_scores.to_csv(os.path.join(results_to, "results/model_scores.csv")) 
+    model_scores.to_csv(os.path.join(results_to, "results/metrics/model_scores.csv")) 
     
     # visualize the c and gamma 
     results = pd.DataFrame(random_search.cv_results_)
@@ -109,7 +103,7 @@ def main(df, x_test, y_test, results_to, plot_to):
 
     # show the visual 
     # scatter
-    plt.gcf().savefig(os.path.join(plot_to, "results/optimization_plot.png"))
+    plt.gcf().savefig(os.path.join(plot_to, "results/figures/optimization_plot.png"))
 
 
 if __name__ == '__main__':
