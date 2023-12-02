@@ -19,3 +19,5 @@ dependencies:
     - vegafusion-jupyter=1.4.3  
     - pip=23.2.1  
     - pytest=7.4.3
+    - click=8.1.7
+    - jupyter-book=0.15.1
