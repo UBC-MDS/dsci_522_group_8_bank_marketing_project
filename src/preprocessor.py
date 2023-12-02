@@ -1,8 +1,27 @@
+# preprocessor.py
+# author: Rachel Li
+# date: 2023-11-29
+
+import click
+import os
+import numpy as np
 import pandas as pd
-from sklearn.compose import make_column_transformer
+import pickle
+from sklearn.preprocessing import StandardScaler
+from sklearn.compose import make_column_transformer, make_column_selector
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
-def preprocess_data(train_df, test_df, numerical_features, categorical_features, drop_features, target):
+@click.command()
+@click.option('--raw_train', type=str, help="Path to train_df")
+@click.option('--raw_test', type=str, help="Path to test_df")
+@click.option('--numerical features', type=list)
+@click.option('--categorical_features', type=list)
+@click.option('--categorical_features', type=list)
+@click.option('--target', type=str, help="column name the target")
+@click.option('--data-to', type=str, help="Path to directory where data will be written to")
+@click.option('--preprocessor-to', type=str, help="Path to directory where the preprocessor object will be written to")
+
+def preprocess_data(raw_train, raw_test, numerical_features, categorical_features, drop_features, target, data_to, preprocessor_to):
     """
     Preprocesses the data by applying scaling and one-hot encoding to the specified features.
 
@@ -34,25 +53,26 @@ def preprocess_data(train_df, test_df, numerical_features, categorical_features,
         raise TypeError("drop_features must be a list of strings")
     if not isinstance(target, str):
         raise TypeError("target must be a string")
-    
+
     # Create the column transformer
     preprocessor = make_column_transformer(    
         (StandardScaler(), numerical_features),  # scaling on numeric features   
         (OneHotEncoder(drop="if_binary"), categorical_features),  # OHE on categorical features
-        ("drop", drop_features),  # drop the drop features
+        ("drop", drop_features),# drop the drop features
+        verbose_feature_names_out=False
     )
 
+    pickle.dump(preprocessor, open(os.path.join(preprocessor_to, "preprocessor.pickle"), "wb"))
+    
+    preprocessor.fit(X_train)
+    
     # Seperate X and y
+    train_df = pd.read_csv(raw_train)
+    test_df = pd.read_csv(raw_test)
     X_train = train_df.drop(columns=[target])
     X_test = test_df.drop(columns=[target])
     y_train = train_df[target]
     y_test = test_df[target]
-
-    # This line nicely formats the feature names from `preprocessor.get_feature_names_out()` so that we can more easily use them below
-    preprocessor.verbose_feature_names_out = False
-    
-    # Create a dataframe with the transformed features and column names
-    ct = preprocessor.fit(X_train)
 
     # Columns names after one hot encoding
     ohe_columns = list(
@@ -68,4 +88,12 @@ def preprocess_data(train_df, test_df, numerical_features, categorical_features,
     # Now create the DataFrame with the dense data
     X_train_enc = pd.DataFrame(preprocessor.transform(X_train), index=X_train.index, columns=new_columns)
 
-    return  X_train_enc, X_train, y_train, X_test, y_test, preprocessor
+    X_train.to_csv(os.path.join(data_to, "X_train.csv"), index=False)
+    y_train.to_csv(os.path.join(data_to, "y_train.csv"), index=False)
+    X_test.to_csv(os.path.join(data_to, "X_test.csv"), index=False)
+    y_test.to_csv(os.path.join(data_to, "y_test.csv"), index=False)
+    X_train_enc.to_csv(os.path.join(data_to, "X_train_enc.csv"), index=False)
+    
+
+    if __name__ == '__main__':
+        main()

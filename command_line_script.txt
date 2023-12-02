@@ -20,3 +20,10 @@ python scripts/EDA.py \
    --data-frame = "data/raw/bank/bank-full.csv" \
    --plot-to = "results/figures"
 
+# split train_df and test_df into features and target and create preprocessor
+python src/preprocessor.py \
+   --raw_train=data/raw/bank/bank-full.csv \
+   --data-to=data/processed \
+   --preprocessor-to=results/models \
+   --seed=522
+
