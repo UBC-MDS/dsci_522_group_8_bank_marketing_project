@@ -63,7 +63,7 @@ To run the analysis, enter the following commands in the terminal in the project
 
 ```         
 # Download the data from zip url
-python download_data.py \
+python scripts/download_data.py \
    --url='https://archive.ics.uci.edu/static/public/222/bank+marketing.zip' \
    --write_to='data/raw'
 

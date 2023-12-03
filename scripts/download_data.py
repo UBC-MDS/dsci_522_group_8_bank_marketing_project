@@ -12,7 +12,7 @@ from src.read_zip import read_zip
 warnings.filterwarnings('ignore', category=FutureWarning)
 @click.command()
 @click.option('--url', type=str, help="URL of dataset to be downloaded")
-@click.option('--write_to', stype=str, help="Path to directory where raw data will be written to")
+@click.option('--write_to', type=str, help="Path to directory where raw data will be written to")
 
 def main(url, write_to):
     """Downloads data zip data from the web to a local filepath and extracts it."""
