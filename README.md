@@ -30,7 +30,7 @@ The report's discoveries are important for banks to grasp and forecast how custo
 
 ### :ledger: Report
 
-The report can be found at [`bank_analysis.pdf`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/blob/main/notebooks/bank_analysis.pdf)
+The report can be found at [`bank_analysis.pdf`](file:///Users/lirt/Documents/UBC/522/dsci_522_group_8/notebooks/_build/html/bank_analysis.html#numerical-features-distribution)
 
 ### Suggested Improvements
 
