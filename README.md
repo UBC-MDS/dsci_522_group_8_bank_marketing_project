@@ -119,6 +119,12 @@ python scripts/optimization.py
     --plot_to=results/figures
 ```
 
+After you've run the above command line (this might take a while cuz we are optimizing the svc_bal here), you can run the command in the root folder to render the jupyter book:
+```
+jupyter-book build notebooks
+```
+Then, you can navigate to `notebooks/build/html` and click the `index.html` in the folder to see the rendered report.
+
 #### Clean up
 
 To shut down the container and clean up the resources, 
