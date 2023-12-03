@@ -51,7 +51,7 @@ After building the image successfully, run this command to run the container:
 ```
 docker compose up
 ```
-Copy paste the url starts with `http://127.0.0.1:8888/lab?token=` to your browser to open the jupyter lab. 
+Copy the URL starting with `http://127.0.0.1:8888/lab?token=`, then paste and replace the last "8" with a "9" so the URL looks like `http://127.0.0.1:8889/lab?token=` to your browser to open Jupyter Lab. 
 
 To run the analysis, enter the following commands in the terminal in the project root:
 
