@@ -30,7 +30,7 @@ The report's discoveries are important for banks to grasp and forecast how custo
 
 ### :ledger: Report
 
-The report can be found at [`bank_analysis.pdf`](file:///Users/lirt/Documents/UBC/522/dsci_522_group_8/notebooks/_build/html/bank_analysis.html#numerical-features-distribution)
+The report can be found at [`bank_analysis.pdf`](https://ubc-mds.github.io/dsci_522_group_8_bank_marketing_project/bank_analysis.html)
 
 ### Suggested Improvements
 
@@ -123,7 +123,7 @@ After you've run the above command line (this might take a while cuz we are opti
 ```
 jupyter-book build notebooks
 ```
-Then, you can navigate to `notebooks/build/html` and click the `index.html` in the folder to see the rendered report.
+Then, you can navigate to `notebooks/_build/html` and click the `index.html` in the folder to see the rendered report.
 
 #### Clean up
 
