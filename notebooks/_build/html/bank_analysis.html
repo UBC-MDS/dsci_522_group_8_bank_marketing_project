@@ -376,7 +376,7 @@ document.write(`
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
 <section id="data">
 <h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
-<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id1">[<a class="reference internal" href="#id5" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id2">[<a class="reference internal" href="#id5" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs).</p>
+<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id1">[<a class="reference internal" href="#id5" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id2">[<a class="reference internal" href="#id5" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
 </section>
 <section id="analysis">
 <h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
@@ -406,12 +406,14 @@ document.write(`
 <h2>Modeling and Results<a class="headerlink" href="#modeling-and-results" title="Permalink to this heading">#</a></h2>
 <section id="exploratory-data-analysis">
 <h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
+<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a></p>
 <figure class="align-default" id="numerical-features-distribution">
 <a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of all the numerical features after feature selection</span><a class="headerlink" href="#numerical-features-distribution" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>We decided to keep the following features as categorical features: “job”, “marital”, “education”, “default”, “housing”, “loan”, “poutcome”. See the distribution as below: <a class="reference internal" href="#categorical-features-distribution"><span class="std std-numref">Figure 2</span></a></p>
 <figure class="align-default" id="categorical-features-distribution">
 <a class="reference internal image-reference" href="_images/categorical_dist_by_feat.png"><img alt="_images/categorical_dist_by_feat.png" src="_images/categorical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
