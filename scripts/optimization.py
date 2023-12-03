@@ -36,16 +36,20 @@ def optimization(svc_pipeline, X_train, y_train):
     random_search.fit(X_train, y_train)
     
     best_model_random = random_search.best_estimator_
-    return random_search, best_model_random
+
+    best_params_random = random_search.best_params_
+
+    return random_search, best_model_random, best_params_random
 
 @click.command()
 @click.option('--df', type=str, help="path to df")
 @click.option('--x_test', type=str, help="path to x_test")
 @click.option('--y_test', type=str, help="path to y_test")
 @click.option('--results_to', type=str, help="path to direct where the result will be written to")
+@click.option('--results_to_1', type=str, help="path to direct where the result will be written to")
 @click.option('--plot_to', type=str, help="path to direct where the plot will be written to")
 
-def main(df, x_test, y_test, results_to, plot_to): 
+def main(df, x_test, y_test, results_to, results_to_1, plot_to): 
 
     numerical_features=["age", "balance", "duration", "campaign", "pdays", "previous"] 
     categorical_features=["job", "marital", "education", "default", "housing", "loan", "poutcome"] 
@@ -74,7 +78,8 @@ def main(df, x_test, y_test, results_to, plot_to):
 
     svc_bal_sample = make_pipeline(sample_preprocessor, SVC(random_state=123, class_weight="balanced"))
     
-    random_search, best_model_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
+    random_search, best_model_random, best_params_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
+
 
     # show accuracy 
     accuracy_random = best_model_random.score(x_test, y_test)
@@ -84,11 +89,14 @@ def main(df, x_test, y_test, results_to, plot_to):
     recall = recall_score(y_test, predictions, pos_label='yes')
 
     model_scores = pd.DataFrame({'Accuracy': [accuracy_random], 'Recall': [recall]}) 
-    model_scores.to_csv(os.path.join(results_to, "results/metrics/model_scores.csv")) 
+    model_scores.to_csv(os.path.join(results_to, "model_scores.csv")) 
+
+    best_param_df = pd.DataFrame([best_params_random]) 
+    best_param_df.to_csv(os.path.join(results_to_1, "best_params.csv")) 
+
     
     # visualize the c and gamma 
     results = pd.DataFrame(random_search.cv_results_)
-    # scatter = 
     alt.Chart(results).mark_circle().encode(
         x='param_svc__C:Q',
         y='param_svc__gamma:Q',
@@ -103,7 +111,7 @@ def main(df, x_test, y_test, results_to, plot_to):
 
     # show the visual 
     # scatter
-    plt.gcf().savefig(os.path.join(plot_to, "results/figures/optimization_plot.png"))
+    plt.gcf().savefig(os.path.join(plot_to, "optimization_plot.png"))
 
 
 if __name__ == '__main__':
