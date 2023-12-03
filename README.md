@@ -11,8 +11,8 @@ This repository contains the data, code, and analysis for the project "Uncoverin
 ![codesize](https://img.shields.io/github/languages/code-size/UBC-MDS/dsci_522_group_8_bank_marketing_project)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/UBC-MDS/dsci_522_group_8_bank_marketing_project?include_prereleases)
 ![contributors](https://img.shields.io/github/contributors/UBC-MDS/dsci_522_group_8_bank_marketing_project)
-[![MIT License](https://img.shields.io/badge/License-MIT-informational?style=flat-square)](LICENSE-MIT)
-[![CC License](https://img.shields.io/badge/CCC-informational?style=flat-square)](LICENSE-CCC)
+[![MIT License](https://img.shields.io/badge/License-MIT-informational?style=flat-square)](LICENSE)
+[![CC License](https://img.shields.io/badge/CCC-informational?style=flat-square)](LICENSE)
 
 
 ### About
