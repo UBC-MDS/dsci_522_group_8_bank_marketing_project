@@ -30,7 +30,7 @@ The report's discoveries are important for banks to grasp and forecast how custo
 
 ### :ledger: Report
 
-The report can be found at [`bank_analysis.pdf`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/blob/main/notebooks/bank_analysis.pdf)
+The report can be found at [`bank_analysis.pdf`](file:///Users/lirt/Documents/UBC/522/dsci_522_group_8/notebooks/_build/html/bank_analysis.html#numerical-features-distribution)
 
 ### Suggested Improvements
 
@@ -90,14 +90,33 @@ python scripts/preprocessor.py \
    --data_to=data/processed \
    --preprocessor_to=results/models
 
-# select from 5 candidate models to examine their train and test scores
+# examine 5 candidate models by calculating score metrics
 python scripts/model_selection.py \
-     --x_train=data/processed/X_train.csv \
-     --y_train=data/processed/y_train.csv  \
-     --preprocessor=results/models/preprocessor.pickle \
-      --pipeline-to=results/models \
-      --results_to=results/metrics/model_scoring \
-      --seed=522
+    --x_train=data/processed/X_train.csv \
+    --y_train=data/processed/y_train.csv  \
+    --preprocessor=results/models/preprocessor.pickle \
+    --pipeline-to=results/models \
+    --results_to=results/metrics \
+    --seed=522
+
+# Scoring metric for svc balanced model
+python scripts/scoring_metric.py  \
+   --x_train=data/processed/X_train.csv  \
+   --y_train=data/processed/y_train.csv  \
+   --x_test=data/processed/X_test.csv  \
+   --y_test=data/processed/y_test.csv  \
+   --model_type=results/models/model_pipeline.pickle \
+   --results_to=results/metrics \
+   --seed=522
+
+# Optimization and Accuracy/Recall Scores
+python scripts/optimization.py
+    --df=data/bank-full.csv
+    --x_test=data/processed/X_test.csv
+    --y_test=data/processed/y_test.csv
+    --results_to=results/metrics
+    --results_to_1=results/metrics
+    --plot_to=results/figures
 ```
 
 #### Clean up
