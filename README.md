@@ -112,7 +112,7 @@ where you launched the container, and then type `docker compose rm`
 
 ### License
 
-This project is licensed under the MIT License - see LICENSE.md for details.
+This project is licensed under the MIT License and Creative Commons License 4.0 (NonCommerical Attribution) - see LICENSE.md for details.
 
 ### References
 
