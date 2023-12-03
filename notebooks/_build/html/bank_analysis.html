@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Bank Marketing Analysis &#8212; Bank Marketing Analysis</title>
   
@@ -327,7 +327,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Hyperparameter Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
 </ul>
 </li>
@@ -363,6 +363,8 @@ document.write(`
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Term deposit is valuable to banks because it ensures a stable stream of income that banks can utilize. Banks usually invest in higher-return financial products or lend money to other customers with a higher interest rate to make a profit. With term deposits, banks can better predict their cash flow. <span id="id1">[<a class="reference internal" href="#id16">Chen, 2022</a>]</span></p>
+<p>While banks’s marketing strategies nowadays are usually focused on attracting new customers, the banks must target the right potential customers. This research is aimed at identifying the correct audience for banks to further design marketing strategies.<span id="id2">[<a class="reference internal" href="#id17">Dooley, 2023</a>]</span></p>
 <section id="background">
 <h3>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h3>
 <p>The data set Bank Marketing was created by Sérgio Moro and Paulo Rita at the University Institute of Lisbon, and Paulo Cortez at the University of Minhom. It is sourced from the UCI Machine Learning Repository. Each row in this data set is an observation related to direct marketing campaigns (phone calls) of a Portuguese banking institution.</p>
@@ -376,7 +378,7 @@ document.write(`
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
 <section id="data">
 <h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
-<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id1">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id2">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
+<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id3">[<a class="reference internal" href="#id10" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id4">[<a class="reference internal" href="#id10" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
 </section>
 <section id="analysis">
 <h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
@@ -387,7 +389,7 @@ document.write(`
 </section>
 <section id="model-selection-and-evaluation">
 <h3>Model Selection and Evaluation<a class="headerlink" href="#model-selection-and-evaluation" title="Permalink to this heading">#</a></h3>
-<p>We used five models for classification, starting with a basic Dummy Classifier. Following models included Logistic Regression and Support Vector Classifier (SVC), each showing strengths in accuracy and recall <span id="id3">[<a class="reference internal" href="#id11" title="S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62:22-31, 2014.">Moro <em>et al.</em>, 2014</a>]</span>. Notably, our balanced models—Balanced Logistic Regression and Balanced Support Vector Classifier (svc_bal)—performed best, especially in identifying clients likely to subscribe to a term deposit.</p>
+<p>We used five models for classification, starting with a basic Dummy Classifier. Following models included Logistic Regression and Support Vector Classifier (SVC), each showing strengths in accuracy and recall <span id="id5">[<a class="reference internal" href="#id12" title="S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62:22-31, 2014.">Moro <em>et al.</em>, 2014</a>]</span>. Notably, our balanced models—Balanced Logistic Regression and Balanced Support Vector Classifier (svc_bal)—performed best, especially in identifying clients likely to subscribe to a term deposit.</p>
 </section>
 <section id="model-comparison">
 <h3>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this heading">#</a></h3>
@@ -399,14 +401,14 @@ document.write(`
 </section>
 <section id="recall-the-preferred-metric">
 <h3>Recall - The Preferred Metric<a class="headerlink" href="#recall-the-preferred-metric" title="Permalink to this heading">#</a></h3>
-<p>In our bank marketing dataset, we prioritize recall. Recall indicates the model’s ability to identify true positive cases—clients subscribing to a term deposit <span id="id4">[<a class="reference internal" href="#id12">Alsolami <em>et al.</em>, 2020</a>]</span>. In our context, missing a potential positive case is more significant than false positives, leading to potential losses and missed opportunities. Prioritizing recall ensures a finely tuned model capturing all potential clients interested in term deposits, aligning with our main goal.</p>
+<p>In our bank marketing dataset, we prioritize recall. Recall indicates the model’s ability to identify true positive cases—clients subscribing to a term deposit. In our context, missing a potential positive case is more significant than false positives, leading to potential losses and missed opportunities. Prioritizing recall ensures a finely tuned model capturing all potential clients interested in term deposits, aligning with our main goal.</p>
 </section>
 </section>
 <section id="modeling-and-results">
 <h2>Modeling and Results<a class="headerlink" href="#modeling-and-results" title="Permalink to this heading">#</a></h2>
 <section id="exploratory-data-analysis">
 <h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
-<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id5">[<a class="reference internal" href="#id13" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
+<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id6">[<a class="reference internal" href="#id14" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
 <figure class="align-default" id="numerical-features-distribution">
 <a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
@@ -997,76 +999,11 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-<section id="id6">
-<h3>Hyperparameter Optimization<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h3>Hyperparameter Optimization<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <div class="alert alert-info">
 <p>Optimizing hyperparameters in SVC with a smaller sample size of 10,000 instances is a strategy aimed at enhancing computational efficiency. This approach expedites the exploration of hyperparameter possibilities, aiding in the discovery of potential configurations. While the outcomes validate the concept, it’s crucial to recognize and manage the constraints stemming from the smaller dataset size when interpreting the results.</p>
-</div><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a sample of 10000 observations</span>
-<span class="n">sample_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">train_df_sampled</span><span class="p">,</span> <span class="n">test_df_sampled</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">sample_data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-
-<span class="n">X_train_sampled</span> <span class="o">=</span> <span class="n">train_df_sampled</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span>
-<span class="n">X_test_sampled</span> <span class="o">=</span> <span class="n">test_df_sampled</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span>
-<span class="n">y_train_sampled</span> <span class="o">=</span> <span class="n">train_df_sampled</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
-<span class="n">y_test_sampled</span> <span class="o">=</span> <span class="n">test_df_sampled</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
-
-<span class="c1"># Transformation on the sample training data</span>
-<span class="n">sample_preprocessor</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">numerical_features</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s2">&quot;if_binary&quot;</span><span class="p">),</span> <span class="n">categorical_features</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span> <span class="n">drop_features</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="c1"># X_train_sampled_enc = pd.DataFrame(sample_preprocessor.fit_transform(X_train_sampled), index=X_train_sampled.index, columns=new_columns)</span>
-
-<span class="n">svc_bal_sample</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">sample_preprocessor</span><span class="p">,</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">))</span>
-
-<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;svc__C&#39;</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="s1">&#39;svc__gamma&#39;</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
-    <span class="s1">&#39;svc__kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="c1"># Perform RandomizedSearchCV for hyperparameter optimization</span>
-<span class="n">random_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">svc_bal_sample</span><span class="p">,</span> <span class="n">param_distributions</span><span class="o">=</span><span class="n">param_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">random_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_sampled</span><span class="p">,</span> <span class="n">y_train_sampled</span><span class="p">)</span>
-
-<span class="c1"># Best hyperparameters</span>
-<span class="n">best_params_random</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_params_</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Hyperparameters (Randomized Search):&quot;</span><span class="p">,</span> <span class="n">best_params_random</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Creating a sample of 10000 observations</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sample_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">train_df_sampled</span><span class="p">,</span> <span class="n">test_df_sampled</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">sample_data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X_train_sampled</span> <span class="o">=</span> <span class="n">train_df_sampled</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">random_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)[</span>
-    <span class="p">[</span>
-        <span class="s2">&quot;mean_test_score&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;param_svc__gamma&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;param_svc__C&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mean_fit_time&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;rank_test_score&quot;</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;rank_test_score&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
-</div>
+</div><div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1085,253 +1022,62 @@ document.write(`
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>rank_test_score</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>3</th>
-      <th>3</th>
-      <th>3</th>
-      <th>7</th>
-      <th>7</th>
-      <th>9</th>
-      <th>10</th>
-      <th>...</th>
-      <th>16</th>
-      <th>17</th>
-      <th>18</th>
-      <th>19</th>
-      <th>20</th>
-      <th>21</th>
-      <th>22</th>
-      <th>23</th>
-      <th>24</th>
-      <th>25</th>
+      <th></th>
+      <th>svc__C</th>
+      <th>svc__gamma</th>
+      <th>svc__kernel</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>mean_test_score</th>
-      <td>0.831875</td>
-      <td>0.82775</td>
-      <td>0.8275</td>
-      <td>0.8275</td>
-      <td>0.8275</td>
-      <td>0.8275</td>
-      <td>0.827375</td>
-      <td>0.827375</td>
-      <td>0.825</td>
-      <td>0.82125</td>
-      <td>...</td>
-      <td>0.819</td>
-      <td>0.819</td>
-      <td>0.818375</td>
-      <td>0.76425</td>
-      <td>0.742125</td>
-      <td>0.73775</td>
-      <td>0.732375</td>
-      <td>0.730375</td>
-      <td>0.71675</td>
-      <td>0.714125</td>
-    </tr>
-    <tr>
-      <th>param_svc__gamma</th>
-      <td>0.099076</td>
-      <td>0.008709</td>
-      <td>0.044086</td>
-      <td>0.073905</td>
-      <td>0.069326</td>
-      <td>0.018537</td>
-      <td>0.072915</td>
-      <td>0.012562</td>
-      <td>0.067931</td>
-      <td>0.054183</td>
-      <td>...</td>
-      <td>0.044342</td>
-      <td>0.040804</td>
-      <td>0.025367</td>
-      <td>0.023826</td>
-      <td>0.042702</td>
-      <td>0.042721</td>
-      <td>0.049303</td>
-      <td>0.052176</td>
-      <td>0.0776</td>
-      <td>0.083634</td>
-    </tr>
-    <tr>
-      <th>param_svc__C</th>
+      <th>0</th>
       <td>4.331065</td>
-      <td>1.640822</td>
-      <td>4.437012</td>
-      <td>3.53178</td>
-      <td>5.073088</td>
-      <td>5.40062</td>
-      <td>7.008849</td>
-      <td>6.33953</td>
-      <td>5.204223</td>
-      <td>5.415514</td>
-      <td>...</td>
-      <td>2.927029</td>
-      <td>0.696779</td>
-      <td>7.736828</td>
-      <td>3.717887</td>
-      <td>3.141208</td>
-      <td>3.677289</td>
-      <td>2.604554</td>
-      <td>7.034032</td>
-      <td>9.979953</td>
-      <td>1.306287</td>
-    </tr>
-    <tr>
-      <th>mean_fit_time</th>
-      <td>0.677113</td>
-      <td>0.7783</td>
-      <td>1.51885</td>
-      <td>1.317613</td>
-      <td>1.537338</td>
-      <td>1.499696</td>
-      <td>1.95118</td>
-      <td>1.800268</td>
-      <td>0.688293</td>
-      <td>0.707351</td>
-      <td>...</td>
-      <td>0.756204</td>
-      <td>0.655976</td>
-      <td>0.770482</td>
-      <td>0.46971</td>
-      <td>0.565585</td>
-      <td>0.652933</td>
-      <td>0.59485</td>
-      <td>0.525791</td>
-      <td>0.603188</td>
-      <td>0.615842</td>
+      <td>0.099076</td>
+      <td>rbf</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 25 columns</p>
 </div></div></div>
 </div>
+<p>Random tested the SVC model with C values ranging from 0.1 to 10, gamma values ranging from 0.001 to 0.1, and kernels of rbf, sigmoid, and linear to Random tested the SVC model with C values ranging from 0.1 to 10, gamma values ranging from 0.001 to 0.1, and kernels of rbf, sigmoid, and linear to optimize the model’s performance. With 25 random combinations with 5 folds of cross-validation, the best hyperparameter combination is approximately 4.33 for C, and approximately 0.01 for gamma, with the rbf kernel.</p>
 </section>
 <section id="test-results-after-hyperparameter-optimization">
 <h3>Test results after hyperparameter optimization<a class="headerlink" href="#test-results-after-hyperparameter-optimization" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate the best model on the test set</span>
-<span class="n">best_model_random</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_estimator_</span>
-<span class="n">accuracy_random</span> <span class="o">=</span> <span class="n">best_model_random</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy on Test Set:&quot;</span><span class="p">,</span> <span class="n">accuracy_random</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on Test Set: 0.8613292049098751
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">best_model_random</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall on Test Set:&quot;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Recall on Test Set: 0.8751182592242195
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">random_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="n">scatter</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_svc__C:Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;param_svc__gamma:Q&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;mean_test_score:Q&#39;</span><span class="p">,</span> 
-                    <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                   <span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;C and gamma vs. Mean Test Score&#39;</span>
-<span class="p">)</span>
-
-<span class="n">scatter</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<style>
-  #altair-viz-b41ee71375484ddba564c19686e6206a.vega-embed {
-    width: 100%;
-    display: flex;
-  }
-
-  #altair-viz-b41ee71375484ddba564c19686e6206a.vega-embed details,
-  #altair-viz-b41ee71375484ddba564c19686e6206a.vega-embed details summary {
-    position: relative;
-  }
+    .dataframe thead th {
+        text-align: right;
+    }
 </style>
-<div id="altair-viz-b41ee71375484ddba564c19686e6206a"></div>
-<script type="text/javascript">
-  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b41ee71375484ddba564c19686e6206a") {
-      outputDiv = document.getElementById("altair-viz-b41ee71375484ddba564c19686e6206a");
-    }
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
-    };
-
-    function maybeLoadScript(lib, version) {
-      var key = `${lib.replace("-", "")}_version`;
-      return (VEGA_DEBUG[key] == version) ?
-        Promise.resolve(paths[lib]) :
-        new Promise(function(resolve, reject) {
-          var s = document.createElement('script');
-          document.getElementsByTagName("head")[0].appendChild(s);
-          s.async = true;
-          s.onload = () => {
-            VEGA_DEBUG[key] = version;
-            return resolve(paths[lib]);
-          };
-          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-          s.src = paths[lib];
-        });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else {
-      maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
-        .then(() => maybeLoadScript("vega-embed", "6"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"$schema": "https://vega.github.io/schema/vega/v5.json", "data": [{"name": "source_0", "values": [{"mean_test_score": 0.819125, "param_svc__C": 7.064691855978616, "param_svc__gamma": 0.02961393349503795}, {"mean_test_score": 0.827375, "param_svc__C": 7.008848550268617, "param_svc__gamma": 0.0729150310154773}, {"mean_test_score": 0.8318749999999999, "param_svc__C": 4.331064601244609, "param_svc__gamma": 0.09907641983846155}, {"mean_test_score": 0.8202499999999999, "param_svc__C": 5.8969429702261005, "param_svc__gamma": 0.014995076263038455}, {"mean_test_score": 0.8275, "param_svc__C": 3.5317801615086943, "param_svc__gamma": 0.07390497073840417}, {"mean_test_score": 0.819, "param_svc__C": 0.6967789660956835, "param_svc__gamma": 0.04080442553304314}, {"mean_test_score": 0.820875, "param_svc__C": 6.417920176870504, "param_svc__gamma": 0.04502571780640763}, {"mean_test_score": 0.8212499999999998, "param_svc__C": 5.415513738418383, "param_svc__gamma": 0.05418275870968661}, {"mean_test_score": 0.819625, "param_svc__C": 3.077804977404459, "param_svc__gamma": 0.05020847767923423}, {"mean_test_score": 0.7377499999999999, "param_svc__C": 3.677289188090218, "param_svc__gamma": 0.04272099480253377}, {"mean_test_score": 0.76425, "param_svc__C": 3.717886556223141, "param_svc__gamma": 0.023826323087895562}, {"mean_test_score": 0.71675, "param_svc__C": 9.979952865166672, "param_svc__gamma": 0.07759959501929949}, {"mean_test_score": 0.8275, "param_svc__C": 4.437011726795282, "param_svc__gamma": 0.044086276332964386}, {"mean_test_score": 0.82775, "param_svc__C": 1.6408224184684672, "param_svc__gamma": 0.008708648079828329}, {"mean_test_score": 0.7303749999999999, "param_svc__C": 7.034032436025143, "param_svc__gamma": 0.05217633752661696}, {"mean_test_score": 0.827375, "param_svc__C": 6.339529517921111, "param_svc__gamma": 0.012561839507929572}, {"mean_test_score": 0.8275, "param_svc__C": 5.073087863238618, "param_svc__gamma": 0.06932629134230998}, {"mean_test_score": 0.732375, "param_svc__C": 2.604553653965067, "param_svc__gamma": 0.04930342642627044}, {"mean_test_score": 0.819125, "param_svc__C": 2.428359299859786, "param_svc__gamma": 0.04468606627948174}, {"mean_test_score": 0.7141249999999999, "param_svc__C": 1.3062866599032374, "param_svc__gamma": 0.08363408005068333}, {"mean_test_score": 0.8190000000000002, "param_svc__C": 2.9270293433269856, "param_svc__gamma": 0.04434182392266678}, {"mean_test_score": 0.7421249999999999, "param_svc__C": 3.141207890271841, "param_svc__gamma": 0.04270222110247016}, {"mean_test_score": 0.825, "param_svc__C": 5.204223374780111, "param_svc__gamma": 0.06793137829622724}, {"mean_test_score": 0.8275, "param_svc__C": 5.400620111997607, "param_svc__gamma": 0.018537266077991565}, {"mean_test_score": 0.818375, "param_svc__C": 7.736828414433382, "param_svc__gamma": 0.025366637453687405}]}, {"name": "source_0_x_domain_param_svc__C", "values": [{"min": 0.6967789660956835, "max": 9.979952865166672}]}, {"name": "source_0_y_domain_param_svc__gamma", "values": [{"min": 0.008708648079828329, "max": 0.09907641983846155}]}, {"name": "source_0_color_domain_mean_test_score", "values": [{"min": 0.7141249999999999, "max": 0.8318749999999999}]}], "marks": [{"type": "symbol", "name": "marks", "from": {"data": "source_0"}, "encode": {"update": {"description": {"signal": "\"param_svc__C: \" + (format(datum[\"param_svc__C\"], \"\")) + \"; param_svc__gamma: \" + (format(datum[\"param_svc__gamma\"], \"\")) + \"; mean_test_score: \" + (format(datum[\"mean_test_score\"], \"\"))"}, "y": {"field": "param_svc__gamma", "scale": "y"}, "shape": {"value": "circle"}, "fill": {"field": "mean_test_score", "scale": "color"}, "opacity": {"value": 0.7}, "ariaRoleDescription": {"value": "circle"}, "x": {"field": "param_svc__C", "scale": "x"}}}, "style": ["circle"]}], "scales": [{"name": "x", "type": "linear", "domain": [{"signal": "(data(\"source_0_x_domain_param_svc__C\")[0] || {}).min"}, {"signal": "(data(\"source_0_x_domain_param_svc__C\")[0] || {}).max"}], "range": [0, {"signal": "width"}], "nice": true, "zero": true}, {"name": "y", "type": "linear", "domain": [{"signal": "(data(\"source_0_y_domain_param_svc__gamma\")[0] || {}).min"}, {"signal": "(data(\"source_0_y_domain_param_svc__gamma\")[0] || {}).max"}], "range": [{"signal": "height"}, 0], "zero": true, "nice": true}, {"name": "color", "type": "linear", "domain": [{"signal": "(data(\"source_0_color_domain_mean_test_score\")[0] || {}).min"}, {"signal": "(data(\"source_0_color_domain_mean_test_score\")[0] || {}).max"}], "range": {"scheme": "viridis"}, "interpolate": "hcl", "reverse": true, "zero": false}], "axes": [{"scale": "x", "domain": false, "ticks": false, "minExtent": 0, "grid": true, "zindex": 0, "tickCount": {"signal": "ceil(width/40)"}, "maxExtent": 0, "gridScale": "y", "labels": false, "aria": false, "orient": "bottom"}, {"scale": "y", "grid": true, "zindex": 0, "gridScale": "x", "tickCount": {"signal": "ceil(height/40)"}, "labels": false, "domain": false, "maxExtent": 0, "ticks": false, "orient": "left", "minExtent": 0, "aria": false}, {"scale": "x", "zindex": 0, "labelOverlap": true, "labelFlush": true, "grid": false, "orient": "bottom", "title": "param_svc__C", "tickCount": {"signal": "ceil(width/40)"}}, {"scale": "y", "title": "param_svc__gamma", "zindex": 0, "orient": "left", "grid": false, "tickCount": {"signal": "ceil(height/40)"}, "labelOverlap": true}], "title": {"text": "C and gamma vs. Mean Test Score", "frame": "group"}, "width": 400, "legends": [{"fill": "color", "gradientLength": {"signal": "clamp(height, 64, 200)"}, "title": "mean_test_score", "encode": {"gradient": {"update": {"opacity": {"value": 0.7}}}}}], "height": 300, "padding": 5, "style": "cell", "background": "white"}, {"mode": "vega"});
-</script></div></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>Recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.861329</td>
+      <td>0.875118</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<p>After fitting the model with the training data, and optimizing it with the hyperparameters found above, the model is used to score on the test data. The accuracy of the model is 0.86 while the recall ( True Positive / Actual Positive ) is 0.88. With optimization, the model performed well on unseen data.</p>
 </section>
 </section>
 <section id="discussions">
@@ -1346,7 +1092,7 @@ document.write(`
 </section>
 <section id="impact-of-finding">
 <h3>Impact of Finding<a class="headerlink" href="#impact-of-finding" title="Permalink to this heading">#</a></h3>
-<p>The high recall score of this model has significant implications for targeted marketing strategies. It suggests that the bank can confidently use the model’s predictions to focus its marketing efforts on clients predicted to subscribe, potentially increasing the efficiency and effectiveness of its campaigns <span id="id7">[<a class="reference internal" href="#id14" title="A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. Research, Society and Development, 2020.">Moura <em>et al.</em>, 2020</a>]</span>. This targeted approach could lead to higher conversion rates with lower marketing expenses. However, it’s important to balance such a high recall with precision to ensure that the bank doesn’t unnecessarily target unlikely prospects.</p>
+<p>The high recall score of this model has significant implications for targeted marketing strategies. It suggests that the bank can confidently use the model’s predictions to focus its marketing efforts on clients predicted to subscribe, potentially increasing the efficiency and effectiveness of its campaigns <span id="id8">[<a class="reference internal" href="#id15" title="A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. Research, Society and Development, 2020.">Moura <em>et al.</em>, 2020</a>]</span>. This targeted approach could lead to higher conversion rates with lower marketing expenses. However, it’s important to balance such a high recall with precision to ensure that the bank doesn’t unnecessarily target unlikely prospects.</p>
 </section>
 <section id="future-improvements">
 <h3>Future Improvements<a class="headerlink" href="#future-improvements" title="Permalink to this heading">#</a></h3>
@@ -1363,24 +1109,33 @@ Model Interpretability: Improving the model’s interpretability to better under
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id8">
-<dl class="citation">
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">ASAG20</a></span></dt>
-<dd><p><strong>missing journal in alsolami2020predicting</strong></p>
-</dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">MCR14</a></span></dt>
-<dd><p>S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. <em>Decis. Support Syst.</em>, 62:22–31, 2014.</p>
-</dd>
-<dt class="label" id="id9"><span class="brackets">MRC12</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
-<dd><p>S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. <a class="reference external" href="https://doi.org/10.24432/C5K306">https://doi.org/10.24432/C5K306</a>.</p>
-</dd>
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">MPN+20</a></span></dt>
-<dd><p>A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. <em>Research, Society and Development</em>, 2020.</p>
-</dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">VS14</a></span></dt>
-<dd><p>C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. <em>Applied mathematical sciences</em>, 8:5667–5672, 2014.</p>
-</dd>
-</dl>
+<div class="docutils container" id="id9">
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Che22</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in chen2022term</strong></p>
+</div>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Doo23</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in dooley2023what</strong></p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">MCR14</a><span class="fn-bracket">]</span></span>
+<p>S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. <em>Decis. Support Syst.</em>, 62:22–31, 2014.</p>
+</div>
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MRC12<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
+<p>S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. <a class="reference external" href="https://doi.org/10.24432/C5K306">https://doi.org/10.24432/C5K306</a>.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">MPN+20</a><span class="fn-bracket">]</span></span>
+<p>A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. <em>Research, Society and Development</em>, 2020.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">VS14</a><span class="fn-bracket">]</span></span>
+<p>C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. <em>Applied mathematical sciences</em>, 8:5667–5672, 2014.</p>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1450,7 +1205,7 @@ Model Interpretability: Improving the model’s interpretability to better under
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Hyperparameter Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
 </ul>
 </li>
