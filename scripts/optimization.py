@@ -80,6 +80,7 @@ def main(df, x_test, y_test, results_to, results_to_1, plot_to):
     
     random_search, best_model_random, best_params_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
 
+
     # show accuracy 
     accuracy_random = best_model_random.score(x_test, y_test)
 
