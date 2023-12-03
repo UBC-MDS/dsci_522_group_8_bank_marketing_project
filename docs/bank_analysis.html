@@ -1,0 +1,1274 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Bank Marketing Analysis &#8212; Bank Marketing Analysis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bank_analysis';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Bank Marketing Analysis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Bank Marketing Analysis
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/bank_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bank Marketing Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research Question</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection-and-evaluation">Model Selection and Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-comparison">Model Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-the-preferred-metric">Recall - The Preferred Metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-and-results">Modeling and Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussions">Discussions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-findings">Key Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-on-expectations">Reflection on Expectations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-finding">Impact of Finding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-improvements">Future Improvements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bank-marketing-analysis">
+<h1>Bank Marketing Analysis<a class="headerlink" href="#bank-marketing-analysis" title="Permalink to this heading">#</a></h1>
+<p>by Runtian Li, Rafe Chang, Sid Grover, Anu Banga</p>
+<p><strong>Repo Link:</strong> <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_8.git">UBC-MDS/dsci_522_group_8.git</a></p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>Here we build a model of balanced SVC to try to predict if a new client will subscribe to a term deposit. We tested five different classification models, including dummy classifier, unbalanced/balanced logistic regression, and unbalanced/balanced SVC, and chose the optimal model of balanced SVC based on how the model scored on the test data; the model has the highest test recall score of 0.82, which indicates that the model makes the least false negative predictions among all five models.</p>
+<p>The balanced support vector machines model considers 13 different numerical/ categorical features of customers. After hyperparameter optimization, the model’s test accuracy increased from 0.82 to 0.875. The results were somewhat expected, given SVC’s known efficacy in classification tasks, particularly when there’s a clear margin of separation. The high recall score of 0.875 indicates that the model is particularly adept at identifying clients likely to subscribe, which was the primary goal. It’s noteworthy that such a high recall was achieved, as it suggests the model is highly sensitive to true positive cases.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Term deposit is valuable to banks because it ensures a stable stream of income that banks can utilize. Banks usually invest in higher-return financial products or lend money to other customers with a higher interest rate to make a profit. With term deposits, banks can better predict their cash flow. <span id="id1">[<a class="reference internal" href="#id16">Chen, 2022</a>]</span></p>
+<p>While banks’s marketing strategies nowadays are usually focused on attracting new customers, the banks must target the right potential customers. This research is aimed at identifying the correct audience for banks to further design marketing strategies.<span id="id2">[<a class="reference internal" href="#id17">Dooley, 2023</a>]</span></p>
+<section id="background">
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h3>
+<p>The data set Bank Marketing was created by Sérgio Moro and Paulo Rita at the University Institute of Lisbon, and Paulo Cortez at the University of Minhom. It is sourced from the UCI Machine Learning Repository. Each row in this data set is an observation related to direct marketing campaigns (phone calls) of a Portuguese banking institution.</p>
+</section>
+<section id="research-question">
+<h3>Research Question<a class="headerlink" href="#research-question" title="Permalink to this heading">#</a></h3>
+<p>We are working on a binary classification model. The classification goal is to predict if the client will subscribe a term deposit: “yes” for will subscribe and “no” for won’t subscribe.</p>
+</section>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id3">[<a class="reference internal" href="#id10" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id4">[<a class="reference internal" href="#id10" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
+</section>
+<section id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="data-preprocessing">
+<h3>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h3>
+<p>Initially, we ensured our data was complete by dealing with missing values and removing unnecessary columns like “contact,” “day,” and “month.” This streamlined the dataset, making it ready for analysis. We used StandardScaler to standardize numerical features such as “age” and “balance” and applied one-hot encoding for categorical attributes, making the data compatible with different machine learning models.</p>
+</section>
+<section id="model-selection-and-evaluation">
+<h3>Model Selection and Evaluation<a class="headerlink" href="#model-selection-and-evaluation" title="Permalink to this heading">#</a></h3>
+<p>We used five models for classification, starting with a basic Dummy Classifier. Following models included Logistic Regression and Support Vector Classifier (SVC), each showing strengths in accuracy and recall <span id="id5">[<a class="reference internal" href="#id12" title="S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62:22-31, 2014.">Moro <em>et al.</em>, 2014</a>]</span>. Notably, our balanced models—Balanced Logistic Regression and Balanced Support Vector Classifier (svc_bal)—performed best, especially in identifying clients likely to subscribe to a term deposit.</p>
+</section>
+<section id="model-comparison">
+<h3>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this heading">#</a></h3>
+<p>An extensive evaluation, considering accuracy, precision, recall, and F1 scores, highlighted the Balanced Support Vector Classifier (svc_bal) as the standout performer. This model excelled with high recall, crucial for identifying potential term deposit subscribers in our specific context.</p>
+</section>
+<section id="hyperparameter-optimization">
+<h3>Hyperparameter Optimization<a class="headerlink" href="#hyperparameter-optimization" title="Permalink to this heading">#</a></h3>
+<p>Optimizing model performance, especially for the Support Vector Classifier (SVC) using a reduced dataset, resulted in a final model with an impressive 86% accuracy and a notable recall of 87%. This optimization strategy enhances efficiency and fine-tunes the model for better results.</p>
+</section>
+<section id="recall-the-preferred-metric">
+<h3>Recall - The Preferred Metric<a class="headerlink" href="#recall-the-preferred-metric" title="Permalink to this heading">#</a></h3>
+<p>In our bank marketing dataset, we prioritize recall. Recall indicates the model’s ability to identify true positive cases—clients subscribing to a term deposit. In our context, missing a potential positive case is more significant than false positives, leading to potential losses and missed opportunities. Prioritizing recall ensures a finely tuned model capturing all potential clients interested in term deposits, aligning with our main goal.</p>
+</section>
+</section>
+<section id="modeling-and-results">
+<h2>Modeling and Results<a class="headerlink" href="#modeling-and-results" title="Permalink to this heading">#</a></h2>
+<section id="exploratory-data-analysis">
+<h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
+<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id6">[<a class="reference internal" href="#id14" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
+<figure class="align-default" id="numerical-features-distribution">
+<a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of all the numerical features after feature selection</span><a class="headerlink" href="#numerical-features-distribution" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We decided to keep the following features as categorical features: “job”, “marital”, “education”, “default”, “housing”, “loan”, “poutcome”. See the distribution as below: <a class="reference internal" href="#categorical-features-distribution"><span class="std std-numref">Figure 2</span></a></p>
+<figure class="align-default" id="categorical-features-distribution">
+<a class="reference internal image-reference" href="_images/categorical_dist_by_feat.png"><img alt="_images/categorical_dist_by_feat.png" src="_images/categorical_dist_by_feat.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Distribution of all the categorical features after feature selection</span><a class="headerlink" href="#categorical-features-distribution" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h3>
+<div class="alert alert-info">
+<ul class="simple">
+<li><p>Since there is no missing values in our dataset, we don’t need to do imputation or drop NAs.</p></li>
+<li><p>We are going to drop “contact”, “day” and “month” column here since they are not helping us in identifying useful underlying pattern in the model.</p></li>
+<li><p>We take “age”, “balance”, “duration”, “campaign”, “pdays”, “previous” as numerical features and we are doing StandardScaler transformation on them.</p></li>
+<li><p>We take “job”, “marital”, “education”, “default”, “housing”, “loan”, “poutcome” as categorical features and we are doing one hot encoding on them. We dropped columns only if the categorical is binary.</p></li>
+</ul>
+</div><p>The transformed dataframe after doing <code class="docutils literal notranslate"><span class="pre">StandardScale</span></code> on numerical features and <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> on categorical features is shown as below. The number of features after preprocessing is 32.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>balance</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>job_admin.</th>
+      <th>job_blue-collar</th>
+      <th>job_entrepreneur</th>
+      <th>job_housemaid</th>
+      <th>...</th>
+      <th>education_secondary</th>
+      <th>education_tertiary</th>
+      <th>education_unknown</th>
+      <th>default_yes</th>
+      <th>housing_yes</th>
+      <th>loan_yes</th>
+      <th>poutcome_failure</th>
+      <th>poutcome_other</th>
+      <th>poutcome_success</th>
+      <th>poutcome_unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.125848</td>
+      <td>-0.525607</td>
+      <td>-0.250585</td>
+      <td>-0.568295</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.136220</td>
+      <td>-0.457253</td>
+      <td>0.100475</td>
+      <td>-0.245219</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.324725</td>
+      <td>0.405335</td>
+      <td>0.266360</td>
+      <td>-0.245219</td>
+      <td>0.537396</td>
+      <td>0.600341</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.031595</td>
+      <td>-0.457253</td>
+      <td>-0.173429</td>
+      <td>-0.245219</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.031595</td>
+      <td>-0.280868</td>
+      <td>-0.586213</td>
+      <td>0.077857</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>36163</th>
+      <td>0.853461</td>
+      <td>0.767775</td>
+      <td>2.419011</td>
+      <td>0.077857</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36164</th>
+      <td>-0.466078</td>
+      <td>-0.245524</td>
+      <td>0.385952</td>
+      <td>-0.568295</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36165</th>
+      <td>0.193692</td>
+      <td>0.764441</td>
+      <td>0.058039</td>
+      <td>-0.568295</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36166</th>
+      <td>1.324725</td>
+      <td>2.405259</td>
+      <td>-0.223580</td>
+      <td>-0.245219</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36167</th>
+      <td>0.476450</td>
+      <td>0.260959</td>
+      <td>-0.663369</td>
+      <td>0.400933</td>
+      <td>-0.411533</td>
+      <td>-0.245565</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>36168 rows × 32 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="model-selection">
+<h3>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>scoring</th>
+      <th>dummy</th>
+      <th>dummy.1</th>
+      <th>logreg</th>
+      <th>logreg.1</th>
+      <th>svc</th>
+      <th>svc.1</th>
+      <th>logreg_bal</th>
+      <th>logreg_bal.1</th>
+      <th>svc_bal</th>
+      <th>svc_bal.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+      <td>mean</td>
+      <td>std</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>fit_time</td>
+      <td>0.119</td>
+      <td>0.014</td>
+      <td>0.652</td>
+      <td>0.038</td>
+      <td>16.451</td>
+      <td>1.298</td>
+      <td>0.804</td>
+      <td>0.067</td>
+      <td>30.036</td>
+      <td>1.635</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>score_time</td>
+      <td>0.072</td>
+      <td>0.013</td>
+      <td>0.099</td>
+      <td>0.013</td>
+      <td>1.78</td>
+      <td>0.076</td>
+      <td>0.134</td>
+      <td>0.007</td>
+      <td>3.353</td>
+      <td>0.167</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>test_accuracy</td>
+      <td>0.883</td>
+      <td>0.0</td>
+      <td>0.9</td>
+      <td>0.004</td>
+      <td>0.899</td>
+      <td>0.003</td>
+      <td>0.829</td>
+      <td>0.005</td>
+      <td>0.814</td>
+      <td>0.007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>train_accuracy</td>
+      <td>0.883</td>
+      <td>0.0</td>
+      <td>0.9</td>
+      <td>0.0</td>
+      <td>0.906</td>
+      <td>0.0</td>
+      <td>0.83</td>
+      <td>0.001</td>
+      <td>0.824</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>test_precision</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.653</td>
+      <td>0.041</td>
+      <td>0.657</td>
+      <td>0.035</td>
+      <td>0.386</td>
+      <td>0.007</td>
+      <td>0.369</td>
+      <td>0.011</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>train_precision</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.655</td>
+      <td>0.003</td>
+      <td>0.724</td>
+      <td>0.004</td>
+      <td>0.387</td>
+      <td>0.001</td>
+      <td>0.387</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>test_recall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.314</td>
+      <td>0.022</td>
+      <td>0.291</td>
+      <td>0.016</td>
+      <td>0.778</td>
+      <td>0.013</td>
+      <td>0.823</td>
+      <td>0.016</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>train_recall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.314</td>
+      <td>0.004</td>
+      <td>0.324</td>
+      <td>0.004</td>
+      <td>0.779</td>
+      <td>0.001</td>
+      <td>0.863</td>
+      <td>0.004</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>test_f1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.423</td>
+      <td>0.025</td>
+      <td>0.403</td>
+      <td>0.016</td>
+      <td>0.516</td>
+      <td>0.007</td>
+      <td>0.509</td>
+      <td>0.013</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>train_f1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.425</td>
+      <td>0.004</td>
+      <td>0.448</td>
+      <td>0.004</td>
+      <td>0.517</td>
+      <td>0.001</td>
+      <td>0.534</td>
+      <td>0.001</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-info">
+<p><code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Classifier</span></code> has low accuracy and zero precision, recall, and F1 scores, indicating it never predicts the positive class (in this case the client subscribed a term deposit). This is expected as it always predicts the most frequent class.</p>
+<p><code class="docutils literal notranslate"><span class="pre">logreg</span></code> shows improved accuracy over the dummy model. However, its recall is low, suggesting it misses a significant number of true positive cases. <code class="docutils literal notranslate"><span class="pre">svc</span></code> performed almost the same as logistic regression model among all metrics.</p>
+<p><code class="docutils literal notranslate"><span class="pre">logreg_bal</span></code> and <code class="docutils literal notranslate"><span class="pre">svc_bal</span></code> have lower accuracy compared to their unbalanced counterparts but significantly higher recall. This indicates they are better at identifying positive cases but at the cost of making more false positive errors.</p>
+<p>Given the context of our bank marketing data set, we aim to detect the clients who will subscribe a term deposit given the features. Missing a potential “yes” could be more costly than false positives, as it represents a lost opportunity for the sales team to transform this potential customer. Therefore, we chose <code class="docutils literal notranslate"><span class="pre">svc_bal</span></code> as the model has the highest <code class="docutils literal notranslate"><span class="pre">test_recall</span></code> score.</p>
+</div><div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>train_accuracy</th>
+      <th>test_accuracy</th>
+      <th>train_precision</th>
+      <th>test_precision</th>
+      <th>train_recall</th>
+      <th>test_recall</th>
+      <th>train_f1</th>
+      <th>test_f1</th>
+      <th>fit_time</th>
+      <th>score_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.82385</td>
+      <td>0.815659</td>
+      <td>0.386597</td>
+      <td>0.369435</td>
+      <td>0.861531</td>
+      <td>0.816462</td>
+      <td>0.533704</td>
+      <td>0.508694</td>
+      <td>59.114527</td>
+      <td>102.086006</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id7">
+<h3>Hyperparameter Optimization<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<div class="alert alert-info">
+<p>Optimizing hyperparameters in SVC with a smaller sample size of 10,000 instances is a strategy aimed at enhancing computational efficiency. This approach expedites the exploration of hyperparameter possibilities, aiding in the discovery of potential configurations. While the outcomes validate the concept, it’s crucial to recognize and manage the constraints stemming from the smaller dataset size when interpreting the results.</p>
+</div><div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>svc__C</th>
+      <th>svc__gamma</th>
+      <th>svc__kernel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.331065</td>
+      <td>0.099076</td>
+      <td>rbf</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Random tested the SVC model with C values ranging from 0.1 to 10, gamma values ranging from 0.001 to 0.1, and kernels of rbf, sigmoid, and linear to Random tested the SVC model with C values ranging from 0.1 to 10, gamma values ranging from 0.001 to 0.1, and kernels of rbf, sigmoid, and linear to optimize the model’s performance. With 25 random combinations with 5 folds of cross-validation, the best hyperparameter combination is approximately 4.33 for C, and approximately 0.01 for gamma, with the rbf kernel.</p>
+</section>
+<section id="test-results-after-hyperparameter-optimization">
+<h3>Test results after hyperparameter optimization<a class="headerlink" href="#test-results-after-hyperparameter-optimization" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>Recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.861329</td>
+      <td>0.875118</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>After fitting the model with the training data, and optimizing it with the hyperparameters found above, the model is used to score on the test data. The accuracy of the model is 0.86 while the recall ( True Positive / Actual Positive ) is 0.88. With optimization, the model performed well on unseen data.</p>
+</section>
+</section>
+<section id="discussions">
+<h2>Discussions<a class="headerlink" href="#discussions" title="Permalink to this heading">#</a></h2>
+<section id="key-findings">
+<h3>Key Findings<a class="headerlink" href="#key-findings" title="Permalink to this heading">#</a></h3>
+<p>In this bank marketing analysis project, we aimed to develop a binary classification model to predict client subscription to term deposits. We tested Logistic Regression and Support Vector Classifier (SVC) models, focusing on recall as a key performance metric. The SVC model outperformed Logistic Regression in recall, and after hyperparameter optimization, it achieved a recall score of 0.875 on the test dataset, which is quite promising!</p>
+</section>
+<section id="reflection-on-expectations">
+<h3>Reflection on Expectations<a class="headerlink" href="#reflection-on-expectations" title="Permalink to this heading">#</a></h3>
+<p>The results were somewhat expected, given SVC’s known efficacy in classification tasks, particularly when there’s a clear margin of separation. The high recall score of 0.875 indicates that the model is particularly adept at identifying clients likely to subscribe, which was the primary goal. It’s noteworthy that such a high recall was achieved, as it suggests the model is highly sensitive to true positive cases.</p>
+</section>
+<section id="impact-of-finding">
+<h3>Impact of Finding<a class="headerlink" href="#impact-of-finding" title="Permalink to this heading">#</a></h3>
+<p>The high recall score of this model has significant implications for targeted marketing strategies. It suggests that the bank can confidently use the model’s predictions to focus its marketing efforts on clients predicted to subscribe, potentially increasing the efficiency and effectiveness of its campaigns <span id="id8">[<a class="reference internal" href="#id15" title="A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. Research, Society and Development, 2020.">Moura <em>et al.</em>, 2020</a>]</span>. This targeted approach could lead to higher conversion rates with lower marketing expenses. However, it’s important to balance such a high recall with precision to ensure that the bank doesn’t unnecessarily target unlikely prospects.</p>
+</section>
+<section id="future-improvements">
+<h3>Future Improvements<a class="headerlink" href="#future-improvements" title="Permalink to this heading">#</a></h3>
+<p>The success of this model leads to several potential areas for further exploration:</p>
+<ul class="simple">
+<li><p>Balancing Precision and Recall: Investigating methods to enhance precision without substantially reducing recall.</p></li>
+<li><p>Feature Analysis: Identifying which features most significantly influence subscription predictions.
+Model Interpretability: Improving the model’s interpretability to better understand the basis for its predictions.</p></li>
+<li><p>Temporal Adaptability: Assessing the model’s adaptability to evolving trends and customer behaviors over time.</p></li>
+<li><p>Testing Alternative Models: Exploring whether ensemble methods or more advanced machine learning algorithms could yield better or comparable results.</p></li>
+<li><p>Customer Segmentation: Evaluating the model’s performance across different customer segments to tailor more specific marketing strategies.</p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id9">
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Che22</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in chen2022term</strong></p>
+</div>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Doo23</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in dooley2023what</strong></p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">MCR14</a><span class="fn-bracket">]</span></span>
+<p>S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. <em>Decis. Support Syst.</em>, 62:22–31, 2014.</p>
+</div>
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MRC12<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
+<p>S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. <a class="reference external" href="https://doi.org/10.24432/C5K306">https://doi.org/10.24432/C5K306</a>.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">MPN+20</a><span class="fn-bracket">]</span></span>
+<p>A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. <em>Research, Society and Development</em>, 2020.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">VS14</a><span class="fn-bracket">]</span></span>
+<p>C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. <em>Applied mathematical sciences</em>, 8:5667–5672, 2014.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research Question</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection-and-evaluation">Model Selection and Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-comparison">Model Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-the-preferred-metric">Recall - The Preferred Metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-and-results">Modeling and Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussions">Discussions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-findings">Key Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-on-expectations">Reflection on Expectations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-finding">Impact of Finding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-improvements">Future Improvements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Group 8: Runtian Li, Rafe Chang, Sid Grover, Anu Banga
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
