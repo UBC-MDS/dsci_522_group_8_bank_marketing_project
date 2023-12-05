@@ -125,6 +125,12 @@ jupyter-book build notebooks
 ```
 Then, you can navigate to `notebooks/_build/html` and click the `index.html` in the folder to see the rendered report.
 
+## Running Tests
+Navigate to the project root directory and use the following command in terminal to test the functions used in this project. 
+```
+pytest test/*
+```
+
 ## Clean up
 
 To shut down the container and clean up the resources, 
