@@ -40,7 +40,7 @@ The report can be found at [`bank_analysis.html`](https://ubc-mds.github.io/dsci
 -   **Temporal Adaptability with Statsmodels and Prophet:** Assess the model's adaptability to evolving trends over time is key. Utilizing tools such as Statsmodels for statistical analysis and Facebook Prophet for time-series forecasting ensures the model remains relevant in dynamic market conditions and adapts accordingly to new information.
 -   **Cost-Sensitive Learning and Hinge Loss:** Cost-sensitive learning enables the model to explicitly weigh the costs associated with false positives and false negatives. This optimization aligns marketing investments more closely with potential benefits, ensuring that resources are allocated judiciously to maximize return on investment. For SVMs, a cost-sensitive version of the hinge loss can be employed to penalize misclassifications based on their associated costs, encouraging the model to minimize the overall economic costs.
 
-### Usage
+### Installation and Usage
 
 To replicate this analysis: Clone this repository:
 
