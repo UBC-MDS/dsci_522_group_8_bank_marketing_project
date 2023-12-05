@@ -2,7 +2,9 @@
 
 This guide outlines how to participate in the Bank Marketing Campaign Analysis project.
 
-> ** The objective of this document is to set clear expectations for all project participants, encouraging a collaborative approach to enhancement. Following these guidelines helps cultivate a positive and inclusive atmosphere, ensuring a rewarding experience for both contributors and maintainers. **
+> The objective of this document is to set clear expectations for all project participants, encouraging a collaborative approach to enhancement. Following these guidelines helps cultivate a positive and inclusive atmosphere, ensuring a rewarding experience for both contributors and maintainers.
+
+**For all contributors:** We welcome all contributions to this project! If you notice a bug, or have a feature request, please open up an issue here. If you'd like to contribute a feature or bug fix, you can fork our repo and submit a pull request. We will review pull requests within 7 days. All contributors must abide by the code of conduct.(Ref: DSCI 522 Course for Milestone 1)
 
 ### Prerequisites
 #### Minor Changes
