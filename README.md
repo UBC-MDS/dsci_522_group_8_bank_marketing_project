@@ -48,7 +48,7 @@ To replicate this analysis: Clone this repository:
 git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
 ```
 
-Pull the image by running this command from the root od the repository:
+Pull the image by running this command from the root of the repository:
 ```
 docker pull cchang5/dsci_522_group_8_bank_marketing:58fe205
 ```
@@ -132,7 +132,7 @@ type `Cntrl` + `C` in the terminal
 where you launched the container, and then type `docker compose rm`
 
 ## Dependencies
--    Docker: software used to build the container (compuational environment)
+-    Docker: software used to build the container (compuational environment) [`Dockerfile`](Dockerfile)
 -   `conda` (version 23.9.0 or higher)
 -   `nb_conda_kernels` (version 2.3.1 or higher)
 -   Python and packages listed in [`environment.yml`](environment.yml)
