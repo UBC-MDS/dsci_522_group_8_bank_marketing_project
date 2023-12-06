@@ -110,13 +110,14 @@ python scripts/scoring_metric.py  \
    --seed=522
 
 # Optimization and Accuracy/Recall Scores
-python scripts/optimization.py
-    --df=data/bank-full.csv
-    --x_test=data/processed/X_test.csv
-    --y_test=data/processed/y_test.csv
-    --results_to=results/metrics
-    --results_to_1=results/metrics
-    --plot_to=results/figures
+
+python scripts/optimization.py \
+--df=data/bank-full.csv \
+--x_test=data/processed/X_test.csv \
+--y_test=data/processed/y_test.csv \
+--results_to=results/metrics \
+--results_to_1=results/metrics \
+--plot_to=results/figures
 ```
 
 After you've run the above command line (this might take a while cuz we are optimizing the svc_bal here), you can run the command in the root folder to render the jupyter book:
