@@ -16,10 +16,23 @@ data/processed/train_df.csv data/processed/test_df.csv : scripts/train_test_spli
         --data-to='data/processed' \
         --seed=522
 
+results/figures/categorical_dist_by_feat.png \
+results/figures/numerical_dist_by_feat.png \
+corr_matx.png : scripts/EDA.py data/raw/bank/bank-full.csv
+python scripts/EDA.py \
+   --data-frame = "data/raw/bank/bank-full.csv" \
+   --plot-to = "results/figures"
+
 results/_build/html/index.html : notebooks/bank_analysis.ipynb \
 report/_toc.yml \
 report/_config.yml \
 	jupyter-book build report
 
-clean :
-	rm -rf report/_build
+clean:
+	rm -f data/raw/bank.zip
+	rm -rf data/raw/bank
+	rm -f data/processed/train_df.csv
+	rm -f data/processed/test_df.csv
+	rm -f results/figures/categorical_dist_by_feat.png
+	rm -f results/figures/numerical_dist_by_feat.png
+	rm -f corr_matx.png
