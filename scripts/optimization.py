@@ -45,11 +45,12 @@ def optimization(svc_pipeline, X_train, y_train):
 @click.option('--df', type=str, help="path to df")
 @click.option('--x_test', type=str, help="path to x_test")
 @click.option('--y_test', type=str, help="path to y_test")
+@click.option('--model_type', type=str, help="Path to model object")
 @click.option('--results_to', type=str, help="path to direct where the result will be written to")
 @click.option('--results_to_1', type=str, help="path to direct where the result will be written to")
-@click.option('--plot_to', type=str, help="path to direct where the plot will be written to")
+# @click.option('--plot_to', type=str, help="path to direct where the plot will be written to")
 
-def main(df, x_test, y_test, results_to, results_to_1, plot_to): 
+def main(df, x_test, y_test, model_type, results_to, results_to_1): 
 
     numerical_features=["age", "balance", "duration", "campaign", "pdays", "previous"] 
     categorical_features=["job", "marital", "education", "default", "housing", "loan", "poutcome"] 
@@ -65,9 +66,7 @@ def main(df, x_test, y_test, results_to, results_to_1, plot_to):
     train_df_sampled, test_df_sampled = train_test_split(sample_data, test_size=0.2, random_state=123)
 
     X_train_sampled = train_df_sampled.drop(columns=["target"])
-    X_test_sampled = test_df_sampled.drop(columns=["target"])
     y_train_sampled = train_df_sampled["target"]
-    y_test_sampled = test_df_sampled["target"]
 
     # Transformation on the sample training data
     sample_preprocessor = make_column_transformer(
@@ -75,16 +74,19 @@ def main(df, x_test, y_test, results_to, results_to_1, plot_to):
         (OneHotEncoder(drop="if_binary"), categorical_features),
         ("drop", drop_features),
     )
-
-    svc_bal_sample = make_pipeline(sample_preprocessor, SVC(random_state=123, class_weight="balanced"))
     
-    random_search, best_model_random, best_params_random = optimization(svc_bal_sample, X_train_sampled, y_train_sampled)
+    if isinstance(model_type, str):
+        with open(model_type, "rb") as file:
+            model_sel = pickle.load(file)
 
+    if isinstance(model_sel, str):
+        with open(model_sel, "wb") as file:
+            pickle.dump(model_sel, file) 
+    
+    random_search, best_model_random, best_params_random = optimization(model_sel, X_train_sampled, y_train_sampled)
 
-    # show accuracy 
     accuracy_random = best_model_random.score(x_test, y_test)
 
-    # show recall 
     predictions = best_model_random.predict(x_test)
     recall = recall_score(y_test, predictions, pos_label='yes')
 
@@ -93,26 +95,6 @@ def main(df, x_test, y_test, results_to, results_to_1, plot_to):
 
     best_param_df = pd.DataFrame([best_params_random]) 
     best_param_df.to_csv(os.path.join(results_to_1, "best_params.csv")) 
-
-    
-    # visualize the c and gamma 
-    results = pd.DataFrame(random_search.cv_results_)
-    alt.Chart(results).mark_circle().encode(
-        x='param_svc__C:Q',
-        y='param_svc__gamma:Q',
-        color=alt.Color('mean_test_score:Q', 
-                        scale=alt.Scale(scheme='viridis', reverse=True)
-                    )
-    ).properties(
-        width=400,
-        height=300,
-        title='C and gamma vs. Mean Test Score'
-    )
-
-    # show the visual 
-    # scatter
-    plt.gcf().savefig(os.path.join(plot_to, "optimization_plot.png"))
-
 
 if __name__ == '__main__':
     main()
