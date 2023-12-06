@@ -15,7 +15,7 @@ This repository contains the data, code, and analysis for the project "Uncoverin
 [![CC License](https://img.shields.io/badge/CCC-informational?style=flat-square)](LICENSE-CCC)
 
 
-### About
+## About
 
 The data set [Bank Marketing](https://archive.ics.uci.edu/dataset/222/bank+marketing) was created by Sérgio Moro and Paulo Rita at the University Institute of Lisbon, and Paulo Cortez at the University of Minhom. It is sourced from the UCI Machine Learning Repository. Each row in this data set is an observation related to direct marketing campaigns (phone calls) of a Portuguese banking institution.
 
@@ -28,11 +28,11 @@ For model selection and evaluation, we employed five classification models, incl
 The report's discoveries are important for banks to grasp and forecast how customers make decisions about term deposits. Understanding this helps fine-tune marketing strategies for future campaigns. We view these insights as a starting point for further research, potentially employing advanced models and more data to explore patterns and other factors that influence customer choices. Some suggested improvements are discussed below. 
 
 
-### :ledger: Report
+## :ledger: Report
 
 The report can be found at [`bank_analysis.html`](https://ubc-mds.github.io/dsci_522_group_8_bank_marketing_project/bank_analysis.html)
 
-### Suggested Improvements
+## Suggested Improvements
 
 -   **Use of Ensemble Models:** Ensemble models, through aggregation of predictions from diverse models, enhance accuracy, mitigate overfitting, and effectively capture non-linear relationships - making them well-suited for predicting term deposit subscriptions. Their robustness to outliers, versatility across data types, and feature importance make them a perfrct fit in this context.
 -   **Addressing Class Imbalance differently:** A combination of techniques, such as Random Undersampling for the majority class and Synthetic Minority Over-sampling Technique (SMOTE) for the minority class, can be employed to address imbalances and enhance predictive performance.
@@ -40,7 +40,7 @@ The report can be found at [`bank_analysis.html`](https://ubc-mds.github.io/dsci
 -   **Temporal Adaptability with Statsmodels and Prophet:** Assess the model's adaptability to evolving trends over time is key. Utilizing tools such as Statsmodels for statistical analysis and Facebook Prophet for time-series forecasting ensures the model remains relevant in dynamic market conditions and adapts accordingly to new information.
 -   **Cost-Sensitive Learning and Hinge Loss:** Cost-sensitive learning enables the model to explicitly weigh the costs associated with false positives and false negatives. This optimization aligns marketing investments more closely with potential benefits, ensuring that resources are allocated judiciously to maximize return on investment. For SVMs, a cost-sensitive version of the hinge loss can be employed to penalize misclassifications based on their associated costs, encouraging the model to minimize the overall economic costs.
 
-### Usage
+## Usage
 
 To replicate this analysis: Clone this repository:
 
@@ -48,7 +48,7 @@ To replicate this analysis: Clone this repository:
 git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
 ```
 
-Pull the image by running this command from the root od the repository:
+Pull the image by running this command from the root of the repository:
 ```
 docker pull cchang5/dsci_522_group_8_bank_marketing:58fe205
 ```
@@ -125,23 +125,32 @@ jupyter-book build notebooks
 ```
 Then, you can navigate to `notebooks/_build/html` and click the `index.html` in the folder to see the rendered report.
 
-#### Clean up
+## Running Tests
+Navigate to the project root directory and use the following command in terminal to test the functions used in this project. 
+```
+pytest test/*
+```
+
+## Clean up
 
 To shut down the container and clean up the resources, 
 type `Cntrl` + `C` in the terminal
 where you launched the container, and then type `docker compose rm`
 
-### Dependencies
-
+## Dependencies
+-    Docker: software used to build the container (compuational environment) [`Dockerfile`](Dockerfile)
 -   `conda` (version 23.9.0 or higher)
 -   `nb_conda_kernels` (version 2.3.1 or higher)
 -   Python and packages listed in [`environment.yml`](environment.yml)
 
-### License
+## Contributing
+We welcome all contributions! Check out [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+## License
 
 This project is licensed under the MIT License and Creative Commons License 4.0 (NonCommerical Attribution) - see LICENSE.md for details.
 
-### References
+## References
 
 1.  Moro,S., Rita,P., and Cortez,P., 2012. Bank Marketing. UCI Machine Learning Repository. <https://doi.org/10.24432/C5K306>"
 2.  Timbers,T. , Ostblom,J., and Lee,M., 2023. Breast Cancer Predictor Report. GitHub repository, <https://github.com/ttimbers/breast_cancer_predictor_py/blob/0.0.1/src/breast_cancer_predictor_report.ipynb>",
