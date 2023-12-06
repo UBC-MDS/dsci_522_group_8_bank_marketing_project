@@ -1,4 +1,4 @@
-### MIT License
+# MIT License
 
 Copyright (c) 2023 Master of Data Science at the University of British Columbia
 
@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-### CREATIVE COMMONS LICENSE
+# CREATIVE COMMONS LICENSE
 
 Bank Term Deposit Subscription Predictor © 2023 by Runtian Li, Rafe Chang, Sid Grover, Anu Banga is licensed under Attribution-NonCommercial 4.0 International 
 
