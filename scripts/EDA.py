@@ -61,10 +61,11 @@ def main(dataframe, plot_to):
     if len(categorical_cols) != 0:
         categorical_plot = (
             alt.Chart(data)
-            .mark_bar(opacity=0.9)
+            .mark_bar(opacity=0.5)
             .encode(
                 y=alt.Y(alt.repeat()).type("nominal").sort("-x"),
                 x=alt.X("count()", title="Count").stack(False),
+                color = alt.Color("y", title= "Target")
             )
             .repeat(categorical_cols, columns=2)
         )
@@ -72,10 +73,11 @@ def main(dataframe, plot_to):
     if len(numeric_cols) != 0:
         numeric_plot = (
             alt.Chart(data)
-            .mark_bar(opacity=0.9)
+            .mark_bar(opacity=0.5)
             .encode(
-                y=alt.Y(alt.repeat()).type("quantitative").bin(maxbins=25).sort("-x"),
+                y=alt.Y(alt.repeat()).type("quantitative").bin(maxbins=15).sort("-x"),
                 x=alt.X("count()", title = "Count").stack(False),
+                color = alt.Color("y", title= "Target")
             )
             .repeat(numeric_cols, columns=2)
         )
