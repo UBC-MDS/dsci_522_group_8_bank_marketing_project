@@ -25,6 +25,25 @@ All notable changes to this project will be documented in this file.
 
 - None
 
+## [3.0.0] - 2023-12-09
+
+### Added
+
+- xxx
+
+### Fixed
+
+- xxx
+
+### Changed
+
+- xxx
+
+
+### Removed
+
+- xxx
+
 
 [unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.0...v1.1.1
