@@ -36,9 +36,9 @@ results/metrics/optimization_results: data/raw/bank/bank-full.csv data/processed
 
 # Clean up
 clean:
-	rm -rf data/raw/
+	rm -rf data/raw/*
 	rm -f data/split/*.csv
-	rm -rf data/processed/
+	rm -rf data/processed/*.csv
 	rm -rf results/figures/*
 	rm -f results/models/*.pickle
 	rm -f results/metrics/*
