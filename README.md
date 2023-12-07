@@ -50,7 +50,7 @@ git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
 
 Pull the image by running this command from the root of the repository:
 ```
-docker pull cchang5/dsci_522_group_8_bank_marketing:58fe205
+docker pull cchang5/dsci_522_group_8_bank_marketing:0aacd5b
 ```
 
 After building the image successfully, run this command to run the container:
