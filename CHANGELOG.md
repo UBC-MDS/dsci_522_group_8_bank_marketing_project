@@ -31,14 +31,16 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Makefile to automate the data pipeline
+- Corelation matrix in EDA
 
 ### Fixed
 
-- xxx
+- Typo in command line that was causing error for optimization.py
 
 ### Changed
 
-- xxx
+- Dockerfile and pushed the latest version image with 'make' dependency
+- Histogram in EDA (encoded color to target class)
 
 
 ### Removed
