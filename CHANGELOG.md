@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 
 - None
 
-## [3.0.0] - 2023-12-09
+## [3.0.0] - 2023-12-06
 
 ### Added
 
@@ -36,6 +36,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - Typo in command line that was causing error for optimization.py
+- Fixed optimization.py to use selected model pickle for hyperparamter optimization.
 
 ### Changed
 
