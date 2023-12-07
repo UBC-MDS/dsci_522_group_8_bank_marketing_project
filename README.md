@@ -123,8 +123,8 @@ python scripts/optimization.py \
 After you've run the above command line (this might take a while cuz we are optimizing the svc_bal here), you can run the command in the root folder to render the jupyter book:
 ```
 jupyter-book build notebooks
+cp -r report/_build/html/* docs
 ```
-Then, you can navigate to `notebooks/_build/html` and click the `index.html` in the folder to see the rendered report.
 
 ## Running Tests
 Navigate to the project root directory and use the following command in terminal to test the functions used in this project. 
