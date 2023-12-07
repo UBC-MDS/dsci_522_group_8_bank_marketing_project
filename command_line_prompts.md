@@ -11,7 +11,7 @@ python scripts/unzip.py \
 # split data into train and test sets and save them to csv file
 python scripts/train_test_split.py \
    --raw-data='data/raw/bank/bank-full.csv' \
-   --data-to='data/processed' \
+   --data-to='data/split' \
    --seed=522
 
 # Perform exploratory data analysis (EDA) on the given df
@@ -46,10 +46,10 @@ python scripts/scoring_metric.py  \
    --seed=522
 
 # Optimization and Accuracy/Recall Scores
-python scripts/optimization.py
-    --df=data/bank-full.csv
-    --x_test=data/processed/X_test.csv
-    --y_test=data/processed/y_test.csv
-    --results_to=results/metrics
-    --results_to_1=results/metrics
-    --plot_to=results/figures
+python scripts/optimization.py \
+   --df=data/bank-full.csv \
+   --x_test=data/processed/X_test.csv \
+   --y_test=data/processed/y_test.csv \
+   --model_type=results/models/model_pipeline.pickle \
+   --results_to=results/metrics \
+   --results_to_1=results/metrics 

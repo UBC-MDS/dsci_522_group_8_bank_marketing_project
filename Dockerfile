@@ -15,4 +15,5 @@ RUN conda install -y pandas=2.1.3 \
     click=8.1.7 \
     vl-convert-python=1.1.0 \ 
     matplotlib=3.8.0 \
-    jupyter-book=0.15.1
+    jupyter-book=0.15.1 \
+    make
