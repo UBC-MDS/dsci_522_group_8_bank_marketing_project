@@ -11,11 +11,14 @@ All notable changes to this project will be documented in this file.
 - Creative CREATIVE COMMONS LICENSE
 - scripts that called the function in the command line
 - Method part which we were missing for [1.0.0]
+- Test suite information
+- Makefile
 
 ### Fixed
 
 - Bugs in functions to make sure all of them are error-free
 - Inconsistency in README.md to make sure it's reproduciable
+- Command prompt scripts
 
 ### Changed
 
