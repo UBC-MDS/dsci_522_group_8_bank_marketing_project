@@ -7,8 +7,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- url for rendered notebook report in html format
-- Creative CREATIVE COMMONS LICENSE
+- URL for rendered notebook report in HTML format
+- CREATIVE COMMONS LICENSE
 - scripts that called the function in the command line
 - Method part which we were missing for [1.0.0]
 - Test suite information
@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Introduction part to make it more thorough
+- Contributing.md to add an option for anyone to make contributions.
 
 
 ### Removed
