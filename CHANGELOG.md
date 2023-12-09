@@ -46,6 +46,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 
 - Makefile to automate the data pipeline
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/de5e42e08535d0760173d36491731c4678be1aa7)
+[`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/de5e42e08535d0760173d36491731c4678be1aa7)
 - Corelation matrix in EDA
 ("The EDA section looks nice and it effectively communicates the question to answer but if we want to show it more effectively I would recommend doing a correlation matrix to better illustrate the correlation relationship.")("To enhance its effectiveness, please consider incorporating a correlation matrix. )
 [`feedback1`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479)
@@ -81,6 +82,9 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 [`feedback3`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/4cd78ce111e2f7bc156b3f0bc641e6495a45874c)
 - Added more changes in CHANGELOG.md [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/134)
+- RADEME.md Usage part to replace all the command lines with make clean and make all
+[`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/5e251ebabadf67bd8fc8efcac937717e519d4fa0)
+[`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/fa64537df91b329e856b60540d6270a61cee8a7e)
 
 ### Removed
 
