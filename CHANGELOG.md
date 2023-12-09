@@ -49,10 +49,10 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 
 - Makefile to automate the data pipeline
 - Corelation matrix in EDA
-[feedback] https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479
+[`feedback1`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479)
 - Added more references
-[feedback] https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049
-[commit] https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/b8cc5d1745e80ecc9ab6e2c74301c0d5314a1bf7
+[`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
+[`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/b8cc5d1745e80ecc9ab6e2c74301c0d5314a1bf7)
 
 ### Fixed
 
@@ -64,18 +64,18 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/1aac98a1cc153af4e1144b0d87ef405bf7610f5f)
 
 - Fixed optimization.py to use selected model pickle for hyperparamter optimization.
-[`feedback`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
+[`feedback3`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/8c76480a6ba5d5fffce3c0c2bc41d25323f06186)
 
 - Fixed typo and Dockerfile dependency in README
-[`feedback`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
+[`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/a2b861a09a04eebf6f5d57d8cccf5949ed32323d)
 
 ### Changed
 
 - Dockerfile and pushed the latest version image with 'make' dependency
 - Histogram in EDA (encoded color to target class)
-[`feedback`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
+[`feedback3`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/4cd78ce111e2f7bc156b3f0bc641e6495a45874c)
 
 ### Removed
