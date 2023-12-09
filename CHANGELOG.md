@@ -34,7 +34,7 @@ Grader comments have been added between quotation marks and in brackets.
 2. Contributing.md to add an option for anyone to make contributions ("detailed and well done. Could add how to contact for general 'seeking support'")
 
 
-### Removed
+### 🗑️ Removed
 
 - None
 
@@ -42,7 +42,7 @@ Grader comments have been added between quotation marks and in brackets.
 
 See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/issues/136)
 
-### Added
+### 🆕 Added
 
 - Makefile to automate the data pipeline
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/de5e42e08535d0760173d36491731c4678be1aa7)
@@ -58,7 +58,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 - community contribution guidelines [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/125)
 - Saved another pickle object from model_selection.py [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/132)
 
-### Fixed
+### ✅ Fixed
 
 - Typo in command line that was causing error for optimization.py
 [`feedback1`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479)
@@ -75,7 +75,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/a2b861a09a04eebf6f5d57d8cccf5949ed32323d)
 
-### Changed
+### 🐛 Changed
 
 - Dockerfile and pushed the latest version image with 'make' dependency
 [`Action`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/actions/runs/7123258670)
@@ -88,8 +88,9 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 - RADEME.md Usage part to replace all the command lines with make clean and make all
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/5e251ebabadf67bd8fc8efcac937717e519d4fa0)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/fa64537df91b329e856b60540d6270a61cee8a7e)
+- Background section rearranged with content from the Method section [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/0c3630e88ef4309a35138fe79e68674cdd274e40)
 
-### Removed
+### 🗑️ Removed
 
 - Funtion (optimization.py in scr) that is not in use [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049) [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/135)
 - command_line_prompt.md [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/139)
