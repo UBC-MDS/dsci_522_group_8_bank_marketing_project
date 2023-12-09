@@ -89,6 +89,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/5e251ebabadf67bd8fc8efcac937717e519d4fa0)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/fa64537df91b329e856b60540d6270a61cee8a7e)
 - Background section rearranged with content from the Method section [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/0c3630e88ef4309a35138fe79e68674cdd274e40)
+- Rerendered html report with new EDA plots in it [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/8871431d39b9fe2571b28d692e5572ef545c8326)
 
 ### 🗑️ Removed
 
