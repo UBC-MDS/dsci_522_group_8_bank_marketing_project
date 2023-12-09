@@ -82,6 +82,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 - Histogram in EDA (encoded color to target class)
 [`feedback3`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840092852)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/4cd78ce111e2f7bc156b3f0bc641e6495a45874c)
+- Added more changes in CHANGELOG.md [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/134)
 
 ### Removed
 
