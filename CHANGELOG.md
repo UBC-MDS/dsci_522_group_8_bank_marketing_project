@@ -91,7 +91,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 
 ### Removed
 
-- Funtion (optimization.py in scr) that is not in use [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/135)
+- Funtion (optimization.py in scr) that is not in use [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049) [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/135)
 - command_line_prompt.md [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/139)
-- optimization.py under src that is combined in scrip- optimization.py [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
+
 
