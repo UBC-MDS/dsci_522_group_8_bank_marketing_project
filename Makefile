@@ -30,9 +30,9 @@ results/models/model_pipeline.pickle results/metrics/model_selection_scores.csv:
 results/metrics/scoring_metrics.csv: data/processed/X_train.csv data/processed/y_train.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
 	python scripts/scoring_metric.py --x_train=data/processed/X_train.csv --y_train=data/processed/y_train.csv --x_test=data/processed/X_test.csv --y_test=data/processed/y_test.csv --model_type=results/models/model_pipeline.pickle --results_to=results/metrics --seed=522
 
-# # Optimization and Accuracy/Recall Scores
-# results/metrics/model_scores.csv results/metrics/best_params.csv: data/raw/bank/bank-full.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
-# 	python scripts/optimization.py --df=data/raw/bank/bank-full.csv --x_test=data/processed/X_test.csv --y_test=data/processed/y_test.csv --model_type=results/models/model_pipeline.pickle --results_to=results/metrics --results_to_1=results/metrics
+# Optimization and Accuracy/Recall Scores
+results/metrics/model_scores.csv results/metrics/best_params.csv: data/raw/bank/bank-full.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
+	python scripts/optimization.py --df=data/raw/bank/bank-full.csv --x_test=data/processed/X_test.csv --y_test=data/processed/y_test.csv --model_type=results/models/model_pipeline.pickle --results_to=results/metrics --results_to_1=results/metrics
 
 # build HTML report and copy build to docs folder
 notebooks/_build/html/index.html : notebooks/bank_analysis.ipynb \
@@ -44,7 +44,9 @@ results/figures/numerical_dist_by_feat.png \
 results/figures/categorical_dist_by_feat.png \
 results/figures/corr_matx.png \
 results/metrics/model_selection_scores.csv \
-results/metrics/scoring_metrics.csv
+results/metrics/scoring_metrics.csv \
+results/metrics/model_scores.csv \
+results/metrics/best_params.csv
 	jupyter-book build notebooks
 	cp -r notebooks/_build/html/* docs
 	if [ ! -f ".nojekyll" ]; then touch docs/.nojekyll; fi
@@ -57,6 +59,5 @@ clean:
 	rm -f results/models/*.pickle
 	rm -f results/metrics/*
 	rm -f results/figures/.png
-	rm -f results/figures/feature_densities_by_class.png
 	rm -rf notebooks/_build \
 		docs/*
