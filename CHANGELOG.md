@@ -31,7 +31,7 @@ Grader comments have been added between quotation marks and in brackets.
 4. Improved command prompt scripts to ensure they run without errors ("The issue when running the Python command for python scripts/optimization.py ... is happening for me too.") (" the very last script to run in the cmd line (below # Optimization and Accuracy/Recall Scores) was throwing an error. I tried it both in the container and in the virtual environment and both gave errors. Perhaps, see if the other reviewers were able to get this working, in case it's on my end.)
 5. Made minor changes to command prompt commands to ensure they avoid any confusion for users by sharing command for changing to root directory ("line 62: could specify to type in cd work for clarity of where the root of the directory is (when using container)")
 
-### ❎ Changed
+### 🐛 Changed
 
 1. Introduction part to make it more thorough
 2. Contributing.md to add an option for anyone to make contributions ("detailed and well done. Could add how to contact for general 'seeking support'")
