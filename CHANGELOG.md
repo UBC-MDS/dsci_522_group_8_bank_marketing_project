@@ -48,12 +48,14 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 ### Added
 
 - Makefile to automate the data pipeline
+[`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/de5e42e08535d0760173d36491731c4678be1aa7)
 - Corelation matrix in EDA
 [`feedback1`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/129)
 - Added more references
 [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/b8cc5d1745e80ecc9ab6e2c74301c0d5314a1bf7)
+[`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/127)
 
 ### Fixed
 
@@ -81,6 +83,6 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 
 ### Removed
 
-- xxx
+- Funtion (optimization.py in scr) that is not in use [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/135)
 
 
