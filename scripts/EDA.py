@@ -29,7 +29,9 @@ def main(data_frame, plot_to):
             x=alt.X(alt.repeat(), type="quantitative", bin=True),
             y=alt.Y("count()", title="Count"),
             color=alt.Color("y:N", title="Target")
-        )
+        ).properties(
+            width=300,
+            height=200)
         .repeat(numerical_cols, columns=2)
     )
     numerical_plot.save(os.path.join(plot_to, "numerical_dist_by_feat.png"))
@@ -42,7 +44,9 @@ def main(data_frame, plot_to):
             x=alt.X(alt.repeat(), type="nominal"),
             y=alt.Y("count()", title="Count"),
             color=alt.Color("y:N", title="Target")
-        )
+        ).properties(
+            width=300,
+            height=200)
         .repeat(categorical_cols, columns=2)
     )
     categorical_plot.save(os.path.join(plot_to, "categorical_dist_by_feat.png"))
