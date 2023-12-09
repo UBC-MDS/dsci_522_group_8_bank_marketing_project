@@ -46,7 +46,7 @@ results/figures/corr_matx.png \
 results/metrics/model_selection_scores.csv \
 results/metrics/scoring_metrics.csv
 	jupyter-book build notebooks
-	cp -r report/_build/html/* docs
+	cp -r notebooks/_build/html/* docs
 	if [ ! -f ".nojekyll" ]; then touch docs/.nojekyll; fi
 
 clean:
