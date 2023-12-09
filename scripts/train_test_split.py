@@ -23,7 +23,7 @@ def main(raw_data, data_to, seed):
     
     df = pd.read_csv(raw_data, delimiter=";")
     df.rename(columns={"y": "target"}, inplace=True)
-    train_df, test_df = train_test_split(df, test_size=0.2, random_state=123)
+    train_df, test_df = train_test_split(df, test_size=0.8, random_state=123)
     train_df.to_csv(os.path.join(data_to, "train_df.csv"), index=False)
     test_df.to_csv(os.path.join(data_to, "test_df.csv"), index=False)
 
