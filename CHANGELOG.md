@@ -56,6 +56,8 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 [`feedback2`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1840038049)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/b8cc5d1745e80ecc9ab6e2c74301c0d5314a1bf7)
 [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/127)
+- community contribution guidelines [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/125)
+- Saved another pickle object from model_selection.py [`pull request`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/132)
 
 ### Fixed
 
