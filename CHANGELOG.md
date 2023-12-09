@@ -32,6 +32,8 @@ All notable changes to this project will be documented in this file.
 
 ## [3.0.0] - 2023-12-06
 
+[`issue#136`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/issues/136)
+
 ### Added
 
 - Makefile to automate the data pipeline
