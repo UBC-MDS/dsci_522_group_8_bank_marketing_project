@@ -15,7 +15,7 @@ data/split/train_df.csv data/split/test_df.csv: data/raw/bank/bank-full.csv
 	python scripts/train_test_split.py --raw-data='data/raw/bank/bank-full.csv' --data-to='data/split' --seed=522
 
 # Perform exploratory data analysis (EDA)
-results/figures/numerical_dist_by_feat.png results/figures/categorical_dist_by_feat.png: data/raw/bank/bank-full.csv
+results/figures/numerical_dist_by_feat.png results/figures/categorical_dist_by_feat.png results/figures/corr_matx.png: data/raw/bank/bank-full.csv
 	python scripts/EDA.py --data-frame="data/raw/bank/bank-full.csv" --plot-to="results/figures"
 
 # Preprocess train and test data
@@ -27,11 +27,11 @@ results/models/model_pipeline.pickle results/metrics/model_selection_scores.csv:
 	python scripts/model_selection.py --x_train=data/processed/X_train.csv --y_train=data/processed/y_train.csv --preprocessor=results/models/preprocessor.pickle --pipeline-to=results/models --results_to=results/metrics --seed=522
 
 # Scoring metric for svc balanced model
-results/metrics/scoring_results: data/processed/X_train.csv data/processed/y_train.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
+results/metrics/scoring_metrics.csv: data/processed/X_train.csv data/processed/y_train.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
 	python scripts/scoring_metric.py --x_train=data/processed/X_train.csv --y_train=data/processed/y_train.csv --x_test=data/processed/X_test.csv --y_test=data/processed/y_test.csv --model_type=results/models/model_pipeline.pickle --results_to=results/metrics --seed=522
 
 # Optimization and Accuracy/Recall Scores
-results/metrics/optimization_results: data/raw/bank/bank-full.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
+results/metrics/model_scores.csv results/metrics/best_params.csv: data/raw/bank/bank-full.csv data/processed/X_test.csv data/processed/y_test.csv results/models/model_pipeline.pickle
 	python scripts/optimization.py --df=data/raw/bank/bank-full.csv --x_test=data/processed/X_test.csv --y_test=data/processed/y_test.csv --model_type=results/models/model_pipeline.pickle --results_to=results/metrics --results_to_1=results/metrics
 
 # build HTML report and copy build to docs folder
@@ -42,6 +42,7 @@ notebooks/_config.yml \
 data/processed/X_train_enc.csv \
 results/figures/numerical_dist_by_feat.png \
 results/figures/categorical_dist_by_feat.png \
+results/figures/corr_matx.png \
 results/metrics/model_selection_scores.csv \
 results/metrics/scoring_metrics.csv \
 results/metrics/best_params.csv \
