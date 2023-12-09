@@ -11,16 +11,13 @@ Grader comments have been added between quotation marks and in brackets.
 
 1.  URL for rendered notebook report in HTML format
 2.  CREATIVE COMMONS LICENSE (feedback from Jordan, TA)
-3.  Correlation Matrix ("The EDA section looks nice and it effectively communicates the question to answer but if we want to show it more effectively I would recommend doing a correlation matrix to better illustrate the correlation relationship.")("To enhance its effectiveness, please consider incorporating a correlation matrix. )
-4.  scripts that called the function in the command line
-5.  Method part which we were missing for [1.0.0]
-6.  Test suite information ("I also found that there is an error when I try to run pytest tests/* to test the functions.")
-7.  Makefile
-8.  Using Glue ("The final report is very descriptive, and fully covered the content and questions asked. I would suggest using more consistent and automatic tools like glue that we were taught in class.")("The final report is comprehensive and descriptive, covering all relevant content and questions. To streamline and automate certain aspects, consider using more consistent and automatic tools like glue, as taught in class. ")
-9.  Linked dependencies and dockerfile ("Dependencies: Include a link to the Dockerfile instead of environment.yml (for clarity and full transparency since usage instructions uses docker container)")
-10.  Better formatting options for EDA that color by target ("A small note on the EDA portion, for 'previous' parameter, there seems to be only one bar, and the reader might not be able to infer much from this chart.)
-11.  Discussed distribution of target variables which was missing earlier ("Not sure if I missed this somewhere, but it will be good for me to know the distribution of target variable in the training dataset.")
-12.  Automated model selection ("A small suggestion would be to automate the code in model_selection to choose the best model by itself and returns as 'model_pipeline.pickle.' Otherwise, another idea is to automate and return a click.echo if SVC_bal turns out to not be the best in recall.")
+3.  scripts that called the function in the command line
+4.  Method part which we were missing for [1.0.0]
+5.  Test suite information ("I also found that there is an error when I try to run pytest tests/* to test the functions.")
+6.  Linked dependencies and dockerfile ("Dependencies: Include a link to the Dockerfile instead of environment.yml (for clarity and full transparency since usage instructions uses docker container)")
+7.  Better formatting options for EDA that color by target ("A small note on the EDA portion, for 'previous' parameter, there seems to be only one bar, and the reader might not be able to infer much from this chart.)
+8.  Discussed distribution of target variables which was missing earlier ("Not sure if I missed this somewhere, but it will be good for me to know the distribution of target variable in the training dataset.")
+9.  Automated model selection ("A small suggestion would be to automate the code in model_selection to choose the best model by itself and returns as 'model_pipeline.pickle.' Otherwise, another idea is to automate and return a click.echo if SVC_bal turns out to not be the best in recall.")
   
 
 ### ✅ Fixed 
@@ -50,6 +47,7 @@ See all peer reviews for milestone 4 here[`issue#136`](https://github.com/UBC-MD
 - Makefile to automate the data pipeline
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/commit/de5e42e08535d0760173d36491731c4678be1aa7)
 - Corelation matrix in EDA
+("The EDA section looks nice and it effectively communicates the question to answer but if we want to show it more effectively I would recommend doing a correlation matrix to better illustrate the correlation relationship.")("To enhance its effectiveness, please consider incorporating a correlation matrix. )
 [`feedback1`](https://github.com/UBC-MDS/data-analysis-review-2023/issues/4#issuecomment-1839314479)
 [`commit`](https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project/pull/129)
 - Added more references
