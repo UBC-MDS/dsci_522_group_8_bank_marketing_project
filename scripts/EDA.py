@@ -6,87 +6,64 @@ import click
 import pandas as pd
 import altair as alt
 import os
+import sys
 from IPython.display import display
 
 @click.command()
-@click.option('--data-frame', type=str, help="path to df")
-@click.option('--plot-to', type=str, help="path to dir with eda plots")
+@click.option('--data_frame', type=str, help="path to df")
+@click.option('--plot_to', type=str, help="path to dir with eda plots")
 
-def main(dataframe, plot_to):
+def main(data_frame, plot_to):
+    # Read the data
+    data = pd.read_csv(data_frame, delimiter=";")
 
-    """
-    Perform exploratory data analysis (EDA) by displaying information, descriptive statistics, the first 5 rows, and the last 5 rows of the given DataFrame.
-
-    Parameters:
-    - data: The input df for exploratory data analysis.
-
-    Returns:None
-    """
-
-    #READ THE DATA
-    data = pd.read_csv(dataframe)
-
-    #DEFINE COLUMN TYPES
-    numeric_cols = data.select_dtypes(include=['int64', 'float64']).columns.to_list()
+    # Define numerical and categorical columns
+    numerical_cols = ["age", "balance", "duration", "campaign", "pdays", "previous"]
     categorical_cols = ["job", "marital", "education", "default", "housing", "loan", "poutcome"]
-    numerical_cols = numeric_cols
-    
-    print("DataFrame Information:")
-    display(pd.DataFrame(data.info()))
 
-    print("\nDescriptive Statistics:")
-    display(pd.DataFrame(data.describe()).T)
-
-    print("\nFirst 5 Rows:")
-    display(data.head(5))
-
-    print("\nLast 5 Rows:")
-    display(data.tail(5))
-
-    """
-    Generate Exploratory Data Analysis (EDA) plots for visualizing both categorical and
-    numerical features in the given df.
-
-    Parameters:
-    - data (DataFrame): The input DataFrame containing the data for analysis.
-    - numeric_cols (list): List of numerical columns for EDA plots.
-    - categorical_cols (list): List of categorical columns for EDA plots.
-      Default for numeric_cols or categorical_cols is an empty list.
-
-    Returns:
-    - Two plots: The first element is the Altair chart for categorical features, 
-    and the second element is the Altair chart for numerical features.
-    """
-    
-    if len(categorical_cols) != 0:
-        categorical_plot = (
-            alt.Chart(data)
-            .mark_bar(opacity=0.5)
-            .encode(
-                y=alt.Y(alt.repeat()).type("nominal").sort("-x"),
-                x=alt.X("count()", title="Count").stack(False),
-                color = alt.Color("y", title= "Target")
-            )
-            .repeat(categorical_cols, columns=2)
+    # Create histograms for numerical columns
+    numerical_plot = (
+        alt.Chart(data)
+        .mark_bar(opacity=0.5)
+        .encode(
+            x=alt.X(alt.repeat(), type="quantitative", bin=True),
+            y=alt.Y("count()", title="Count"),
+            color=alt.Color("y:N", title="Target")
         )
+        .repeat(numerical_cols, columns=2)
+    )
+    numerical_plot.save(os.path.join(plot_to, "numerical_dist_by_feat.png"))
 
-    if len(numeric_cols) != 0:
-        numeric_plot = (
-            alt.Chart(data)
-            .mark_bar(opacity=0.5)
-            .encode(
-                y=alt.Y(alt.repeat()).type("quantitative").bin(maxbins=15).sort("-x"),
-                x=alt.X("count()", title = "Count").stack(False),
-                color = alt.Color("y", title= "Target")
-            )
-            .repeat(numeric_cols, columns=2)
+    # Create histograms for categorical columns
+    categorical_plot = (
+        alt.Chart(data)
+        .mark_bar(opacity=0.5)
+        .encode(
+            x=alt.X(alt.repeat(), type="nominal"),
+            y=alt.Y("count()", title="Count"),
+            color=alt.Color("y:N", title="Target")
         )
-    #SAVE PLOTS AS .PNG
-    categorical_plot.save(os.path.join(plot_to, "categorical_dist_by_feat.png", format='png'))
-    numerical_plot.save(os.path.join(plot_to, "numerical_dist_by_feat.png", format='png'))
+        .repeat(categorical_cols, columns=2)
+    )
+    categorical_plot.save(os.path.join(plot_to, "categorical_dist_by_feat.png"))
 
+    # Correlation matrix for numerical columns
     numerical_data = data[numerical_cols]
-    
-    correlation_matrix = numerical_data.corr(method="spearman")
-    styled_correlation_matrix = correlation_matrix.style.background_gradient()
-    styled_correlation_matrix.save(os.path.join(plot_to, "corr_matx.png", format='png'))
+    corr_matrix = numerical_data.corr().reset_index().melt('index')
+    corr_matrix.columns = ['x', 'y', 'value']
+
+    # Create a heatmap using Altair
+    heatmap = alt.Chart(corr_matrix).mark_rect().encode(
+        x='x:N',
+        y='y:N',
+        color='value:Q'
+    ).properties(
+        title='Correlation Matrix',
+        width=300,
+        height=300
+    )
+
+    heatmap.save(os.path.join(plot_to, 'corr_matx.png'))
+
+if __name__ == '__main__':
+    main()

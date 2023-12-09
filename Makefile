@@ -16,7 +16,7 @@ data/split/train_df.csv data/split/test_df.csv: data/raw/bank/bank-full.csv
 
 # Perform exploratory data analysis (EDA)
 results/figures/numerical_dist_by_feat.png results/figures/categorical_dist_by_feat.png results/figures/corr_matx.png: data/raw/bank/bank-full.csv
-	python scripts/EDA.py --data-frame="data/raw/bank/bank-full.csv" --plot-to="results/figures"
+	python scripts/EDA.py --data_frame="data/raw/bank/bank-full.csv" --plot_to="results/figures"
 
 # Preprocess train and test data
 data/processed/X_train.csv data/processed/y_train.csv data/processed/X_test.csv data/processed/y_test.csv data/processed/X_train_enc.csv results/models/preprocessor.pickle: data/split/train_df.csv data/split/test_df.csv
@@ -50,7 +50,6 @@ results/metrics/best_params.csv
 	jupyter-book build notebooks
 	cp -r notebooks/_build/html/* docs
 	if [ ! -f ".nojekyll" ]; then touch docs/.nojekyll; fi
-
 clean:
 	rm -rf data/raw/*
 	rm -f data/split/*.csv
@@ -58,6 +57,8 @@ clean:
 	rm -f data/model_scoring/*.csv
 	rm -f results/models/*.pickle
 	rm -f results/metrics/*
-	rm -f results/figures/.png
+	rm -f results/figures/*.png
 	rm -rf notebooks/_build \
 		docs/*
+
+

@@ -401,23 +401,23 @@ document.write(`
 <h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
 <p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id4">[<a class="reference internal" href="#id12" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
 <figure class="align-default" id="numerical-features-distribution">
-<a class="reference internal image-reference" href="../results/figures/numerical_dist_by_feat.png"><img alt="../results/figures/numerical_dist_by_feat.png" src="../results/figures/numerical_dist_by_feat.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of all the numerical features after feature selection</span><a class="headerlink" href="#numerical-features-distribution" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We decided to keep the following features as categorical features: “job”, “marital”, “education”, “default”, “housing”, “loan”, “poutcome”. See the distribution as below: <a class="reference internal" href="#categorical-features-distribution"><span class="std std-numref">Figure 2</span></a></p>
 <figure class="align-default" id="categorical-features-distribution">
-<a class="reference internal image-reference" href="../results/figures/categorical_dist_by_feat.png"><img alt="../results/figures/categorical_dist_by_feat.png" src="../results/figures/categorical_dist_by_feat.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/categorical_dist_by_feat.png"><img alt="_images/categorical_dist_by_feat.png" src="_images/categorical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Distribution of all the categorical features after feature selection</span><a class="headerlink" href="#categorical-features-distribution" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the plot below, we explore the spearman correlation between numerical features. <a class="reference internal" href="#corr-matx"><span class="std std-numref">Figure 3</span></a></p>
 <figure class="align-default" id="corr-matx">
-<a class="reference internal image-reference" href="../results/figures/corr_matx.png"><img alt="../results/figures/corr_matx.png" src="../results/figures/corr_matx.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/corr_matx.png"><img alt="_images/corr_matx.png" src="_images/corr_matx.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Correlation Matrix of all features</span><a class="headerlink" href="#corr-matx" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Correlation Matrix of numerical features</span><a class="headerlink" href="#corr-matx" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1006,19 +1006,19 @@ document.write(`
 <figure class="align-default" id="best-hyperparameters" style="width: 300px">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_33832">
+<table id="T_1afb6">
   <thead>
     <tr>
-      <th id="T_33832_level0_col0" class="col_heading level0 col0" >svc__C</th>
-      <th id="T_33832_level0_col1" class="col_heading level0 col1" >svc__gamma</th>
-      <th id="T_33832_level0_col2" class="col_heading level0 col2" >svc__kernel</th>
+      <th id="T_1afb6_level0_col0" class="col_heading level0 col0" >svc__C</th>
+      <th id="T_1afb6_level0_col1" class="col_heading level0 col1" >svc__gamma</th>
+      <th id="T_1afb6_level0_col2" class="col_heading level0 col2" >svc__kernel</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_33832_row0_col0" class="data row0 col0" >4.331065</td>
-      <td id="T_33832_row0_col1" class="data row0 col1" >0.099076</td>
-      <td id="T_33832_row0_col2" class="data row0 col2" >rbf</td>
+      <td id="T_1afb6_row0_col0" class="data row0 col0" >4.331065</td>
+      <td id="T_1afb6_row0_col1" class="data row0 col1" >0.099076</td>
+      <td id="T_1afb6_row0_col2" class="data row0 col2" >rbf</td>
     </tr>
   </tbody>
 </table>
@@ -1035,17 +1035,17 @@ document.write(`
 <figure class="align-default" id="test-results" style="width: 300px">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_81c1e">
+<table id="T_ec2de">
   <thead>
     <tr>
-      <th id="T_81c1e_level0_col0" class="col_heading level0 col0" >Accuracy</th>
-      <th id="T_81c1e_level0_col1" class="col_heading level0 col1" >Recall</th>
+      <th id="T_ec2de_level0_col0" class="col_heading level0 col0" >Accuracy</th>
+      <th id="T_ec2de_level0_col1" class="col_heading level0 col1" >Recall</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_81c1e_row0_col0" class="data row0 col0" >0.834250</td>
-      <td id="T_81c1e_row0_col1" class="data row0 col1" >0.772312</td>
+      <td id="T_ec2de_row0_col0" class="data row0 col0" >0.834250</td>
+      <td id="T_ec2de_row0_col1" class="data row0 col1" >0.772312</td>
     </tr>
   </tbody>
 </table>
