@@ -60,7 +60,7 @@ git clone https://github.com/UBC-MDS/dsci_522_group_8_bank_marketing_project
 ```
 docker pull cchang5/dsci_522_group_8_bank_marketing:0aacd5b
 ```
-2. After building the image successfully, Open VS code, run this command to run the container:
+2. After building the image successfully, open VS code, navigate to the root of this project and run this command to run the container:
 ```
 docker-compose run --rm analysis-env bash
 ```
