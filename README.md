@@ -76,6 +76,7 @@ enter the following command in the terminal in the project root:
 ```
 make all
 ```
+⚠️⚠️⚠️ The whole process might take more than one hour to run. You might want to grab a cup of coffee while doing this.
 
 ## Developer notes
 
