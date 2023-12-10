@@ -76,7 +76,7 @@ enter the following command in the terminal in the project root:
 ```
 make all
 ```
-⚠️⚠️⚠️ The whole process might take more than one hour to run. You might want to grab a cup of coffee while doing this.
+⚠️⚠️⚠️ The whole process might take more than one hour and in the worst case more than two hours to run depending on your laptop. You might want to grab a cup of coffee while doing this.
 
 ## Developer notes
 
