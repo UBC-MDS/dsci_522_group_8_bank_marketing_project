@@ -325,7 +325,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Hyperparameter Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
 </ul>
 </li>
@@ -362,10 +362,10 @@ document.write(`
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Term deposit is valuable to banks because it ensures a stable stream of income that banks can utilize. Banks usually invest in higher-return financial products or lend money to other customers with a higher interest rate to make a profit. With term deposits, banks can better predict their cash flow.</p>
-<p>While banks’s marketing strategies nowadays are usually focused on attracting new customers, the banks must target the right potential customers. This research is aimed at identifying the correct audience for banks to further design marketing strategies.</p>
+<p>While banks’s marketing strategies nowadays are usually focused on attracting new customers, the banks must target the right potential customers. This research is aimed at identifying the correct audience for banks to further design marketing strategies <span id="id1">[<a class="reference internal" href="#id16" title="R. Dooley. What’s wrong with bank marketing? Forbes, 2023. https://www.forbes.com/sites/rogerdooley/2023/04/24/whats-wrong-with-bank-marketing/?sh=49b8c3241fef.">Dooley, 2023</a>]</span>.</p>
 <section id="background">
 <h3>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h3>
-<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id1">[<a class="reference internal" href="#id8" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id2">[<a class="reference internal" href="#id8" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
+<p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to access if the product (bank term deposit) would be (‘yes’) or not (‘no’) subscribed. The data set used in this project was created by Moro, S. and Rita, P. and Cortez, P <span id="id2">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>.It was sourced from the UCI Machine Learning Repository <span id="id3">[<a class="reference internal" href="#id9" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. https://doi.org/10.24432/C5K306.">Moro <em>et al.</em>, 2012</a>]</span>. We will be using bank-full.csv with all examples and 17 inputs, ordered by date (older version of this dataset with less inputs). The raw data file can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>.</p>
 </section>
 <section id="research-question">
 <h3>Research Question<a class="headerlink" href="#research-question" title="Permalink to this heading">#</a></h3>
@@ -380,7 +380,7 @@ document.write(`
 </section>
 <section id="model-selection-and-evaluation">
 <h3>Model Selection and Evaluation<a class="headerlink" href="#model-selection-and-evaluation" title="Permalink to this heading">#</a></h3>
-<p>We used five models for classification, starting with a basic Dummy Classifier. Following models included Logistic Regression and Support Vector Classifier (SVC), each showing strengths in accuracy and recall <span id="id3">[<a class="reference internal" href="#id10" title="S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62:22-31, 2014.">Moro <em>et al.</em>, 2014</a>]</span>. Notably, our balanced models—Balanced Logistic Regression and Balanced Support Vector Classifier (svc_bal)—performed best, especially in identifying clients likely to subscribe to a term deposit.</p>
+<p>We used five models for classification, starting with a basic Dummy Classifier. Following models included Logistic Regression and Support Vector Classifier (SVC), each showing strengths in accuracy and recall <span id="id4">[<a class="reference internal" href="#id11" title="S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. Decis. Support Syst., 62:22-31, 2014.">Moro <em>et al.</em>, 2014</a>]</span>. Notably, our balanced models—Balanced Logistic Regression and Balanced Support Vector Classifier (svc_bal)—performed best, especially in identifying clients likely to subscribe to a term deposit.</p>
 </section>
 <section id="model-comparison">
 <h3>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this heading">#</a></h3>
@@ -399,7 +399,7 @@ document.write(`
 <h2>Modeling and Results<a class="headerlink" href="#modeling-and-results" title="Permalink to this heading">#</a></h2>
 <section id="exploratory-data-analysis">
 <h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h3>
-<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id4">[<a class="reference internal" href="#id12" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
+<p>According to the discussion above, we decided to keep the following features as numerical features: “age”, “balance”, “duration”, “campaign”, “pdays”, “previous”. See the distribution as below: <a class="reference internal" href="#numerical-features-distribution"><span class="std std-numref">Figure 1</span></a>. <span id="id5">[<a class="reference internal" href="#id13" title="C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. Applied mathematical sciences, 8:5667-5672, 2014.">Vajiramedhin and Suebsing, 2014</a>]</span>.</p>
 <figure class="align-default" id="numerical-features-distribution">
 <a class="reference internal image-reference" href="_images/numerical_dist_by_feat.png"><img alt="_images/numerical_dist_by_feat.png" src="_images/numerical_dist_by_feat.png" style="width: 800px;" /></a>
 <figcaption>
@@ -997,8 +997,8 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-<section id="id5">
-<h3>Hyperparameter Optimization<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h3>Hyperparameter Optimization<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <div class="alert alert-info">
 <p>Optimizing hyperparameters in SVC with a smaller sample size of 10,000 instances is a strategy aimed at enhancing computational efficiency. This approach expedites the exploration of hyperparameter possibilities, aiding in the discovery of potential configurations. While the outcomes validate the concept, it’s crucial to recognize and manage the constraints stemming from the smaller dataset size when interpreting the results.</p>
 </div><div class="cell tag_remove-input docutils container">
@@ -1006,19 +1006,19 @@ document.write(`
 <figure class="align-default" id="best-hyperparameters" style="width: 300px">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_713b0">
+<table id="T_69b9f">
   <thead>
     <tr>
-      <th id="T_713b0_level0_col0" class="col_heading level0 col0" >svc__C</th>
-      <th id="T_713b0_level0_col1" class="col_heading level0 col1" >svc__gamma</th>
-      <th id="T_713b0_level0_col2" class="col_heading level0 col2" >svc__kernel</th>
+      <th id="T_69b9f_level0_col0" class="col_heading level0 col0" >svc__C</th>
+      <th id="T_69b9f_level0_col1" class="col_heading level0 col1" >svc__gamma</th>
+      <th id="T_69b9f_level0_col2" class="col_heading level0 col2" >svc__kernel</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_713b0_row0_col0" class="data row0 col0" >4.331065</td>
-      <td id="T_713b0_row0_col1" class="data row0 col1" >0.099076</td>
-      <td id="T_713b0_row0_col2" class="data row0 col2" >rbf</td>
+      <td id="T_69b9f_row0_col0" class="data row0 col0" >4.331065</td>
+      <td id="T_69b9f_row0_col1" class="data row0 col1" >0.099076</td>
+      <td id="T_69b9f_row0_col2" class="data row0 col2" >rbf</td>
     </tr>
   </tbody>
 </table>
@@ -1035,17 +1035,17 @@ document.write(`
 <figure class="align-default" id="test-results" style="width: 300px">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_b1268">
+<table id="T_b32c0">
   <thead>
     <tr>
-      <th id="T_b1268_level0_col0" class="col_heading level0 col0" >Accuracy</th>
-      <th id="T_b1268_level0_col1" class="col_heading level0 col1" >Recall</th>
+      <th id="T_b32c0_level0_col0" class="col_heading level0 col0" >Accuracy</th>
+      <th id="T_b32c0_level0_col1" class="col_heading level0 col1" >Recall</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_b1268_row0_col0" class="data row0 col0" >0.834250</td>
-      <td id="T_b1268_row0_col1" class="data row0 col1" >0.772312</td>
+      <td id="T_b32c0_row0_col0" class="data row0 col0" >0.834250</td>
+      <td id="T_b32c0_row0_col1" class="data row0 col1" >0.772312</td>
     </tr>
   </tbody>
 </table>
@@ -1068,7 +1068,7 @@ document.write(`
 </section>
 <section id="impact-of-finding">
 <h3>Impact of Finding<a class="headerlink" href="#impact-of-finding" title="Permalink to this heading">#</a></h3>
-<p>The high recall score of this model has significant implications for targeted marketing strategies. It suggests that the bank can confidently use the model’s predictions to focus its marketing efforts on clients predicted to subscribe, potentially increasing the efficiency and effectiveness of its campaigns <span id="id6">[<a class="reference internal" href="#id13" title="A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. Research, Society and Development, 2020.">Moura <em>et al.</em>, 2020</a>]</span>. This targeted approach could lead to higher conversion rates with lower marketing expenses. However, it’s important to balance such a high recall with precision to ensure that the bank doesn’t unnecessarily target unlikely prospects.</p>
+<p>The high recall score of this model has significant implications for targeted marketing strategies. It suggests that the bank can confidently use the model’s predictions to focus its marketing efforts on clients predicted to subscribe, potentially increasing the efficiency and effectiveness of its campaigns <span id="id7">[<a class="reference internal" href="#id14" title="A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. Research, Society and Development, 2020.">Moura <em>et al.</em>, 2020</a>]</span>. This targeted approach could lead to higher conversion rates with lower marketing expenses. However, it’s important to balance such a high recall with precision to ensure that the bank doesn’t unnecessarily target unlikely prospects.</p>
 </section>
 <section id="future-improvements">
 <h3>Future Improvements<a class="headerlink" href="#future-improvements" title="Permalink to this heading">#</a></h3>
@@ -1085,18 +1085,21 @@ Model Interpretability: Improving the model’s interpretability to better under
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<div class="docutils container" id="id7">
+<div class="docutils container" id="id8">
 <dl class="citation">
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">MCR14</a></span></dt>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id1">Doo23</a></span></dt>
+<dd><p>R. Dooley. What’s wrong with bank marketing? <em>Forbes</em>, 2023. <a class="reference external" href="https://www.forbes.com/sites/rogerdooley/2023/04/24/whats-wrong-with-bank-marketing/?sh=49b8c3241fef">https://www.forbes.com/sites/rogerdooley/2023/04/24/whats-wrong-with-bank-marketing/?sh=49b8c3241fef</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">MCR14</a></span></dt>
 <dd><p>S. Moro, P. Cortez, and P. Rita. A data-driven approach to predict the success of bank telemarketing. <em>Decis. Support Syst.</em>, 62:22–31, 2014.</p>
 </dd>
-<dt class="label" id="id8"><span class="brackets">MRC12</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dt class="label" id="id9"><span class="brackets">MRC12</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
 <dd><p>S. Moro, P. Rita, and P. Cortez. Bank marketing. UCI Machine Learning Repository, 2012. <a class="reference external" href="https://doi.org/10.24432/C5K306">https://doi.org/10.24432/C5K306</a>.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">MPN+20</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">MPN+20</a></span></dt>
 <dd><p>A.F. Moura, C.M. Pinho, D.M. Napolitano, F.S. Martins, and J.C. Fornari Junior. Optimization of operational costs of call centers employing classification techniques. <em>Research, Society and Development</em>, 2020.</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">VS14</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">VS14</a></span></dt>
 <dd><p>C. Vajiramedhin and A. Suebsing. Feature selection with data balancing for prediction of bank telemarketing. <em>Applied mathematical sciences</em>, 8:5667–5672, 2014.</p>
 </dd>
 </dl>
@@ -1167,7 +1170,7 @@ Model Interpretability: Improving the model’s interpretability to better under
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Hyperparameter Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Hyperparameter Optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-results-after-hyperparameter-optimization">Test results after hyperparameter optimization</a></li>
 </ul>
 </li>
